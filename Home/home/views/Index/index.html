@@ -1,0 +1,261 @@
+﻿
+
+<!--e 美评-->
+	<div class="emp">
+		
+		<div class="emp-lb">
+		<iframe src="<?= PUBLICS ?>Home/test/index.html" style="border:none;scrolling:no;width:100%;height:33.3em;overflow:hidden;padding:0;margin:0;"></iframe>
+		</div>
+	</div>
+
+<!--e 简介-->
+	<div class="intro">
+		<div class="intro-logo">
+			<hr style="margin-top:50px;color:black;"/>
+			<img style="position: absolute;top:0;left:39%;" src="<?= PUBLICS ?>Home/images/intro.jpg">
+		</div>	
+		<div class="intro-content">
+				<div class="content-left floatL">
+					<img style="width:21.5em;" class="floatL" src="<?= PUBLICS ?>Home/images/intro-content.jpg" >
+				</div>
+				<div class="content-right floatR ">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e美评隶属纽珀（中国）有限公司。通过线上资源整合，线下服务提升打造的3D医美保障平台。是一款完全为医美爱好者量身打造的极致平台。e美评旨在为求美者提供多家整形医院、整形医生、术前方案设计、整形价格、优惠活动、术后服务保障的专业分析对比做出一整套最佳解决方案，通过特色的预算管家、保障、先行赔付、贴身顾问、专车接送等第三方保障服务为求美者提供优质低价有保障的整形美容服务，帮助其实现轻松、放心的变美。<br />
+       				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e美评是从大家一起点评实际体验消费医美项目后的感想和交流互动开始的。e美评凭借长期在医疗美容领域第三方顾问运营中积累的丰富经验，30年的行业经验，500家机构好评，1000名专家评论。绝对客观的建立一整套整形美容定制服务的标准化服务流程体系。该服务流程体系在国内医疗美容领域内居于领先地位。e美评是真正切实利益到顾客的第三方医美保障平台。
+       				解决医美行业痛点。整形再无后顾之忧。
+				</div>
+				<div class="clear"></div>
+		</div>		
+	</div>
+
+<!--e 医院-->
+	<div class="hospital">
+		<div class="hospital-logo">
+			<hr style="margin-top:50px;color:white;"/>
+			<img style="position: absolute;top:4%;left:38%;" src="<?= PUBLICS ?>Home/images/hospital.jpg">
+		</div>
+		<div class="hospital-content">
+			<div class="hospital-lb floatL">
+				
+				<div class="demo">
+					<a class="control prev">
+						<img src="<?= PUBLICS ?>Home/images/slide_left.png">
+					</a>
+					<a class="control next abs">
+						<img src="<?= PUBLICS ?>Home/images/slide_right.png">
+					</a>
+					<!--自定义按钮，移动端可不写-->
+					<div class="slider"><!--主体结构，请用此类名调用插件，此类名可自定义-->
+						<ul>
+							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-1.jpg" /></a></li>
+							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-2.jpg" /></a></li>
+							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-3.jpg" /></a></li>
+						</ul>
+					</div>
+				</div>
+				<script src="<?= PUBLICS ?>Home/hos-lb/js/jquery.min.js"></script>
+				<script src="<?= PUBLICS ?>Home/hos-lb/js/YuxiSlider.jQuery.min.js"></script>
+				<script>
+				$(".slider").YuxiSlider({
+					width:685, //容器宽度
+					height:500, //容器高度
+					control:$('.control'), //绑定控制按钮
+					during:4000, //间隔4秒自动滑动
+					speed:800, //移动速度0.8秒
+					mousewheel:true, //是否开启鼠标滚轮控制
+					direkey:true //是否开启左右箭头方向控制
+				});
+				</script>
+
+			</div>
+			<div class="hospital-recommend floatR">
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="hospital-item">
+			<div class="hospital-item-content">
+				<div class="hospital-item-content-left floatL">
+					<div style="width:100%;height:3em;line-height:3em;">
+						<h4 class="floatL"><b>e美评推荐</b></h4>
+						<p class="floatR"><big>&gt;</big></p>
+						<p class="clear"></p>
+					</div>
+					<div style="margin-top:10px;">
+						<img class="img-responsive" src="<?= PUBLICS ?>Home/images/hospital-item-1.jpg" alt="Responsive image">
+					</div>
+					<p style="height:3em;line-height:3em;">
+						<span>上海华美整形医院</span>
+					</p>
+				</div>
+				<div class="hospital-item-content-center floatL" style="margin-left:3.5em;">
+					<div style="width:100%;height:3em;line-height:3em;">
+						<h4 class="floatL"><b>专题医院</b></h4>
+						<p class="floatR"><big>&gt;</big></p>
+						<p class="clear"></p>
+					</div>
+					<div style="margin-top:10px;">
+						<img class="img-responsive" src="<?= PUBLICS ?>Home/images/hospital-item-2.jpg" alt="Responsive image">
+					</div>
+					<p style="height:3em;line-height:3em;">
+						<span>薇琳（上海）医疗美容医院</span>
+					</p>
+				</div>
+				<div class="hospital-item-content-right floatR">
+					<div>
+						<h4><b>医院排行</b></h4>
+						<P><b>Hospital Ranking</b></P>
+					</div>
+					<hr style="margin:10% 0;"/>
+					<div>
+					<!--
+						<div class="floatL" style="margin-left:20px;">
+							<img style="width:100%;margin-top:3px;" class="img-responsive" src="<?= PUBLICS ?>Home/images/list.jpg" alt="Responsive image">
+						</div>
+						<div class="floatR">
+							<ul class="" style="margin-right:50px;">
+								<li style="margin-bottom:4%;">上海华美整形医院</li>
+								<li style="margin-bottom:4%;">上海美莱医院</li>
+								<li style="margin-bottom:4%;">北京丽都医疗整形医院</li>
+								<li style="margin-bottom:4%;">北京美伊整形</li>
+								<li style="margin-bottom:4%;">北京金凤凰整形美容医院</li>
+								<li style="margin-bottom:4%;">广州威利斯医疗</li>
+								<li style="margin-bottom:4%;">广州韩妃整形美容</li>
+								<li style="margin-bottom:4%;">薇琳（上海）医疗美容医院</li>
+								<li style="margin-bottom:4%;">武汉伊美馨医疗美容门诊部</li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+					-->
+
+
+						<table style="height:263px;margin:0 auto;">
+							<tr>
+								<td style="
+								width:50px;
+								background-repeat:no-repeat;
+								background-image:url<?= PUBLICS ?>Home/images/list.jpg); " rowspan="9"></td>
+								<td>上海华美整形医院</td>
+							</tr>
+							<tr>
+								<td>上海美莱医院</td>
+							</tr>
+							<tr>
+								<td>北京丽都医疗整形医院</td>
+							</tr>
+							<tr>
+								<td>北京美伊整形</td>
+							</tr>
+							<tr>
+								<td>北京金凤凰整形美容医院</td>
+							</tr>
+							<tr>
+								<td>广州威利斯医疗</td>
+							</tr>
+							<tr>
+								<td>广州韩妃整形美容</td>
+							</tr>
+							<tr>
+								<td>薇琳（上海）医疗美容医院</td>
+							</tr>
+							<tr>
+								<td>武汉伊美馨医疗美容门诊部</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<p class="clear"></p>
+			</div>
+		</div>
+	</div>
+
+<!--医生栏目-->
+	<div class="doctor">
+		<div class="doctor-logo">
+			<hr style="margin-top:50px;color:black;"/>
+			<img style="position: absolute;top:8%;left:38%;" src="<?= PUBLICS ?>Home/images/doctor.jpg">
+		</div>
+		<div class="doctor-content" style="width:71em;">
+			<div id="LoopDiv">
+				<input id="S_Num" type="hidden" value="5" />
+				<div id="starsIF" class="imageflow">
+					<img src="<?= PUBLICS ?>Home/lb/images/01.jpg" longdesc=" " />
+					<img src="<?= PUBLICS ?>Home/lb/images/05.jpg" longdesc=" " />
+					<img src="<?= PUBLICS ?>Home/lb/images/03.jpg" longdesc=" " />
+					<img src="<?= PUBLICS ?>Home/lb/images/04.jpg" longdesc=" " />
+					<img src="<?= PUBLICS ?>Home/lb/images/05.jpg" longdesc=" " />
+				</div>
+			</div>			
+		</div>
+	</div>
+
+<!--e 保障-->
+	<div class="esafe">
+		<div class="esafe-logo">
+			<hr style="margin-top:40px;color:black;"/>
+			<img style="position: absolute;top:0;left:37%;" src="<?= PUBLICS ?>Home/images/esafe.jpg">
+			
+		</div>
+		
+			<ul class="esafe-content">
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-1.jpg" alt="Responsive image">
+				</li>
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-2.jpg" alt="Responsive image">
+				</li>
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-3.jpg" alt="Responsive image">
+				</li>
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-4.jpg" alt="Responsive image">
+				</li>
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-5.jpg" alt="Responsive image">
+				</li>
+				<li class="">
+					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-6.jpg" alt="Responsive image">
+				</li>
+				<p class="clear"></p>
+			</ul>
+		
+	</div>
+
+<!-- 整形助手 -->
+	<div class="help">
+		<div class="help-logo">
+			<hr class="" style="margin-top:40px;color:black;"/>
+			<img style="position: absolute;top:0;left:37%;" src="<?= PUBLICS ?>Home/images/help.jpg">		</div>
+		<div class="help-content">
+			<table class="">
+				<tr>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-1.jpg" alt="Responsive image">
+					</td>
+					<td colspan="2">
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-2.jpg" alt="Responsive image">
+					</td>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-3.jpg" alt="Responsive image">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-4.jpg" alt="Responsive image">
+					</td>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-5.jpg" alt="Responsive image">
+					</td>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-6.jpg" alt="Responsive image">
+					</td>
+					<td>
+						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-7.jpg" alt="Responsive image">
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+
+
