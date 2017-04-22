@@ -5,6 +5,7 @@ class Comment extends LZ_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Comment_model','C');
 	}
 
 	/**
@@ -13,7 +14,7 @@ class Comment extends LZ_Controller
 	 */
 	public function index()
 	{
-		
+		dump($this->C->all());
 	}
 
 	/**

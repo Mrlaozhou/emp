@@ -1,14 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reply extends LZ_Controller
+class Replay_model extends LZ_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
 	}
-
-	/**
-	 * [add_reply_do 回复]
-	 */
-	public function do_reply() {}
 }
