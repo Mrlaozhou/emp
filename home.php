@@ -310,7 +310,7 @@ switch (ENVIRONMENT)
  * define the constant
  * --------------------------------------------------------------------
  *
- * And away we go...
+ * by myself
  */
 
 	define('PUBLICS','/Public/');

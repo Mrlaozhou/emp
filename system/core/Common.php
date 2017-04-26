@@ -915,3 +915,19 @@ if ( ! function_exists('UnRar') )
 			@unlink($filename);
 	}
 }
+
+
+if ( ! function_exists( 'like_int' ) )
+{
+	/**
+	 * [like_int description]
+	 * @param  [type] $param [description]
+	 * @return [type]        [description]
+	 */
+	function like_int( $param )
+	{
+		if ( ( !isset($param) || empty($param) ) || ($param != (int)$param) )
+			return FALSE;
+		return TRUE;
+	}
+}

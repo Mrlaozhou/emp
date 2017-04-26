@@ -14,16 +14,65 @@ class Comment extends LZ_Controller
 	 */
 	public function index()
 	{
+
 		dump($this->C->all());
 	}
 
 	/**
 	 * [show_comment 显示话题专栏页面]
 	 */
-	public function show_comment() {}
+	public function show_comment() 
+	{
+		$this->show();
+	}
 
 	/**
 	 * [do_comment 发表评论]
 	 */
-	public function do_comment() {}
+	public function do_comment() 
+	{
+		$result = $this->C->add_comment();
+		if( $result )
+		{
+			echo 'Ok';
+		}
+		else
+		{
+			echo 'Bad';
+		}
+	}
+
+	/**
+	 * [nice_incre description]
+	 * @return [type] [description]
+	 */
+	public function nice_incre() 
+	{
+		$result = $this->set_nice_incre();
+		if ( $result )
+		{
+			echo 'Ok';
+		}
+		else
+		{
+			echo 'No';
+		}
+	}
+
+	/**
+	 * [bad_incre description]
+	 * @return [type] [description]
+	 */
+	public function bad_incre() 
+	{
+		$result = $this->set_bad_incre();
+		if ( $result )
+		{
+			echo 'Ok';
+		}
+		else
+		{
+			echo 'No';
+		}
+	}
 }

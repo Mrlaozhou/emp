@@ -218,11 +218,12 @@ class CI_Form_validation {
 		$label = ($label === '') ? $field : $label;
 
 		$indexes = array();
-
+		
 		// Is the field name an array? If it is an array, we break it apart
 		// into its components so that we can fetch the corresponding POST data later
 		if (($is_array = (bool) preg_match_all('/\[(.*?)\]/', $field, $matches)) === TRUE)
 		{
+
 			sscanf($field, '%[^[][', $indexes[0]);
 
 			for ($i = 0, $c = count($matches[0]); $i < $c; $i++)
@@ -245,7 +246,6 @@ class CI_Form_validation {
 			'postdata'	=> NULL,
 			'error'		=> ''
 		);
-
 		return $this;
 	}
 
@@ -428,7 +428,7 @@ class CI_Form_validation {
 			{
 				return FALSE;
 			}
-
+			
 			if (empty($group))
 			{
 				// Is there a validation rule for the particular URI being accessed?
@@ -474,12 +474,13 @@ class CI_Form_validation {
 			{
 				continue;
 			}
-
+			
 			$this->_execute($row, $row['rules'], $row['postdata']);
 		}
 
 		// Did we end up with any errors?
 		$total_errors = count($this->_error_array);
+
 		if ($total_errors > 0)
 		{
 			$this->_safe_form_data = TRUE;
@@ -638,6 +639,7 @@ class CI_Form_validation {
 		}
 
 		$rules = $this->_prepare_rules($rules);
+
 		foreach ($rules as $rule)
 		{
 			$_in_array = FALSE;
@@ -664,10 +666,12 @@ class CI_Form_validation {
 				$postdata = is_array($this->_field_data[$row['field']]['postdata'])
 					? NULL
 					: $this->_field_data[$row['field']]['postdata'];
+
 			}
 
 			// Is the rule a callback?
 			$callback = $callable = FALSE;
+
 			if (is_string($rule))
 			{
 				if (strpos($rule, 'callback_') === 0)
@@ -686,6 +690,7 @@ class CI_Form_validation {
 				$callable = $rule[0];
 				$rule = $rule[1];
 			}
+
 
 			// Strip the parameter (if exists) from the rule
 			// Rules can contain a parameter: max_length[5]
@@ -706,7 +711,7 @@ class CI_Form_validation {
 			{
 				continue;
 			}
-
+			
 			// Call the function that corresponds to the rule
 			if ($callback OR $callable !== FALSE)
 			{
