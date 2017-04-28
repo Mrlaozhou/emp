@@ -121,7 +121,7 @@ class LZ_Model extends CI_Model
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	protected function _insert_save( $id ) {}
+	protected function _after_save( $id ) {}
 
 
 	/**
