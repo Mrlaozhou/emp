@@ -2,8 +2,7 @@
 
 
 
-
-<div class="pri-content" style="font-family:楷体;">
+<div class="pri-content" style="">
 	<div class="pri-top">
 		<img style="width:100%;height:460px;" src="<?= PUBLICS ?>Home/images/pri-bg.jpg">
 	</div>

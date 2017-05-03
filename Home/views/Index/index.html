@@ -1,261 +1,316 @@
-﻿
+<div id="carousel" class="carousel">
+	<div class="carousel-container">
+		<img src="<?= PUBLICS ?>Home/images/index/carousel-test.jpg" alt="">
+		<img src="<?= PUBLICS ?>Home/images/index/carousel-test.jpg" alt="">
+		<img src="<?= PUBLICS ?>Home/images/index/carousel-test.jpg" alt="">
+	</div>
+	<div class="carousel-index">
+		<span class="active"></span>
+		<span></span>
+		<span></span>
+	</div>
+</div>
 
-<!--e 美评-->
-	<div class="emp">
-		
-		<div class="emp-lb">
-		<iframe src="<?= PUBLICS ?>Home/test/index.html" style="border:none;scrolling:no;width:100%;height:33.3em;overflow:hidden;padding:0;margin:0;"></iframe>
+<!-- hot -->
+<section id="hot" class="hot">
+	<div class="hot-center">
+		<div class="hot-title">
+			<img src="<?= PUBLICS ?>Home/images/index/hot-title.png" alt="">
+		</div>
+		<div class="hot-img">
+			<img src="<?= PUBLICS ?>Home/images/index/hot-img.jpg" alt="">
+		</div>
+		<div class="hot-desc">
+			<p class="hot-desc-title"><img src="<?= PUBLICS ?>Home/images/index/hot-desc-title.png" alt=""></p>
+			<p class="hot-desc-text">近两年，“时尚轮回”的概念被屡屡提及，的确如此，从50年代的吊带裙到80年代的渔网袜……这些单品在近两年大肆回潮。现在再翻看一些时代icon的旧照，其实不难发现她们身上除了单品以外，就连发型也都被现代所追捧。</p>
+			<p class="hot-more"><a href="#"><img src="<?= PUBLICS ?>Home/images/index/hot-more.png" alt=""></a></p>
 		</div>
 	</div>
+</section>
 
-<!--e 简介-->
-	<div class="intro">
-		<div class="intro-logo">
-			<hr style="margin-top:50px;color:black;"/>
-			<img style="position: absolute;top:0;left:39%;" src="<?= PUBLICS ?>Home/images/intro.jpg">
-		</div>	
-		<div class="intro-content">
-				<div class="content-left floatL">
-					<img style="width:21.5em;" class="floatL" src="<?= PUBLICS ?>Home/images/intro-content.jpg" >
-				</div>
-				<div class="content-right floatR ">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e美评隶属纽珀（中国）有限公司。通过线上资源整合，线下服务提升打造的3D医美保障平台。是一款完全为医美爱好者量身打造的极致平台。e美评旨在为求美者提供多家整形医院、整形医生、术前方案设计、整形价格、优惠活动、术后服务保障的专业分析对比做出一整套最佳解决方案，通过特色的预算管家、保障、先行赔付、贴身顾问、专车接送等第三方保障服务为求美者提供优质低价有保障的整形美容服务，帮助其实现轻松、放心的变美。<br />
-       				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e美评是从大家一起点评实际体验消费医美项目后的感想和交流互动开始的。e美评凭借长期在医疗美容领域第三方顾问运营中积累的丰富经验，30年的行业经验，500家机构好评，1000名专家评论。绝对客观的建立一整套整形美容定制服务的标准化服务流程体系。该服务流程体系在国内医疗美容领域内居于领先地位。e美评是真正切实利益到顾客的第三方医美保障平台。
-       				解决医美行业痛点。整形再无后顾之忧。
-				</div>
-				<div class="clear"></div>
-		</div>		
-	</div>
-
-<!--e 医院-->
-	<div class="hospital">
-		<div class="hospital-logo">
-			<hr style="margin-top:50px;color:white;"/>
-			<img style="position: absolute;top:4%;left:38%;" src="<?= PUBLICS ?>Home/images/hospital.jpg">
+<!-- outfit -->
+<section id="outfit" class="outfit">
+	<div class="outfit-center">
+		<div class="outfit-one">
+			<img src="<?= PUBLICS ?>Home/images/index/outfit-one.jpg" alt="">
 		</div>
-		<div class="hospital-content">
-			<div class="hospital-lb floatL">
-				
-				<div class="demo">
-					<a class="control prev">
-						<img src="<?= PUBLICS ?>Home/images/slide_left.png">
-					</a>
-					<a class="control next abs">
-						<img src="<?= PUBLICS ?>Home/images/slide_right.png">
-					</a>
-					<!--自定义按钮，移动端可不写-->
-					<div class="slider"><!--主体结构，请用此类名调用插件，此类名可自定义-->
-						<ul>
-							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-1.jpg" /></a></li>
-							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-2.jpg" /></a></li>
-							<li><a href=""><img src="<?= PUBLICS ?>Home/images/hos-lb-3.jpg" /></a></li>
-						</ul>
+		<div class="outfit-two">
+			<div>
+				<img src="<?= PUBLICS ?>Home/images/index/outfit-two.jpg" alt="">
+				<div class="outfit-desc">
+					<div class="outfit-desc-title">
+						Gigi Hadid 随性又干练
+					</div>
+					<div class="outfit-desc-text">
+						前几天，Gigi出街时穿一套条纹睡衣装，配上眼镜与白色的凉鞋，给人的感觉真是清爽！
 					</div>
 				</div>
-				<script src="<?= PUBLICS ?>Home/hos-lb/js/jquery.min.js"></script>
-				<script src="<?= PUBLICS ?>Home/hos-lb/js/YuxiSlider.jQuery.min.js"></script>
-				<script>
-				$(".slider").YuxiSlider({
-					width:685, //容器宽度
-					height:500, //容器高度
-					control:$('.control'), //绑定控制按钮
-					during:4000, //间隔4秒自动滑动
-					speed:800, //移动速度0.8秒
-					mousewheel:true, //是否开启鼠标滚轮控制
-					direkey:true //是否开启左右箭头方向控制
-				});
-				</script>
-
 			</div>
-			<div class="hospital-recommend floatR">
-				
+			<div class="outfit-two-desc">
+				<img src="<?= PUBLICS ?>Home/images/index/outfit-two-desc.png" alt="">
 			</div>
-			<div class="clear"></div>
+			<div class="outfit-more">
+				<a href="#"><img src="<?= PUBLICS ?>Home/images/index/outfit-more.png" alt=""></a>
+			</div>
 		</div>
-		<div class="hospital-item">
-			<div class="hospital-item-content">
-				<div class="hospital-item-content-left floatL">
-					<div style="width:100%;height:3em;line-height:3em;">
-						<h4 class="floatL"><b>e美评推荐</b></h4>
-						<p class="floatR"><big>&gt;</big></p>
-						<p class="clear"></p>
-					</div>
-					<div style="margin-top:10px;">
-						<img class="img-responsive" src="<?= PUBLICS ?>Home/images/hospital-item-1.jpg" alt="Responsive image">
-					</div>
-					<p style="height:3em;line-height:3em;">
-						<span>上海华美整形医院</span>
-					</p>
-				</div>
-				<div class="hospital-item-content-center floatL" style="margin-left:3.5em;">
-					<div style="width:100%;height:3em;line-height:3em;">
-						<h4 class="floatL"><b>专题医院</b></h4>
-						<p class="floatR"><big>&gt;</big></p>
-						<p class="clear"></p>
-					</div>
-					<div style="margin-top:10px;">
-						<img class="img-responsive" src="<?= PUBLICS ?>Home/images/hospital-item-2.jpg" alt="Responsive image">
-					</div>
-					<p style="height:3em;line-height:3em;">
-						<span>薇琳（上海）医疗美容医院</span>
-					</p>
-				</div>
-				<div class="hospital-item-content-right floatR">
-					<div>
-						<h4><b>医院排行</b></h4>
-						<P><b>Hospital Ranking</b></P>
-					</div>
-					<hr style="margin:10% 0;"/>
-					<div>
-					<!--
-						<div class="floatL" style="margin-left:20px;">
-							<img style="width:100%;margin-top:3px;" class="img-responsive" src="<?= PUBLICS ?>Home/images/list.jpg" alt="Responsive image">
-						</div>
-						<div class="floatR">
-							<ul class="" style="margin-right:50px;">
-								<li style="margin-bottom:4%;">上海华美整形医院</li>
-								<li style="margin-bottom:4%;">上海美莱医院</li>
-								<li style="margin-bottom:4%;">北京丽都医疗整形医院</li>
-								<li style="margin-bottom:4%;">北京美伊整形</li>
-								<li style="margin-bottom:4%;">北京金凤凰整形美容医院</li>
-								<li style="margin-bottom:4%;">广州威利斯医疗</li>
-								<li style="margin-bottom:4%;">广州韩妃整形美容</li>
-								<li style="margin-bottom:4%;">薇琳（上海）医疗美容医院</li>
-								<li style="margin-bottom:4%;">武汉伊美馨医疗美容门诊部</li>
-							</ul>
-						</div>
-						<div class="clear"></div>
-					-->
-
-
-						<table style="height:263px;margin:0 auto;">
-							<tr>
-								<td style="
-								width:50px;
-								background-repeat:no-repeat;
-								background-image:url<?= PUBLICS ?>Home/images/list.jpg); " rowspan="9"></td>
-								<td>上海华美整形医院</td>
-							</tr>
-							<tr>
-								<td>上海美莱医院</td>
-							</tr>
-							<tr>
-								<td>北京丽都医疗整形医院</td>
-							</tr>
-							<tr>
-								<td>北京美伊整形</td>
-							</tr>
-							<tr>
-								<td>北京金凤凰整形美容医院</td>
-							</tr>
-							<tr>
-								<td>广州威利斯医疗</td>
-							</tr>
-							<tr>
-								<td>广州韩妃整形美容</td>
-							</tr>
-							<tr>
-								<td>薇琳（上海）医疗美容医院</td>
-							</tr>
-							<tr>
-								<td>武汉伊美馨医疗美容门诊部</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<p class="clear"></p>
+		<div class="outfit-three">
+			<div class="outfit-three-title">
+				<img src="<?= PUBLICS ?>Home/images/index/outfit-three-title.png" alt="">
+			</div>
+			<div class="outfit-three-desc">
+				<img src="<?= PUBLICS ?>Home/images/index/outfit-three-desc.jpg" alt="">
 			</div>
 		</div>
 	</div>
+</section>
 
-<!--医生栏目-->
-	<div class="doctor">
-		<div class="doctor-logo">
-			<hr style="margin-top:50px;color:black;"/>
-			<img style="position: absolute;top:8%;left:38%;" src="<?= PUBLICS ?>Home/images/doctor.jpg">
+<!-- live -->
+<section id="live" class="live">
+	<div class="live-center">
+		<div class="live-title">
+			<img src="<?= PUBLICS ?>Home/images/index/live-title.jpg" alt="">
 		</div>
-		<div class="doctor-content" style="width:71em;">
-			<div id="LoopDiv">
-				<input id="S_Num" type="hidden" value="5" />
-				<div id="starsIF" class="imageflow">
-					<img src="<?= PUBLICS ?>Home/lb/images/01.jpg" longdesc=" " />
-					<img src="<?= PUBLICS ?>Home/lb/images/05.jpg" longdesc=" " />
-					<img src="<?= PUBLICS ?>Home/lb/images/03.jpg" longdesc=" " />
-					<img src="<?= PUBLICS ?>Home/lb/images/04.jpg" longdesc=" " />
-					<img src="<?= PUBLICS ?>Home/lb/images/05.jpg" longdesc=" " />
+		<div class="live-video">
+			<img src="<?= PUBLICS ?>Home/images/index/live-video.jpg" alt="">
+			<img src="<?= PUBLICS ?>Home/images/index/live-start.png" alt="" class="live-start">
+		</div>
+		<div class="live-select">
+			<img src="<?= PUBLICS ?>Home/images/index/live-select-bg.jpg" alt="">
+			<div class="live-select-container">
+				<div class="live-select-item">
+					<img src="<?= PUBLICS ?>Home/images/index/live-item-1.jpg" alt="">
 				</div>
-			</div>			
+				<div class="live-select-item active">
+					<img src="<?= PUBLICS ?>Home/images/index/live-item-2.jpg" alt="">
+				</div>
+				<div class="live-select-item">
+					<img src="<?= PUBLICS ?>Home/images/index/live-item-3.jpg" alt="">
+				</div>
+				<div class="live-select-item">
+					<img src="<?= PUBLICS ?>Home/images/index/live-item-4.jpg" alt="">
+				</div>
+				<div class="live-select-item">
+					<img src="<?= PUBLICS ?>Home/images/index/live-item-5.jpg" alt="">
+				</div>
+			</div>
+			<div class="live-select-text">
+				30min速变V脸女神之“线”上变形记
+			</div>
 		</div>
 	</div>
+</section>
 
-<!--e 保障-->
-	<div class="esafe">
-		<div class="esafe-logo">
-			<hr style="margin-top:40px;color:black;"/>
-			<img style="position: absolute;top:0;left:37%;" src="<?= PUBLICS ?>Home/images/esafe.jpg">
-			
+<!-- makeup -->
+<section id="makeup" class="makeup">
+	<div class="makeup-center">
+		<div class="makeup-item">
+			<div class="makeup-item-img">
+				<img src="<?= PUBLICS ?>Home/images/index/makeup-1.jpg" alt="">
+				<div class="makeup-item-info">
+					<p class="makeup-item-info-title">不会化妆？靠它就能让<br>你的颜值不掉线</p>
+					<p class="makeup-item-info-text">在一项关于“最吸引异性注意力的五官部位”的调查中，82%的男性选择了眼睛，认为双眼是所有五官中最具魅力部分。是的，即便是气色不佳的情况下，一条眼线便能解决你的神采问题，令你美出新的高度，但相反，如果眼线画不好，颜值掉线也是分分钟的事儿！</p>
+					<p class="makeup-item-info-icon">+</p>			
+				</div>
+			</div>	
+			<div class="makeup-item-desc">
+				选择那么多，可化妆包里
+			</div>
 		</div>
-		
-			<ul class="esafe-content">
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-1.jpg" alt="Responsive image">
-				</li>
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-2.jpg" alt="Responsive image">
-				</li>
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-3.jpg" alt="Responsive image">
-				</li>
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-4.jpg" alt="Responsive image">
-				</li>
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-5.jpg" alt="Responsive image">
-				</li>
-				<li class="">
-					<img class="floatL" src="<?= PUBLICS ?>Home/images/esafe-list-6.jpg" alt="Responsive image">
-				</li>
-				<p class="clear"></p>
-			</ul>
-		
-	</div>
-
-<!-- 整形助手 -->
-	<div class="help">
-		<div class="help-logo">
-			<hr class="" style="margin-top:40px;color:black;"/>
-			<img style="position: absolute;top:0;left:37%;" src="<?= PUBLICS ?>Home/images/help.jpg">		</div>
-		<div class="help-content">
-			<table class="">
-				<tr>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-1.jpg" alt="Responsive image">
-					</td>
-					<td colspan="2">
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-2.jpg" alt="Responsive image">
-					</td>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-3.jpg" alt="Responsive image">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-4.jpg" alt="Responsive image">
-					</td>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-5.jpg" alt="Responsive image">
-					</td>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-6.jpg" alt="Responsive image">
-					</td>
-					<td>
-						<img class="floatL" src="<?= PUBLICS ?>Home/images/help-content-7.jpg" alt="Responsive image">
-					</td>
-				</tr>
-			</table>
+		<div class="makeup-item">
+			<div class="makeup-item-img">
+				<img src="<?= PUBLICS ?>Home/images/index/makeup-2.jpg" alt="">
+				<div class="makeup-item-info">
+					<p class="makeup-item-info-title">不会化妆？靠它就能让<br>你的颜值不掉线</p>
+					<p class="makeup-item-info-text">在一项关于“最吸引异性注意力的五官部位”的调查中，82%的男性选择了眼睛，认为双眼是所有五官中最具魅力部分。是的，即便是气色不佳的情况下，一条眼线便能解决你的神采问题，令你美出新的高度，但相反，如果眼线画不好，颜值掉线也是分分钟的事儿！</p>
+					<p class="makeup-item-info-icon">+</p>			
+				</div>
+			</div>
+			<div class="makeup-item-desc">
+				选择那么多，可化妆包里
+			</div>		
+		</div>
+		<div class="makeup-item">
+			<div class="makeup-item-img">
+				<img src="<?= PUBLICS ?>Home/images/index/makeup-3.jpg" alt="">
+				<div class="makeup-item-info">
+					<p class="makeup-item-info-title">不会化妆？靠它就能让<br>你的颜值不掉线</p>
+					<p class="makeup-item-info-text">在一项关于“最吸引异性注意力的五官部位”的调查中，82%的男性选择了眼睛，认为双眼是所有五官中最具魅力部分。是的，即便是气色不佳的情况下，一条眼线便能解决你的神采问题，令你美出新的高度，但相反，如果眼线画不好，颜值掉线也是分分钟的事儿！</p>
+					<p class="makeup-item-info-icon">+</p>			
+				</div>
+			</div>
+			<div class="makeup-item-desc">
+				旅行时，这些当地美妆品
+			</div>	
+		</div>
+		<div class="makeup-item">
+			<div class="makeup-classify">
+				<div class="makeup-classify-title">
+					<img src="<?= PUBLICS ?>Home/images/index/makeup-classify-title.png" alt="">
+				</div>
+				<ul>
+					<li><a href="#">美容</a></li>
+					<li><a href="#">彩妆</a></li>
+					<li><a href="#">护肤</a></li>
+					<li><a href="#">品牌</a></li>
+					<li><a href="#" class="no-bottom">化妆工具</a></li>
+				</ul>
+			</div>
+			<div class="makeup-more">
+				<a href="#" title=""><img src="<?= PUBLICS ?>Home/images/index/makeup-more.jpg" alt=""></a>
+			</div>
 		</div>
 	</div>
+</section>
 
+<!-- comments -->
+<section id="comments" class="comments">
+	<div class="comments-center">
+		<div class="comments-title">
+			<img src="<?= PUBLICS ?>Home/images/index/comments-title.jpg" alt="">
+		</div>
+		<div class="comments-container">
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-1.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-2.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-3.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-4.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-3.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-4.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-2.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-1.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-2.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-1.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-4.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="comment">2436</span></p>
+				</div>
+			</div>
+			<div class="comments-item">
+				<img src="<?= PUBLICS ?>Home/images/index/comment-3.jpg" alt="">
+				<div class="comments-desc">
+					<p class="comments-desc-text">遮瑕是一个我们都很需要，但总是疑惑要怎么才能用好的单品。从液体到膏状再到粉状的质地；从绿色到粉色，到底要怎么用呢？看看这些热卖的遮瑕单品，这次我们为你讲清楚这些要怎么使用。</p>
+					<p class="comments-info"><span class="favorite">2561</span> <span class="index-comment">2436</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	$(document).ready(function(){
+		var imgNum=$('.comments-item img').length;
+		$('.comments-item img').load(function(){
+			console.log(1);
+		    if(!--imgNum){
+		       var num=4;
+				var box=$('.comments-item');
+				box.each(function(index,value){
+					if(index<num)
+					{
+						$(value).css({
+			                'top': 0,
+			                'left': index*250+10
+			            });
+					}
+					else
+					{
+						$(value).css({
+			                'top': box.eq(index-4).position().top+box.eq(index-4).height()+10,
+			                'left': index%4*250+10
+			            });
+					}
+				})
+		    }
+		});
+		var num=4;
+		var box=$('.comments-item');
+		box.each(function(index,value){
+			if(index<num)
+			{
+				$(value).css({
+	                'top': 0,
+	                'left': index*250+10
+	            });
+			}
+			else
+			{
+				$(value).css({
+	                'top': box.eq(index-4).position().top+box.eq(index-4).height()+10,
+	                'left': index%4*250+10
+	            });
+			}
+		})
+	})
+	
 
+	$('.carousel-index span').click(function(){
+		var w=$('#carousel img').width();
+		var i=$('.carousel-index span').index($(this));
+		$('.carousel-container').stop().animate({'margin-left':-i*w},500);
+		$(this).addClass('active').siblings().removeClass('active');
+	})
 
-
+	$('.live-select-item').click(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+	})
+</script>

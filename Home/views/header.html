@@ -2,131 +2,69 @@
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
-
-
-
-	<!--头部轮播特效配置-->
-	<link type="text/css" rel="Stylesheet" href="<?= PUBLICS ?>Home/lb/css/imageflow.css" />
-	<script type="text/javascript" src="<?= PUBLICS ?>Home/lb/js/jquery.js"></script>
-	<script type="text/javascript" src="<?= PUBLICS ?>Home/lb/js/imageflow.js"></script>
-
-	<!--emp轮播特效配置-->
-
-	<link rel="stylesheet" href="<?= PUBLICS ?>Home/emp-lb/src/jquery.skidder.css">
-	<script src="<?= PUBLICS ?>Home/emp-lb/js/jquery-1.11.0.min.js" type="text/javascript"></script>
-	<script src="<?= PUBLICS ?>Home/emp-lb/js/imagesloaded.js"></script>
-	<script src="<?= PUBLICS ?>Home/emp-lb/js/smartresize.js"></script>
-	<script src="<?= PUBLICS ?>Home/emp-lb/src/jquery.skidder.js"></script>
-	<script type="text/javascript">
-		$('.slideshow').each( function() {
-			  var $slideshow = $(this);
-			  $slideshow.imagesLoaded( function() {
-				$slideshow.skidder({
-				  slideClass    : '.slide',
-				  animationType : 'css',
-				  scaleSlides   : true,
-				  maxWidth 		: 1300,
-				  maxHeight		: 500,
-				  paging        : true,
-				  autoPaging    : true,
-				  pagingWrapper : ".skidder-pager",
-				  pagingElement : ".skidder-pager-dot",
-				  swiping       : true,
-				  leftaligned   : false,
-				  cycle         : true,
-				  jumpback      : false,
-				  speed         : 400,
-				  autoplay      : false,
-				  autoplayResume: false,
-				  interval      : 4000,
-				  transition    : "slide",
-				  afterSliding  : function() {},
-				  afterInit     : function() {}
-				});
-			  });
-		});
-		$(window).smartresize(function(){
-			  $('.slideshow').skidder('resize');
-		});
-	</script>	
-
-	<!--hospital-lb 配置-->
-	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/hos-lb/css/hos-lb.css">
-
-	<!--自定义样式-->
-	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/general.css">
-	<script type="text/javascript" src="<?= PUBLICS ?>Home/js/general.js"></script>
 	<title><?= $title ?></title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/global.css">
+	<?php
+		foreach($cssList as $i=>$css)
+		{
+	?>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/<?= $css ?>">
+	<?php
+		}
+	?>
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
+	<?php
+		foreach($jsList as $i=>$js)
+		{
+	?>
+	<script src="<?= PUBLICS ?>Home/js/<?= $js ?>"></script>
+	<?php
+		}
+	?>
 </head>
-<body>
-<!--页面顶部-->
-	<div style="margin:0;" class="header">
-		<div class="top">
-			<ul class=" border-right">
-				<li class="floatL">
-					<a style="border:none;" href="#">
-						<img style="padding:9px 9px;" class="floatL" src="<?= PUBLICS ?>Home/images/weibo.jpg"  />
-					</a>
-					<a href="#" style="padding:0 9px;">
-						<img style="padding:9px 9px;" class="floatL" src="<?= PUBLICS ?>Home/images/weixin.jpg"  />
-					</a>
-					<span class="clear"></span>
-				</li>
-				<li class="floatL"><a style="" href="#">TAG标签</a></li>
-				<li class="floatL"><a href="#">RSS聚合</a></li>
-				<li class="floatL"><a href="#">相册</a></li>
-				<li class="floatL"><a style="border:none;" href="#">浏览地图</a></li>
-				<li class="floatL" style="">
-					<div class="top-search">
-						<img src="<?= PUBLICS ?>Home/images/search.jpg">					
-					</div>
-				</li>
-				<li class="floatR">
-					<a style="border:none;" href="#">登录</a>
-					<a style="border:none;" href="#">注册</a>
-				</li>
-			</ul>
-			<div class="clear"></div>			
-		</div>
-		<div class="header-bottom">
-			<div class="h-b-body">
+<body ondragstart="return false">
+<!-- header -->
+	<div id="header" class="header">
+		<div class="header-center">
+			<div class="header-social">
+				<a href="javascript:void(0)" class="header-weibo"></a><a href="#" class="header-wechat"></a>
+			</div>
+			<div class="header-list">
 				<ul>
-					<li><a href="<?php echo U();?>">首页</a></li>
-					<!--
-					<li class="comment-list">
-						<a href="javascript:void(0)" target="blank">点评</a>
-						<div class="comment-show">
-							<div><a href="javascript:void(0)" target="blank">评论</a></div>
-							<div><a href="javascript:void(0)" target="blank">分享</a></div>
-							<div><a href="javascript:void(0)" target="blank">推荐</a></div>
-						</div>
-					</li>
-					-->
-					<li><a href="javascript:void();">e美评</a></li>
-					<li><a style="border:none;" href="javascript:void(0)">e直播</a></li>
-					<li style="float:right;">
-						<span id="location">上海</span>
-						<a href="#" style="border:none;display:inline;">
-							<img class="" src="<?= PUBLICS ?>Home/images/location.jpg" />
-						</a>
-					</li>
-					<li class="yungj-list">
-						<a href="<?php echo U('Privative/index');?>">e订制</a>
-						<!--
-						<div class="yungj-show">
-							<div><a href="javascript:void(0)">医美管家</a></div>
-							<div><a href="javascript:void(0)">皮肤管理</a></div>
-							<div><a href="javascript:void(0)">美容齿科</a></div>
-							<div><a href="javascript:void(0)">健康管理</a></div>
-						</div>
-						-->
-					</li>
-					<p class="clear"></p>
+					<li><a href="javascript:void(0)">TAG标签</a></li>
+					<li><a href="javascript:void(0)">RSS聚合</a></li>
+					<li><a href="javascript:void(0)">相册</a></li>
+					<li><a href="javascript:void(0)">浏览地图</a></li>
 				</ul>
+			</div>
+			<div class="header-search">
+				<input type="text" name="" id="search">
+				<span class="line-v"></span>
+				<span class="icon-search"></span>
+			</div>
+			<div class="header-option">
+				<a href="javascript:void(0)">登陆</a>
+				<a href="javascript:void(0)">注册</a>
 			</div>
 		</div>
 	</div>
-		<div class="emp-logo">
-			<a href="<?php echo U();?>"><img src="<?= PUBLICS ?>Home/images/logo.jpg"></a>
-		</div>
-	
+
+	<!-- nav -->
+	<div id="nav" class="nav">
+		<div class="nav-center">
+			<ul class="nav-list">
+				<li><a href="<?php echo U();?>">首页</a></li>
+				<li><a href="javascript:void(0)">e美评</a></li>
+				<li><a href="javascript:void(0)">e直播</a></li>
+				<li><a href="<?php echo U('Privative/index');?>">e订制</a></li>
+			</ul>
+			<div class="nav-location">
+				<span>上海</span><span class="icon-location"></span>
+			</div>
+		</div>	
+	</div>
+
+	<!-- logo -->
+	<div class="logo">
+		<img src="<?= PUBLICS ?>Home/images/nav-logo.png" alt="">
+	</div>
