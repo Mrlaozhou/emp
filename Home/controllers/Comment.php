@@ -14,8 +14,7 @@ class Comment extends LZ_Controller
 	 */
 	public function index()
 	{
-
-		dump($this->C->all());
+		echoJson($this->C->all()->result_array());
 	}
 
 	/**
@@ -46,9 +45,9 @@ class Comment extends LZ_Controller
 	 * [nice_incre description]
 	 * @return [type] [description]
 	 */
-	public function nice_incre() 
+	public function nice() 
 	{
-		$result = $this->set_nice_incre();
+		$result = $this->C->set_nice_incre();
 		if ( $result )
 		{
 			echo 'Ok';
@@ -63,9 +62,9 @@ class Comment extends LZ_Controller
 	 * [bad_incre description]
 	 * @return [type] [description]
 	 */
-	public function bad_incre() 
+	public function bad() 
 	{
-		$result = $this->set_bad_incre();
+		$result = $this->C->set_bad_incre();
 		if ( $result )
 		{
 			echo 'Ok';

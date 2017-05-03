@@ -931,3 +931,18 @@ if ( ! function_exists( 'like_int' ) )
 		return TRUE;
 	}
 }
+
+if ( ! function_exists( 'echoJson' ) )
+{
+	/**
+	 * [like_int description]
+	 * @param  [type] $param [description]
+	 * @return [type]        [description]
+	 */
+	function echoJson( $param )
+	{
+		if ( $param === null )
+			exit('no no no ...');
+		exit( json_encode($param) );
+	}
+}

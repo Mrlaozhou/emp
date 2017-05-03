@@ -93,7 +93,8 @@ class LZ_Model extends CI_Model
 			//修改前置
 			$this->_before_save( $data );
 			//执行
-			$result = $this->db->update_batch( self::$_table, $data );
+			$this->db->where('id',$data['id']);
+			$result = $this->db->update_batch( $table, $data );
 			//修改后置
 			$this->_after_save($data['id']);
 			return $result;
@@ -102,7 +103,8 @@ class LZ_Model extends CI_Model
 		//修改前置
 		$this->_before_save( $data );
 		//执行
-		$result = $this->db->update( self::$_table, $data );
+		$this->db->where('id',$data['id']);
+		$result = $this->db->update( $table, $data );
 		//修改后置
 		$this->_after_save($data['id']);
 
@@ -131,7 +133,7 @@ class LZ_Model extends CI_Model
 	 * @param  integer $num   [偏移量]
 	 * @return [type]         [description]
 	 */
-	protected function _get_auto_value( $pk, $field = null, $num = 1 ) 
+	protected function _get_auto_value( $table, $pk, $field = null, $num = 1 ) 
 	{
 		//原有值
 		$_num = 0;
@@ -145,7 +147,7 @@ class LZ_Model extends CI_Model
 			return FALSE;
 
 		//获取原有值
-		$info = $this->get_all( self::$_table, array('id'=>$pk) );
+		$info = $this->get_all( $table, array('id'=>$pk) )->row_array();
 
 		$_num = (int)$info[$field];
 

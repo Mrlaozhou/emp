@@ -2,7 +2,7 @@
 
 class Comment_model extends LZ_Model
 {
-	private static $_table = 'comment';		//绑定表
+	protected static $_table = 'comment';		//绑定表
 	private static $_pk	   = null;			//主键
 	private static $_rules = array(
 								array(
@@ -52,7 +52,7 @@ class Comment_model extends LZ_Model
 
 		//表单添加
 		$data = $this->input->post(null,TRUE);
-		
+		// dump($data);
 		//字段验证
 		$this->load->library('form_validation');
 
@@ -91,10 +91,10 @@ class Comment_model extends LZ_Model
 		//判断数据合法性
 		if ( ! like_int ( $data['id'] ) )
 			return FALSE;
-		
-			$setNum = $this->_get_auto_value( (int)$data['id'], 'nice' );
 
-		return $this->save( self::$_table, array((int)'nice'=>$setNum,(int)'id'=>$data['id']) );
+		$setNum = $this->_get_auto_value( self::$_table, (int)$data['id'], 'nice' );
+		
+		return $this->save( self::$_table, array('nice'=>(int)$setNum,'id'=>(int)$data['id']) );
 	}
 
 	public function set_bad_incre()
@@ -105,7 +105,7 @@ class Comment_model extends LZ_Model
 		if ( ! like_int( $data['id'] ) )
 			return FALSE;
 
-		$setNum = $this->_get_auto_value( $data['id'], 'bad' );
+		$setNum = $this->_get_auto_value( self::$_table, $data['id'], 'bad' );
 
 		return $this->save( self::$_table, array('id'=>(int)$data['id'],'bad'=>(int)$setNum) );
 	}
@@ -115,6 +115,6 @@ class Comment_model extends LZ_Model
 	 * @param  [type] &$data [description]
 	 * @return [type]        [description]
 	 */
-	private function _before_save( &$data ) {}
+	protected function _before_save( &$data ) {}
 
 }
