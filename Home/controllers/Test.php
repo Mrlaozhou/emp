@@ -9,7 +9,6 @@ class Test extends LZ_Controller
 	}
 	public function index()
 	{
-		$data['title'] = 'Test';
-		$this->show('Test/index.html',$data);
+		$this->load->view('Test/index.html');
 	}
 }

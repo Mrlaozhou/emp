@@ -9,7 +9,7 @@ class Privative extends CI_Controller
 	 */
 	public function index()
 	{
-		$data['title'] = 'e订制【e美评官网】';
+		$data['title'] = 'test【e美评官网】';
 		$data['cssList'] = array('general.css');
 		$data['jsList'] = array();
 		$this->load->view('header.html',$data);

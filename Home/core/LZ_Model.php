@@ -2,6 +2,7 @@
 
 class LZ_Model extends CI_Model
 {
+	public $error = null;
 	public function __construct()
 	{
 		parent::__construct();

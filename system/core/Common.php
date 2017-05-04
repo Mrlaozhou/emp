@@ -946,3 +946,41 @@ if ( ! function_exists( 'echoJson' ) )
 		exit( json_encode($param) );
 	}
 }
+
+if ( ! function_exists( 'load' ) )
+{
+	/**
+	 * [load description]
+	 * @param  [type] $path [description]
+	 * @return [type]       [description]
+	 */
+	function load( $path = null )
+	{
+		if( $path === null )
+			return FALSE;
+		if( ! file_exists( $path ) )
+			exit( $path.' :文件不存在！' );
+		require_once( $path );
+		exit;
+	}
+}
+
+
+if ( ! function_exists( 'jump' ) )
+{
+	/**
+	 * [jump description]
+	 * @param  string  $msg   [description]
+	 * @param  string  $route [description]
+	 * @param  integer $wait  [description]
+	 * @return [type]         [description]
+	 */
+	function jump( $msg, $route, $wait = 3 )
+	{
+		$info = $msg 		? $msg 		: '';
+		$url  = $route 		? $route 	: '/';
+		$time = $wait;
+		require_once(VIEWPATH.'errors/html/error_mySelf.html');
+		exit;
+	}
+}
