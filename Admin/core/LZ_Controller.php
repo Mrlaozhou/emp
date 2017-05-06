@@ -10,10 +10,19 @@ class LZ_Controller extends CI_Controller
 	{
 		parent::__construct();
 
-		//判断是否登录
+		$route = $this->uri->rsegments;
 		
-		// if( ! $this->session->admin_id )
-		// 	jump();
+		$allow = array(
+				'Index'	=>	array('login','do_login'),
+			);
+
+		// dump($route);
+		// dump(     (! isset( $allow[$route[1]] ) && ! in_array($route[2],$allow[$route[1]]))     );
+		//判断是否登录
+		if( (! $this->session->admin_id) && ! ( isset( $allow[$route[1]] ) &&  in_array($route[2],$allow[$route[1]])) )
+		{
+			jump('请先登录！', U('Index/login',2), 2);
+		}
 	}
 
 

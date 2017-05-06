@@ -871,11 +871,13 @@ if ( ! function_exists('dump') )
 
 if ( ! function_exists('U') )
 {
-	function U( $route = null )
+	function U( $route = null, $type=1 )
 	{
 		if ( $route === null )
 			return '/home.php';
-		return '/home.php/'.$route.'.emp';
+		if( $type === 1 )
+			return '/home.php/'.$route.'.emp';
+		return '/admin.php/'.$route.'.emp';
 	}
 }
 
