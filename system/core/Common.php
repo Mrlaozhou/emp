@@ -986,3 +986,39 @@ if ( ! function_exists( 'jump' ) )
 		exit;
 	}
 }
+
+
+if ( ! function_exists( 'remove_dir' ) )
+{
+	/**
+	 * [remove_dir description]
+	 * @param  [type] $rootDir [description]
+	 * @return [type]          [description]
+	 */
+	function remove_dir($rootDir)
+	{
+		$rootDir = trim($rootDir);
+		//判断是否是目录
+		if( !is_dir($rootDir) )
+			return FALSE;
+
+		//打开目录列表
+		$list = scandir($rootDir);
+
+		/********禁止删除********/
+		array_shift($list);
+		array_shift($list);
+		/******禁止删除 end******/
+
+		foreach($list as $k => $v)
+		{
+			if( is_file($item = $rootDir.'/'.$v) && $v != '.' && $v != '..')
+				@unlink($item) or die('function _ remove_dir is error !');
+			
+			if( is_dir( $rootDir.$v ) )
+				remove_dir($rootDir.$v);
+		}
+		$result = rmdir($rootDir) ?  TRUE : FALSE;
+		return $result;
+	}
+}

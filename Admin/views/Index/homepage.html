@@ -28,7 +28,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="" target="main">个人信息</a></li>
-                        <li><a href="" onclick="return confirm('You Sure ?');">退出登录</a></li>
+                        <li><a href="<?php echo U('Index/out_login',2);?>" onclick="return confirm('You Sure ?');">退出登录</a></li>
                     </ul>
                 </div>
 
@@ -44,13 +44,13 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>活动管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-edit "></i>Hot<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="javascript:void();" target='main'>列表</a>
+                                <a href="<?php echo U('Hot/lst',2);?>" target='main'>列表</a>
                             </li>
                             <li>
-                                <a href="/admin.php/Active/add.lz" target='main'>添加</a>
+                                <a href="<?php echo U('Hot/add',2);?>" target='main'>添加</a>
                             </li>
                         </ul>
                     </li>
