@@ -44,7 +44,7 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>Hot<span class="fa arrow"></span></a>
+                        <a href="javascript:void();"><i class="fa fa-edit "></i>Hot<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?php echo U('Hot/lst',2);?>" target='main'>列表</a>
@@ -56,33 +56,42 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-sitemap "></i>前沿管理<span class="fa arrow"></span></a>
+                        <a href="javascript:void();"><i class="fa fa-sitemap "></i>美妆管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">列表</a>
+                                <a href="<?php echo U('Beauty/lst',2);?>" target='main'>美妆列表</a>
                             </li>
                             <li>
-                                <a href=<?php echo U('Publish/add');?> target='main'>添加</a>
+                                <a href="<?php echo U('Beauty/add',2);?>" target='main'>添加美妆</a>
                             </li>
+                            <!--
                             <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <a href="javascript:void();">美妆项目<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Third Level Link</a>
+                                        <a href="<?php echo U('Beauty/categray_lst',2);?>" target='main'>项目列表</a>
                                     </li>
                                     <li>
-                                        <a href="#">Third Level Link</a>
+                                        <a href="<?php echo U('Beauty/show_add_categray',2);?>" target='main'>添加项目</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
                                 </ul>
 
                             </li>
+                            -->
                         </ul>
                     </li>
-                    
+
+                    <li>
+                        <a href="javascript:void();"><i class="fa fa-edit "></i>美妆分类管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo U('Beautycategray/lst',2);?>" target='main'>列表</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo U('Beautycategray/add',2);?>" target='main'>添加</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
 
             </div>

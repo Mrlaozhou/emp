@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <button type="button" class="btn btn-primary pull-right"><?= $title ?></button>
+
+    <form class="form-horizontal" role="form" action="<?php echo U('Hot/do_add', 2);?>" method="post" enctype="multipart/form-data">
+
+   
+        <fieldset>
+           <legend>基本信息</legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">Hot标题</label>
+              <div class="col-sm-9">
+                 <input class="form-control" id="ds_host" type="text" placeholder="" name="title"/>
+              </div>           
+           </div>
+
+           <div class="form-group">                       
+              <label class="col-sm-2 control-label" for="ds_host">action</label>
+              <div class="col-sm-9">
+                 <input class="form-control" id="ds_host" type="text" placeholder="" name="action"/>
+              </div>              
+           </div>
+
+           
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">显示到主页</label>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio"  name="is_index" value='1'/>
+                 是
+              </div>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio"  name="is_index" value='0' checked="checked"/>
+                 否
+              </div>
+           </div>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">是否显示</label>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio" name="is_show" value="1" checked="checked"/>
+                 是
+              </div>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio" name="is_show" value='0'/>
+                 否
+              </div>
+           </div>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">介绍</label>
+              <div class="col-sm-8">
+                 <textarea class="form-control" name="intro"></textarea>
+              </div>
+           </div>
+           
+        </fieldset>  
+    
+
+        <!-- <fieldset>
+           <legend>发布选择</legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host"></label>
+              <div class="col-sm-9">
+                 <select name="action">
+                   <option value="">请选择发布</option>
+              <?php foreach( $publish as $v ):?>
+                   <option value="<?php echo $v['action'];?>"><?php echo $v['title'];?></option>
+              <?php endforeach;?>
+                 </select>
+              </div>  
+           </div>
+        </fieldset> -->
+
+
+        <fieldset>
+           <legend>素材信息</legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">html页面</label>
+              <div class="col-sm-9">
+                 <input type="file" name="html" >
+              </div>  
+           </div>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">Hot图片</label>
+              <div class="col-sm-9">
+                 <input type="file" name="pic" >
+              </div>  
+           </div>
+           
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">图片压缩包</label>
+              <div class="col-sm-9">
+                 <input type="file" name="imgs" >
+              </div>  
+           </div>
+        </fieldset>
+
+      <!--
+        <fieldset>
+           <legend>附加信息</legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">是否显示</label>
+              <div class="col-sm-9">
+                 是<input type="radio" name="is_show"  value="1">
+                 否<input type="radio" name="is_show"  value="0" checked>
+              </div>  
+           </div>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">活动介绍</label>
+              <div class="col-sm-9">
+                 <textarea rows="5" cols='60' name="intro"></textarea>
+              </div>  
+           </div>
+        </fieldset> 
+      -->
+
+        <fieldset>
+           <legend></legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host"></label>
+              <div class="col-sm-9">
+                 <button type="submit" class="btn btn-primary ">Submit</button>
+                 <button type="reset" class="btn btn-warning ">reset</button>
+              </div>  
+           </div>    
+        </fieldset>
+      
+    </form>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/custom.js"></script>
+
+
+</body>
+</html>

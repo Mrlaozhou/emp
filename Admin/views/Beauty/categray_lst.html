@@ -21,23 +21,12 @@
           <thead>
               <tr>
                   <th>id</th>
-                  <th>标题</th>
-                  <th>行为</th>
+                  <th>分类名称</th>
+                  <th>上级分类</th>
                   <th>操作</th>
               </tr>
           </thead>
-          <tbody>
-          <?php foreach( $data as $k => $v ):?>
-              <tr>
-                  <td><?php echo $v['id'];?></td>
-                  <td><?php echo $v['title'];?></td>
-                  <td><?php echo $v['action'];?></td>
-                  <td>
-                    <a href="javascript:void();" delId="<?php echo $v['id'];?>" type="button" class="btn btn-warning btn-sm"  onclick="delItem(this);">删除</a>
-                  </td>
-              </tr>
-          <?php endforeach;?>
-          </tbody>
+         
       </table>
 
     <!-- /. WRAPPER  -->
@@ -58,7 +47,7 @@
           {
               var id = $(a).attr('delId');
               $.ajax({
-                url:"<?php echo U('Hot/del',2);?>",
+                url:"/admin.php/Hot/del",
                 type:'POST',
                 data:{'id':id},
                 dataType:'JSON',

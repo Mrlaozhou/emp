@@ -1022,3 +1022,36 @@ if ( ! function_exists( 'remove_dir' ) )
 		return $result;
 	}
 }
+
+
+if ( ! function_exists( 'get_sort' ) )
+{
+	/**
+	 * [get_sort 递归排序]
+	 * @param  [type]  $data [description]
+	 * @param  integer $pid  [description]
+	 * @return [type]        [description]
+	 */
+	function get_sort( $data=null, $pid=0, $level=1, $isClean=FALSE )
+	{
+		if ( $data === null )
+			return FALSE;
+		//声明变量 储存结果
+		static $result = array();
+		
+		if( $isClean )
+			$result = array();
+
+		foreach( $data as $k => $v )
+		{
+			if( $v['pid'] == $pid )
+			{
+				$v['level'] = $level;
+				$result[] = $v;
+				unset($data[$k]);
+				get_sort( $data, $v['id'], $level+1 );
+			}
+		}
+		return $result;
+	}
+}
