@@ -20,21 +20,9 @@ class Register extends LZ_Controller
 	{
 		//注册
 		if( ! $this->U->register() )
-			jump(validation_errors(),U('Register/show_register.html'));
+			jump($this->U->error,U('Register/show_register.html'));
 		jump('注册成功！','/');
 	}
 
-	public function show_login()
-	{
-		$data['title'] = '登录【e美评官网】';
-		$data['cssList'] = array('general.css');
-		$data['jsList'] = array();
-
-		$this->show('Login/login.html',$data);
-	}
-
-	public function do_login()
-	{
-		$this->U->login();
-	}
+	
 }

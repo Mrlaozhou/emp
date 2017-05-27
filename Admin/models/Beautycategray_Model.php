@@ -42,12 +42,30 @@ class Beautycategray_Model extends LZ_Model
 		return $this->get_all( self::$_table )->result_array();
 	}
 
-	public function get_pid_lst()
+	public function get_pid_sort()
 	{
 		//获取原始数据
 		$data = $this->get_all( self::$_table )->result_array();
 		//处理数据-->递归排序
 		return get_sort( $data,0,1,TRUE );
+	}
+
+	public function get_pid_tree()
+	{
+		$data = $this->get_all( self::$_table )->result_array();
+
+		return get_tree( $data,0,1 );
+	}
+
+	private function _get_children_id( $id, $data )
+	{
+		$get = get_sort( $data, $id, 1,TRUE );
+
+		$ids = $get['ids'];
+
+		$ids[] = $id;
+
+		return $ids;
 	}
 
 	public function add_cate()
@@ -72,7 +90,8 @@ class Beautycategray_Model extends LZ_Model
 
 		return $this->del( self::$_table, $data );
 	}
-		/**
+	
+	/**
 	 * [_before_insert description]
 	 * @param  [type] $data [description]
 	 * @return [type]       [description]

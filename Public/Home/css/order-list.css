@@ -1,0 +1,142 @@
+/*
+* e订制详情页样式
+*/
+.logo
+{
+	border-bottom: 1px solid #ddd;
+}
+.main
+{
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 60px;
+}
+.crumbs,.crumbs a
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 95px;
+}
+.classify
+{
+	width: 100%;
+	height: 98px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	line-height: 98px;
+	font-size: 0;
+}
+.classify .classify-title
+{
+	display: inline-block;
+	width: 110px;
+	height: 100%;
+	color: #999;
+	font-size: 14px;
+	background: #ececec;
+	cursor: pointer;
+	text-align: center;
+}
+.classify .classify-tag
+{
+	display: inline-block;
+	width: 104px;
+	height: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+}
+.classify .classify-tag.active
+{
+	color: #ce0f2e;
+	font-weight: bold;
+}
+.product-content
+{
+	width: 1232px;
+	padding-top: 40px;
+	font-size: 0;
+}
+.section-content
+{
+	width: 1232px;
+	font-size: 0;
+	padding-top: 34px;
+	padding-bottom: 28px;
+}
+.inner-item
+{
+	display: inline-block;
+	width: 276px;
+	height: 332px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding-top: 40px;
+	text-align: center; 
+	margin: 0 32px 32px 0;
+	background: #fff;
+	transition: all 0.3s;
+}
+.inner-item:hover
+{
+	border: 1px solid #000;
+}
+.inner-item-img img
+{
+	width: 220px;
+	height: 220px;
+}
+.inner-item-desc
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 70px;
+}
+.page-index
+{
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	line-height: 50px;
+	border: 1px solid #ddd;
+	background: #fdfdfd;
+	margin-bottom: 60px;
+	font-size: 0;
+}
+.page-index a
+{
+	font-size: 14px;
+	color: #333;
+	margin: 0 10px;
+}
+.page-index a.disabled
+{
+	color: #999;
+}
+.page-index a.active
+{
+	color: #d10e30;
+}
+
+.section-title
+{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	box-sizing: border-box;
+	border-top: 2px solid #000;
+	border-bottom: 1px solid #ddd;
+}
+.section-title .main-title
+{
+	font-size: 26px;
+	color: #000;
+	font-weight: bold;
+}
+.section-title .view-more
+{
+	font-size: 14px;
+	color: #666;
+	float: right;
+}

@@ -135,6 +135,27 @@ class LZ_Model extends CI_Model
 	protected function _after_save( $id ) {}
 
 
+	
+
+	public function del($table = '', $where = '', $limit = NULL, $reset_data = TRUE)
+	{
+		//删除前置
+		if ( $this->_before_del( $where ) === FALSE )
+			return FALSE;
+
+		$info = $this->db->delete($table, $where, $limit, $reset_data);
+
+		//删除后置
+		if ( $this->_after_del( $where ) === FALSE )
+			return FALSE;
+		
+		return TRUE;
+	}
+
+	protected function _before_del( $where ) {}
+
+
+	protected function _after_del( $where ) {}
 	/**
 	 * [_get_auto_value 自增减]
 	 * @param  [type]  $pk    [主键值]
@@ -162,22 +183,4 @@ class LZ_Model extends CI_Model
 
 		return ($_num+(int)$num);
 	}
-
-	public function del($table = '', $where = '', $limit = NULL, $reset_data = TRUE)
-	{
-		//删除前置
-		if ( $this->_before_del( $where ) === FALSE )
-			return FALSE;
-
-		$info = $this->db->delete($table, $where, $limit, $reset_data);
-
-		//删除后置
-		if ( $this->_after_del( $where ) === FALSE )
-			return FALSE;
-	}
-
-	protected function _before_del( $where ) {}
-
-
-	protected function _after_del( $where ) {}
 }

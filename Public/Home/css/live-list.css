@@ -1,0 +1,181 @@
+/*
+* 直播列表页面css
+*
+*/
+
+.main
+{
+	width: 100%;
+	background: #e5e5e5;
+	padding-bottom: 40px;
+}
+.main-content
+{
+	width: 1200px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+.crumbs,.crumbs a
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 90px;
+}
+.section-title
+{
+	line-height: 56px;
+	border-bottom: 1px solid #cecece;
+}
+.section-title .main-title
+{
+	font-size: 24px;
+	color: #333;
+	font-weight: bold;
+}
+.section-title .switch-btn
+{
+	display: inline-block;
+	width: 68px;
+	height: 22px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	line-height: 20px;
+	color: #999;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	background: #f2f2f2;
+	margin-left: 10px;
+}
+.section-title .switch-btn:hover
+{
+	background: #fff;
+}
+.switch-btn i
+{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(../images/live-list/icon-switch.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	margin: 4px;
+}
+.section-content
+{
+	font-size: 0;
+	width: 1208px;
+	padding: 20px 0 26px;
+}
+.block
+{
+	display: inline-block;
+	width: 294px;
+	height: 238px;
+	margin-right: 8px;
+	margin-bottom: 20px;
+	vertical-align: top;
+}
+.block-cover
+{
+	width: 100%;
+	height: 186px;
+	overflow: hidden;
+	position: relative;
+}
+.block-cover .icon-start
+{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: url(../images/live-list/icon-start.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 120px;
+	left: 50%;
+	margin-left: -25px;
+	transition: all 0.3s;
+	opacity: 0;
+}
+.block-cover img
+{
+	width: 100%;
+}
+.block:hover .block-cover .icon-start
+{
+	top: 70px;
+	opacity: 1;
+}
+.block-desc
+{
+	background: #fff;
+	font-size: 14px;
+	color: #333;
+	height: 52px;
+	line-height: 52px;
+	box-sizing: border-box;
+	padding-left: 5px;
+	box-sizing: border-box;
+}
+.block-desc-name
+{
+	display: -webkit-box;
+	width: 210px;
+	height: 52px;
+	line-height: 52px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	float: left;
+}
+.block-pv
+{
+	display: inline-block;
+	width: 70px;
+	height: 52px;
+	float: right;
+	background: url(../images/live-list/icon-pv.png);
+	background-size: 14px 14px;
+	background-repeat: no-repeat;
+	background-position: 0 19px;
+	box-sizing: border-box;
+	padding-left: 20px;
+	line-height: 52px;
+	font-size: 12px;
+	color: #999;
+}
+.classify
+{
+	font-size: 0;
+	margin-left: 20px;
+}
+.classify b
+{
+	font-size: 14px;
+	color: #333;
+	font-weight: normal;
+	display: inline-block;
+	box-sizing: border-box;
+	height: 26px;
+	width: 72px;
+	text-align: center;
+	line-height: 24px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 6px;
+	transition: all 0.4s;
+}
+.classify b.active
+{
+	background: #d92020;
+	color: rgba(255,255,255,0.9);
+}
+.classify b:hover
+{
+	background: #d92020;
+	color: rgba(255,255,255,0.9); 
+}

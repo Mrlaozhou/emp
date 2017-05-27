@@ -47,15 +47,14 @@ class User_model extends LZ_Model
 		}
 
 		/**///检验是否存在
-		if( $this->_check_user_exists( $data['username'] ) )
+		if( $this->_check_user_exists( $data['username'] ) !== FALSE )
 		{
 			$this->error = '用户已存在！';
-			return TRUE;
+			return FALSE;
 		}
 
 		//注册
 		return $this->add( self::$_table, $data );
-
 	}
 
 	/**
@@ -66,6 +65,7 @@ class User_model extends LZ_Model
 	protected function _before_add( &$data ) 
 	{
 		$data['create_time'] = time();
+		$data['password']	 = md5(addslashes($data['password']));
 	}
 
 	public function login()
@@ -74,25 +74,31 @@ class User_model extends LZ_Model
 		$data = $this->input->post(array('username','password'));
 
 		//验证数据
-		$this->form_validation->set_rules( self::$_rules );
-		if ( $this->form_validation->run() == FALSE )
-		{
-			$this->error = validation_errors();
-			return FALSE;
-		}
+		// $this->form_validation->set_rules( self::$_rules );
+		// if ( $this->form_validation->run() == FALSE )
+		// {
+		// 	$this->error = validation_errors();
+		// 	return FALSE;
+		// }
 
 		//验证是否存在
 		$info = $this->_check_user_exists( $data['username'] );
+		
 		if( ! $info )
 		{
 			$this->error = '用户名不存在！';
 			return FALSE;
 		}
 
-		if( $info['password'] !=  $data['password'] )
+		
+		if( $info['password'] !=  md5($data['password']) )
+		{
+			$this->error = '密码错误！';
 			return FALSE;
+		}
+
 		$this->session->set_userdata('home_id',$info['id']);
-		return FALSE;
+		return TRUE;
 	}
 
 	/**
@@ -102,6 +108,6 @@ class User_model extends LZ_Model
 	 */
 	private function _check_user_exists( $user )
 	{
-		return $this->get_all( $table = self::$_table, $where = $user )->row_array();
+		return $this->get_all( self::$_table, array('username'=>$user) )->row_array();
 	}
 }

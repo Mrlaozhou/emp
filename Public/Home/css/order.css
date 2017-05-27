@@ -1,0 +1,174 @@
+/*
+* e订制栏目样式
+*
+*/
+
+/**** 幻灯片模块 ****/
+.carousel
+{
+	width: 100%;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+.carousel-window
+{
+	width: 100%;
+	overflow: hidden;
+}
+.carousel-inner
+{
+	width: 300%;
+	font-size: 0;
+}
+.carousel-item
+{
+	display: inline-block;
+	width: 33.33%;
+}
+.carousel-item img
+{
+	width: 100%;
+}
+.carousel-index
+{
+	text-align: center;
+	font-size: 0;
+	height: 75px;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.index-wrap
+{
+	width: 96px;
+	font-size: 0;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	height: 36px;
+}
+.carousel-index span
+{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #999;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: height 0.3s;
+	position: absolute;
+	bottom: 0;
+}
+.carousel-index span.dot-1
+{
+	left: 6px;
+}
+.carousel-index span.dot-2
+{
+	left: 38px;
+}
+.carousel-index span.dot-3
+{
+	left: 70px;
+}
+.carousel-index span.active
+{
+	background: #ce1032;
+	height: 36px;
+}
+
+/**** 可复用模块 *****/
+.section
+{
+	width: 100%;
+	font-size: 0;
+}
+.section-2,.section-4,.section-6
+{
+	background: #f4f4f4;
+}
+.section-center
+{
+	width: 1200px;
+	margin: 0 auto;
+}
+.section-title
+{
+	height: 118px;
+	padding-top: 20px;
+}
+.section-title .main-title
+{
+	font-size: 30px;
+	color: #000;
+	font-weight: bold;
+	vertical-align: top;
+	line-height: 118px;
+}
+.section-title .classify
+{
+	margin-left: 20px;
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 40px;
+}
+.classify b
+{
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	vertical-align: top;
+	font-size: 20px;
+	color: #666;
+	margin: 0 20px;
+	cursor: pointer;
+	font-weight: bold;
+	box-sizing: border-box;
+	border-bottom: 4px solid transparent;
+	transition: border-color 0.3s;
+}
+.classify b.active
+{
+	color: #000;
+	border-bottom: 4px solid #ce1032;
+}
+.section-title .view-more
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 118px;
+	float: right;
+}
+.section-inner
+{
+	width: 1232px;
+	padding-bottom: 28px;
+}
+.section-inner .inner-item
+{
+	display: inline-block;
+	width: 276px;
+	height: 332px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding-top: 40px;
+	text-align: center;
+	margin: 0 32px 32px 0;
+	background: #fff;
+	transition: all 0.3s;
+}
+.section-inner .inner-item:hover
+{
+	border: 1px solid #000;
+}
+.inner-item-img img
+{
+	width: 220px;
+	height: 220px;
+}
+.inner-item-desc
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 70px;
+}
+
+

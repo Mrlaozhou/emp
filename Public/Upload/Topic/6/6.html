@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="full-screen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="screen-orientation" content="portrait">
+	<meta name="browsermode" content="application">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="x5-page-mode" content="app">
+	<title>超声波去眼袋</title>
+	<script>
+		document.getElementsByTagName('html')[0].style.fontSize=window.innerWidth/10+'px'
+	</script>
+	<style>
+		html,body
+		{
+			width: 100%;
+			margin: 0;
+			font-family: '微软雅黑';
+		}
+		header img
+		{
+			width: 100%;
+		}
+		p
+		{
+			margin: 0;
+		}
+		/** resons **/
+		.reasons
+		{
+			padding-bottom: 0.8437rem;
+		}
+		.reasons-title img
+		{
+			width: 100%;
+			margin: 0.9375rem 0;
+		}
+		.reasons-desc
+		{
+			text-align: center;
+		}
+		.reasons-desc-title
+		{
+			font-size: 0.4062rem;
+			color: #333;
+			font-weight: bold;
+		}
+		.reasons-desc-text
+		{
+			font-size: 0.3125rem;
+			color: #666;
+		}
+		.reasons-desc-img
+		{
+			text-align: center;
+		}
+		.reasons-desc-img img
+		{
+			width: 6.7812rem;
+			margin: 0.5625rem 0;
+		}
+
+		/** principle **/
+		.principle
+		{
+			background: #f3f3f3;
+			padding-bottom: 0.9375rem
+		}
+		.principle-title img
+		{
+			width: 100%;
+			margin: 0.9375rem 0 0.4687rem;
+		}
+		.principle-desc
+		{
+			width: 9.5625rem;
+			height: 4.0625rem;
+			background: #bc0707;
+			margin: 0 auto;
+			padding-top: 0.3125rem;
+			box-sizing: border-box;
+		}
+		.principle-desc-text
+		{
+			width: 8.9375rem;
+			height: 4.0625rem;
+			color: #fff;
+			text-align: center;
+			box-sizing: border-box;
+			margin: 0 auto;
+			border: 1px solid #fff;
+			font-size: 0.3125rem;
+			padding-top: 0.9375rem;
+		}
+
+		/** edge **/
+		.edge
+		{
+			padding-bottom: 1.1562rem;
+		}
+		.edge-title img
+		{
+			width: 100%;
+			margin: 0.9375rem auto 0.8125rem;
+		}
+		.edge-item-container
+		{
+			width: 8.9375rem;
+			font-size: 0;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.edge-item
+		{
+			display: inline-block;
+			width: 4.4687rem;
+			vertical-align: top;
+			margin-bottom: 0.6875rem;
+		}
+		.edge-item-tag img
+		{
+			width: 1.4062rem;
+			margin-bottom: 0.3125rem;
+		}
+		.edge-item-desc
+		{
+			font-size: 0.3125rem;
+			color: #333;
+			line-height: 0.4687rem;
+		}
+		.edge-notice
+		{
+			width: 8.1562rem;
+			margin: 0.3125rem auto;
+			box-sizing: border-box;
+			border: 1px solid #ddd;
+		}
+		.edge-notice-title
+		{
+			font-size: 0.4062rem;
+			color: #333;
+			font-weight: bold;
+			text-align: center;
+			line-height: 1.375rem;
+		}
+		.edge-notice-desc
+		{
+			font-size: 0.3125rem;
+			color: #666;
+			padding: 0.3125rem;
+		}
+		.edge-notice-desc p
+		{
+			box-sizing: border-box;
+			padding-left: 0.5rem;
+			text-indent: -0.5rem;
+		}
+		.problem
+		{
+			box-sizing: border-box;
+			padding: 0 0.4687rem;
+			margin-top: 1.0937rem;
+		}
+		.question
+		{
+			font-size: 0.3125rem;
+			color: #333;
+			line-height: 0.4687rem;
+			background: url(__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/icon-question.png);
+			background-size: 0.4687rem 0.4687rem;
+			background-repeat: no-repeat;
+			box-sizing: border-box;
+			padding-left: 0.625rem;
+			margin-bottom: 0.25rem;
+		}
+		.anwser
+		{
+			font-size: 0.3125rem;
+			color: #666;
+			line-height: 0.5625rem;
+			background: url(__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/icon-anwser.png);
+			background-size: 0.4687rem 0.4687rem;
+			background-repeat: no-repeat;
+			box-sizing: border-box;
+			padding-left: 0.625rem;
+			background-position: 0 0.0469rem;
+		}
+	</style>
+</head>
+<body>
+	<!-- header background image -->
+	<header>
+		<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/header-bg.jpg" alt="">
+	</header>
+
+	<!-- section reasons for the formation -->
+	<section class="reasons">
+		<div class="reasons-title">
+			<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/reasons-title.png" alt="">
+		</div>
+		<div class="reasons-desc">
+			<p class="reasons-desc-title">生理上</p>
+			<p class="reasons-desc-text">眼部肌肤特别薄，是人体最薄的肌肤，<br>而且眼部肌肤的运动量很大，<br>平均一天要眨眼10000次，容易老化松弛</p>
+		</div>
+		<div class="reasons-desc-img">
+			<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/reasons-desc-physiology.png" alt="">
+		</div>
+		<div class="reasons-desc">
+			<p class="reasons-desc-title">生活上</p>
+			<p class="reasons-desc-text">随着年龄的增长，工作休息时间不规律，<br>眼部肌肤新陈代谢减缓，胶原蛋白和弹性纤维<br>开始慢慢流失，护理眼球的脂肪开始慢慢淤积<br>起来，最后，一旦肌肤老化到一定程度，<br>他就兜不住淤积的脂肪，隔框而出，<br>眼袋就产生了</p>
+		</div>
+	</section>
+
+	<!-- section principle of ultrasonic wave -->
+	<section class="principle">
+		<div class="principle-title">
+			<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/principle-title.png" alt="">
+		</div>
+		<div class="principle-desc">
+			<div class="principle-desc-text">
+				超声波去眼袋就是通过仪器振动模式进行体外按摩的方式，<br>使眼袋眶隔内的脂肪体积变小，<br>从而达到消除眼袋的效果
+			</div>
+		</div>
+	</section>
+
+	<!-- section Ultrasonic go pouch edge -->
+	<section class="edge">
+		<div class="edge-title">
+			<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/edge-title.png" alt="">
+		</div>
+		<div class="edge-item-container">
+			<div class="edge-item">
+				<div class="edge-item-tag">
+					<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/edge-item-tag-1.png" alt="">
+				</div>
+				<div class="edge-item-desc">
+					超声波去眼袋术后恢复快痛苦小
+				</div>
+			</div>
+			<div class="edge-item">
+				<div class="edge-item-tag">
+					<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/edge-item-tag-2.png" alt="">
+				</div>
+				<div class="edge-item-desc">
+					超声波去眼袋手术时间短术中无出血
+				</div>
+			</div>
+			<div class="edge-item">
+				<div class="edge-item-tag">
+					<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/edge-item-tag-3.png" alt="">
+				</div>
+				<div class="edge-item-desc">
+					适应范围广<br>不易复发
+				</div>
+			</div>
+			<div class="edge-item">
+				<div class="edge-item-tag">
+					<img src="__PUBLIC__/Uploads/Publish_img/<?php echo ACTION_NAME;?>/edge-item-tag-4.png" alt="">
+				</div>
+				<div class="edge-item-desc">
+					皮肤表面无损伤<br>无切口
+				</div>
+			</div>
+		</div>
+		<div class="edge-notice">
+			<div class="edge-notice-title">
+				超声波去眼袋手术前的注意事项
+			</div>
+			<div class="edge-notice-desc">
+				<p>1、在手术前半个月内，切记不要服用含有阿斯匹林的药物，因为阿司匹林会使得血小板凝固的功能降低;</p>
+                <p>2、在利用超声波去眼袋之前，一定要做全面的检查，有高血压和糖尿病的眼袋患者一定要向医生说明情况，然后在确定手术方案;</p>
+                <p>3、在手术前一定要确定身体健康，无传染病或者是其它炎症;</p>
+                <p>4、爱美的女性朋友要控制一下，在做手术前一定记住不要化妆。</p>
+			</div>
+		</div>
+		<div class="edge-notice">
+			<div class="edge-notice-title">
+				超声波去眼袋手术后的注意事项		
+			</div>
+			<div class="edge-notice-desc">
+				<p>1、在利用超声波去眼袋手术后眼睛周围可能会出现水肿的现象，不过大家不用担心，在手术后两天可以局部冷敷;</p>
+				<p>2、在手术后三天后改为热敷，这样可以减轻浮肿的程度，这样有助于消肿;</p>
+				<p>3、要注意眼部保湿。</p>
+			</div>
+		</div>
+		<div class="problem">
+			<div class="question">
+				价格与去眼袋效果的关系？
+			</div>
+			<div class="anwser">
+				超声波去眼袋效果与患者本身的眼袋的严重程度、治疗程度有关，而且各个地区，整形医院不同，自然超声波去眼袋的效果各有体会，也会不同。
+			</div>
+		</div>
+		<div class="problem">
+			<div class="question">
+				超声波去眼袋的效果好吗？
+			</div>
+			<div class="anwser">
+				超声波去眼袋的效果很好，因为它不需要开刀，所以不会有疼痛感，也不需要担心会留下伤疤。
+			</div>
+		</div>
+		<div class="problem">
+			<div class="question">
+				超声波去眼袋会有淤青吗？
+			</div>
+			<div class="anwser">
+				超声法去眼袋本身是不会导致淤青、出血的，但是也有可能会淤青的，这个可能性是20%，这与个人的体质和术后24小时内的保养有很大关系。
+			</div>
+		</div>
+	</section>
+</body>
+</html>

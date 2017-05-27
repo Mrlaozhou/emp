@@ -1,0 +1,451 @@
+/*
+* e订制详情页面style
+*/
+
+
+.logo
+{
+	border-bottom: 1px solid #ddd;
+}
+
+.main
+{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 0;
+}
+
+.crumbs,.crumbs a
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 95px;
+}
+
+.main-left
+{
+	display: inline-block;
+	width: 800px;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.main-right
+{
+	display: inline-block;
+	width: 346px;
+	margin-left: 54px;
+	vertical-align: top;
+}
+
+.product-info
+{
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding: 30px 30px 40px;
+}
+
+.product-left
+{
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+
+.product-left .product-img
+{
+	width: 100%;
+	height: 300px;
+	background: #fae6ea;
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+.product-left .product-img img
+{
+	width: 220px;
+	height: 220px;
+}
+
+.product-left .buy-btn
+{
+	text-align: center;
+}
+
+.product-left .buy-btn a
+{
+	display: inline-block;
+	font-size: 24px;
+	color: #fff;
+	background: #02d1f7;
+	width: 200px;
+	line-height: 70px;
+	border-radius: 8px;
+	margin-top: 40px;
+}
+
+.product-right
+{
+	display: inline-block;
+	width: 410px;
+	box-sizing: border-box;
+	margin-left: 28px;
+}
+
+.product-right .product-name
+{
+	font-size: 20px;
+	color: #333;
+	font-weight: bold;
+	line-height: 28px;
+}
+
+.product-price
+{
+	background: #fae6ea;
+	margin: 15px 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 16px 20px;
+}
+
+.product-price .new-price
+{
+	line-height: 30px;
+}
+
+.product-price .new-price .item-title
+{
+	font-size: 14px;
+	color: #333;
+}
+
+.product-price .new-price .price-icon
+{
+	font-size: 14px;
+	color: #cd0f33;
+}
+.product-price .new-price .price-desc
+{
+	font-size: 20px;
+	color: #cd0f33;
+	font-weight: bold;
+}
+.product-price .old-price
+{
+	font-size: 12px;
+	color: #666;
+	text-decoration: line-through;
+	line-height: 20px;
+}
+.product-right .product-desc
+{
+	font-size: 14px;
+	line-height: 32px;
+}
+.product-desc .item-title
+{
+	color: #666;
+	display: inline-block;
+	display: inline-block;
+	vertical-align: top;
+	float: left;
+}
+.product-desc .item-desc
+{
+	color: #999;
+	display: inline-block;
+	width: 290px;
+	vertical-align: top;
+	float: left;
+}
+.product-desc .close-content
+{
+	overflow: hidden;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.product-method .open
+{
+	float: right;
+	color: #11b6d4;
+	cursor: pointer;
+}
+.product-effect,.product-classify,.product-method,.product-intro
+{
+	clear: both;
+}
+
+
+.graphic
+{
+	margin-top: 40px;
+}
+.graphic-title
+{
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	line-height: 50px;
+	border: 1px solid #ddd;
+	background: #f3f3f3;
+	font-size: 14px;
+	color: #d20e32;
+}
+.graphic-title span
+{
+	display: inline-block;
+	width: 106px;
+	height: 100%;
+	background: #fff;
+	border-right: 1px solid #ddd;
+	text-align: center;
+}
+
+.recommand
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 26px;
+	margin-top: 50px;
+	text-indent: -6px;
+}
+.recommand-tag,.notice-tag
+{
+	color: #cf1032;
+	font-weight: bold;
+}
+.notice
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 26px;
+	margin-top: 30px;
+}
+
+.mix
+{
+	text-align: center;
+	margin-top: 60px;
+}
+.mix .block-text
+{
+	font-size: 16px;
+	color: #999;
+	line-height: 52px;
+}
+.mix .word
+{
+	font-size: 18px;
+	color: #333;
+	line-height: 70px;
+}
+
+
+.mark-tools
+{
+	text-align: center;
+	height: 74px;
+	box-sizing: border-box;
+	padding-top: 22px;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	margin-top: 30px;
+}
+.mark-fav
+{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+	padding: 0 10px; 
+	font-size: 14px;
+	background: #fafafa;
+	border: 1px solid #ededed;
+	border-radius: 4px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+.mark-fav:hover
+{
+	background: #fff;
+}
+.icon-fav
+{
+	display: inline-block;
+	width: 12px;
+	height: 11px;
+	background: url('../images/fashion-detail/mark-fav.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.mark-fav:hover .icon-fav
+{
+	background: url(../images/fashion-detail/mark-fav-a.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.mark-tools .mark-text
+{
+	color: #333;
+	display: inline-block;
+	margin: 0 3px;
+}
+.mark-tools .mark-num
+{
+	color: #999;
+}
+
+
+.mian-right-img img
+{
+	width: 100%;
+}
+
+.related
+{
+	margin-top: 42px;
+	border: 1px solid #ddd;
+}
+.related-title
+{
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ddd;
+	font-size: 18px;
+	color: #333;
+	background: #f3f3f3;
+	line-height: 50px;
+	padding-left: 10px;
+}
+
+.related-content
+{
+	padding: 0 12px;
+}
+
+.related-item
+{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 30px 0;
+	border-bottom: 1px dashed #9a9a9a;
+}
+.related-item:last-child
+{
+	border: none;
+}
+.related-product
+{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+.related-product img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.related-desc
+{
+	display: inline-block;
+	width: 228px;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+.related-name
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 22px;
+}
+
+.related-intro
+{
+	font-size: 14px;
+	color: #999;
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-height: 20px;
+}
+
+.related-price
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 24px;
+}
+
+.section-title
+{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	box-sizing: border-box;
+	border-bottom: 2px solid #000;
+	margin-top: 36px;
+}
+.section-title .main-title
+{
+	font-size: 26px;
+	color: #000;
+	font-weight: bold;
+}
+.section-title .view-more
+{
+	font-size: 14px;
+	color: #666;
+	float: right;
+}
+.product-content
+{
+	width: 1232px;
+	padding-top: 40px;
+	font-size: 0;
+}
+.section-content
+{
+	width: 1232px;
+	font-size: 0;
+	padding-top: 34px;
+	padding-bottom: 28px;
+}
+.inner-item
+{
+	display: inline-block;
+	width: 276px;
+	height: 332px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding-top: 40px;
+	text-align: center; 
+	margin: 0 32px 32px 0;
+	background: #fff;
+	transition: all 0.3s;
+}
+.inner-item:hover
+{
+	border: 1px solid #000;
+}
+.inner-item-img img
+{
+	width: 220px;
+	height: 220px;
+}
+.inner-item-desc
+{
+	font-size: 14px;
+	color: #666;
+	line-height: 70px;
+}

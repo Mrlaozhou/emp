@@ -1048,10 +1048,60 @@ if ( ! function_exists( 'get_sort' ) )
 			{
 				$v['level'] = $level;
 				$result[] = $v;
+				$result['ids'][] = $v['id'];
 				unset($data[$k]);
 				get_sort( $data, $v['id'], $level+1 );
 			}
 		}
+		return $result;
+	}
+}
+
+
+
+if ( ! function_exists( 'get_tree' ) )
+{
+	/**
+	 * [get_sort 递归排序]
+	 * @param  [type]  $data [description]
+	 * @param  integer $pid  [description]
+	 * @return [type]        [description]
+	 */
+	function get_tree( $data=null, $pid=0, $level=1, $isId=FALSE )
+	{
+		if ( $data === null )
+			return FALSE;
+
+		//声明变量；储存信息
+		$result 		= array();
+		foreach( $data as $k => $v )
+		{
+			if ( $v['pid'] == $pid )
+			{
+				//获取当前点的子元素
+				$children		  	= get_tree( $data, $v['id'], $level+1 );
+
+				//记录等级信息
+				$v['level']			= $level;
+
+				//判断是否有子元素
+				if ( $children )
+				{ 	
+					$v['children'] 	= $children;
+				}
+
+				//储存
+				if ( $isId )
+				{
+					$result[] = $v['id'];
+				}
+				else
+				{
+					$result[] 	= $v; 
+				}			
+			}
+		}
+
 		return $result;
 	}
 }

@@ -6,12 +6,14 @@ class Beautycategray extends LZ_Controller
 	{
 		parent::__construct();
 		$this->load->model('Beautycategray_Model','B');
-		$this->output->cache(60);
+		//$this->output->cache(60);
 	}
 
 	public function add()
 	{
-		$data['pid'] = $this->B->get_pid_lst();
+		$data['pid'] = $this->B->get_pid_sort();
+		//dump($data);
+		unset($data['pid']['ids']);
 		$data['title'] = '添加美妆分类';
 		$this->load->view('Beautycategray/add.html', $data);
 	}
@@ -39,6 +41,11 @@ class Beautycategray extends LZ_Controller
 			echoJson(array('status'=>TRUE));
 		}
 		echoJson(array('status'=>FALSE,'info'=>$this->B->error));
+	}
+
+	public function tree()
+	{
+		dump($this->B->get_pid_sort(), 2);
 	}
 
 }

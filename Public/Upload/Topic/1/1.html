@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="full-screen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="screen-orientation" content="portrait">
+	<meta name="browsermode" content="application">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="x5-page-mode" content="app">
+	<title>特购会</title>
+	<link rel="stylesheet" href="../style/special.css">
+	<script src="/upload/active/special/jquery-1.11.3.min.js"></script>
+	<script>
+		document.getElementsByTagName('html')[0].style.fontSize=window.innerWidth/10+'px'
+	</script>
+	<style>
+		html,body
+        {
+	width: 100%;
+	background: #010628;
+	font-family: '微软雅黑';
+	margin: 0;
+}
+header img
+{
+	width: 100%;
+}
+p
+{
+	margin: 0;
+}
+.logo
+{
+	width: 2rem;
+	position: absolute;
+	top: 0.4rem;
+	left: 0.4rem;
+}
+.guide
+{
+	font-size: 0;
+	text-align: center;
+	/*width: 7.9rem;*/
+	margin: 0 auto 0.625rem;
+}
+.guide>div
+{
+	display: inline-block;
+	width: 3.0625rem;
+	/*height: 3.2031rem;*/
+	margin: 0 0.0468rem 0.0936rem;
+}
+.guide>div>img
+{
+	width: 100%;
+	height: 100%;
+}
+.section-title
+{
+	font-size: 0;
+}
+.section-title img
+{
+	width: 100%;
+	margin-top: 0.3125rem;
+	vertical-align: top;
+}
+
+/** sectio zero **/
+.zero-list
+{
+	width: 100%;
+	height: 13.75rem;
+	font-size: 0;
+	position: relative;
+}
+.zero-list>div>img
+{
+	width: 100%;
+	height: 100%;
+}
+.zero-skin
+{
+	display: inline-block;
+	width: 4rem;
+	height: 6rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.zero-pores
+{
+	display: inline-block;
+	width: 6rem;
+	height: 4rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.zero-oral
+{
+	display: inline-block;
+	width: 6rem;
+	height: 4rem;
+	position: absolute;
+	top: 6rem;
+	left: 0;
+}
+.zero-fat
+{
+	display: inline-block;
+	width: 4rem;
+	height: 6rem;
+	position: absolute;
+	top: 4rem;
+	right: 0;
+}
+.zero-qrcode
+{
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 4rem;
+	left: 4rem;
+}
+.zero-follicular
+{
+	display: inline-block;
+	width: 100%;
+	height: 3.75rem;
+	position: absolute;
+	top: 10rem;
+	left: 0;
+}
+.zero-block
+{
+	width: 2.5rem;
+	height: 2.8125rem;
+	background: rgba(255,255,255,0.8);
+	box-sizing: border-box;
+	text-align: center;
+	padding-top: 0.4062rem;
+	position: absolute;
+}
+.zero-block-1,.zero-block-4
+{
+	bottom: 0.3125rem;
+	left: 50%;
+	margin-left: -1.25rem;
+}
+.zero-block-2
+{
+	left: 0.3125rem;
+	top: 50%;
+	margin-top: -1.4062rem;
+}
+.zero-block-3
+{
+	right: 0.3125rem;
+	top: 50%;
+	margin-top: -1.4062rem;
+}
+.zero-block-5
+{
+	left: 0.9375rem;
+	top: 50%;
+	margin-top: -1.4062rem;
+}
+.zero-block-title
+{
+	font-size: 0.4687rem;
+	line-height: 0.5rem;
+	color: #d00808;
+}
+.zero-block-subtitle
+{
+	font-size: 0.3125rem;
+	color: #666;
+	-webkit-transform:scale(0.6);
+	line-height: 0.3rem;
+}
+.zero-block-price
+{
+	font-size: 0.3125rem;
+	color: #333;
+}
+.zero-block-link a
+{
+	display: inline-block;
+	width: 100%;
+	height: 0.7812rem;
+	line-height: 0.7812rem;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	font-size: 0.3125rem;
+	background: #d00808;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.desc
+{
+	background: #fff;
+	margin-top: 0.3125rem;
+	font-size: 0.3125rem;
+	padding-top: 1rem;
+	text-align: center;
+	padding-bottom: 1.25rem;
+}
+.desc-main
+{
+	color: #d00808;
+}
+.desc-main,.desc-sub
+{
+	line-height: 0.4687rem;
+}
+.desc-qrcode-title
+{
+	color: #666;
+	font-size: 0.3125rem;
+	line-height: 0.8437rem;
+	margin-top: 0.625rem;
+}
+.desc-qrcode img
+{
+	width: 4.0625rem;
+}
+
+
+
+
+
+/** section discount **/
+.discount-container
+{
+	background: #fff;
+	text-align: center;
+	font-size: 0;
+	padding: 0.625rem 0;
+}
+.discount-item
+{
+	display: inline-block;
+	width: 3.75rem;
+	vertical-align: top;
+}
+.discount-item img
+{
+	width: 3.125rem;
+}
+.discount-item-name
+{
+	font-size: 0.3125rem;
+	color: #333;
+	line-height: 0.625rem;
+}
+.discount-item-num
+{
+	font-size: 0.3125rem;
+	-webkit-transform:scale(0.9);
+	color: #333;
+	line-height: 0.4687rem;
+}
+.discount-item-desc
+{
+	font-size: 0.3125rem;
+	color: #666;
+	line-height: 0.4687rem;
+	-webkit-transform:scale(0.8);
+	word-break:keep-all;          
+	white-space:nowrap;
+}
+.discount-item-link a
+{
+	display: inline-block;
+	width: 2.2rem;
+	height: 0.625rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 0.3125rem;
+	line-height: 0.625rem;
+	background: #d00808;
+	border-radius: 0.3125rem;
+}
+
+
+/** section attain **/
+.attain-block
+{
+	padding-top: 0.6562rem;
+	background: #fff;
+	font-size: 0;
+	text-align: center;
+	border-bottom: 1px solid #010628;
+}
+.attain-block-title
+{
+	text-align: center;
+	color: #d00808;
+	font-size: 0.625rem;
+}
+.attain-block-subtitle
+{
+	text-align: center;
+	color: #999;
+	font-size: 0.3125rem;
+	margin-bottom: 0.625rem;
+}
+.attain-item-container
+{
+	width: 7.6rem;
+	margin: 0 auto;
+	padding-bottom: 0.625rem;
+}
+.attain-item
+{
+	display: inline-block;
+	width: 3.125rem;
+	margin: 0 0.3125rem 0.4687rem;
+	vertical-align: top;
+}
+.beauty-block .attain-item
+{
+	width: 3.8rem;
+	margin: 0 0 0.4687rem;
+}
+.attain-item-img img
+{
+	width: 100%;
+}
+.beauty-block .attain-item-img img
+{
+	width: 3.125rem;
+}
+.attain-item-name
+{
+	font-size: 0.3125rem;
+	color: #333;
+	line-height: 0.875rem;
+	text-align: center;
+}
+.attain-item-price
+{
+	font-size: 0.3125rem;
+	color: #333;
+	text-align: center;
+	height: 0.3125rem;
+	line-height: 0.3125rem;
+}
+.attain-item-link
+{
+	text-align: center;
+}
+.attain-item-link a
+{
+	display: inline-block;
+	width: 2.0625rem;
+	height: 0.625rem;
+	line-height: 0.625rem;
+	color: #fff;
+	background: #d00808;
+	font-size: 0.3125rem;
+	text-decoration: none;
+	border-radius: 0.3125rem;
+	vertical-align: top;
+	margin-top: 0.3125rem;
+}
+
+/** section expert **/
+.expert-block
+{
+	background: #fff;
+	font-size: 0;
+	text-align: center;
+	border-bottom: 1px solid #010628;
+}
+.expert-block-title
+{
+	text-align: center;
+	color: #d00808;
+	font-size: 0.625rem;
+	line-height: 1.875rem;
+}
+.expert-item-container
+{
+	width: 7.6rem;
+	margin: 0 auto;
+	padding-bottom: 0.625rem;
+}
+.expert-item
+{
+	display: inline-block;
+	width: 3.125rem;
+	margin: 0 0.3125rem 0.4687rem;
+	vertical-align: top;
+}
+.expert-item-img img
+{
+	width: 100%;
+}
+.expert-name
+{
+	font-size: 0.3125rem;
+	color: #333;
+	line-height: 0.875rem;
+	text-align: center;
+}
+.expert-item-link
+{
+	text-align: center;
+}
+.expert-item-link a
+{
+	display: inline-block;
+	width: 2.0625rem;
+	height: 0.625rem;
+	line-height: 0.625rem;
+	color: #fff;
+	background: #d00808;
+	font-size: 0.3125rem;
+	text-decoration: none;
+	border-radius: 0.3125rem;
+	vertical-align: top;
+}
+.expert-link img
+{
+	width: 3.0625rem;
+	margin: 0 0.3594rem;
+}
+
+
+/** dialog **/
+.dialog
+{
+	width: 9.2rem;
+	height: 11.25rem;
+	position: fixed;
+	background: #fff;
+	top: 2rem;
+	left: 50%;
+	margin-left: -4.6rem;
+	border-radius: 6px;
+	padding-top: 1rem;
+	display: none;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2),-2px -2px 2px rgba(0,0,0,0.2);
+	z-index: 100;
+}
+.close-btn
+{
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 0.4rem;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2),-2px -2px 2px rgba(0,0,0,0.2);
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 0.2rem;
+	position: absolute;
+	right: -0.4rem;
+	top: -0.4rem;
+	background: #fff;
+}
+.close-btn img
+{
+	width: 0.4rem;
+	vertical-align: top;
+}
+.dialog-title
+{
+	text-align: center;
+	font-size: 0.8rem;
+	color: #333;
+}
+.dialog-subtitle
+{
+	text-align: center;
+	font-size: 0.4rem;
+	color: #999;
+}
+.input-control
+{
+	text-align: center;
+}
+.input-control input
+{
+	width: 8.125rem;
+	height: 1.4rem;
+	border-radius: 6px;
+	background: #dfe5e3;
+	font-size: 0.4rem;
+	color: #999;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0 0 0 10px;
+	border: none;
+	outline: none;
+	margin-top:0.625rem;
+}
+.input-control.input-submit input
+{
+	background: #ffb701;
+	color: #010628;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+	</style>
+</head>
+<body>
+	<img src="/upload/active/special/logo.png" alt="" class="logo">
+	<!-- dialog -->
+	<div class="dialog">
+		<div class="close-btn">
+			<img src="/upload/active/special/close-btn.png" alt="">
+		</div>
+		<form action="#" method="post">
+			<div class="dialog-title">
+				完善信息抢先购
+			</div>
+			<div class="dialog-subtitle">
+				*到院后凭借预约短信兑换0元单品
+			</div>
+			<div class="input-control">
+				<input type="text" name="name" placeholder="姓名">
+			</div>
+			<div class="input-control">
+				<input type="text" name="tel" placeholder="手机号">
+			</div>
+			<div class="input-control">
+				<input type="text" name="keywords" placeholder="改善部位">
+			</div>
+			<div class="input-control input-submit">
+				<input type="submit" value="提交信息">
+			</div>
+		</form>
+	</div>
+
+	<!-- header background image -->
+	<header>
+		<img src="/upload/active/special/header-bg.png" alt="">
+	</header>
+
+	<!-- section guide link -->
+	<section class="guide">
+		<div class="guide-zero"><img src="/upload/active/special/guide-zero.jpg" alt=""></div>
+		<div class="guide-discount"><img src="/upload/active/special/guide-discount.jpg" alt=""></div>
+		<div class="guide-attain"><img src="/upload/active/special/guide-attain.jpg" alt=""></div>
+		<div class="guide-beauty"><img src="/upload/active/special/guide-beauty.jpg" alt=""></div>
+		<div class="guide-expert"><img src="/upload/active/special/guide-expert.jpg" alt=""></div>
+	</section>
+
+	<!-- section zero -->
+	<section class="zero">
+		<div class="section-title">
+			<img src="/upload/active/special/zero-title.png" alt="">
+		</div>
+		<div class="zero-list">
+			<div class="zero-skin">
+				<img src="/upload/active/special/zero-skin.jpg" alt="">
+				<div class="zero-block zero-block-1">
+					<div class="zero-block-title">
+						皮肤检测
+					</div>
+					<div class="zero-block-subtitle">
+						THE SKIN TEST
+					</div>
+					<div class="zero-block-price">
+						￥0
+					</div>
+					<div class="zero-block-link">
+						<a href="javascript:void(0)" title="">立即预约</a>
+					</div>
+				</div>
+			</div>
+			<div class="zero-pores">
+				<img src="/upload/active/special/zero-proes.jpg" alt="">
+				<div class="zero-block zero-block-2">
+					<div class="zero-block-title">
+						毛孔清洁
+					</div>
+					<div class="zero-block-subtitle">
+						THE PORES CLEAN
+					</div>
+					<div class="zero-block-price">
+						￥0
+					</div>
+					<div class="zero-block-link">
+						<a href="javascript:void(0)" title="">立即预约</a>
+					</div>
+				</div>
+			</div>
+			<div class="zero-oral">
+				<img src="/upload/active/special/zero-oral.jpg" alt="">
+				<div class="zero-block zero-block-3">
+					<div class="zero-block-title">
+						口腔检测
+					</div>
+					<div class="zero-block-subtitle">
+						ORAL TEST
+					</div>
+					<div class="zero-block-price">
+						￥0
+					</div>
+					<div class="zero-block-link">
+						<a href="javascript:void(0)" title="">立即预约</a>
+					</div>
+				</div>
+			</div>
+			<div class="zero-fat">
+				<img src="/upload/active/special/zero-fat.jpg" alt="">
+				<div class="zero-block zero-block-4">
+					<div class="zero-block-title">
+						脂肪检测
+					</div>
+					<div class="zero-block-subtitle">
+						FAT DETECTION
+					</div>
+					<div class="zero-block-price">
+						￥0
+					</div>
+					<div class="zero-block-link">
+						<a href="javascript:void(0)" title="">立即预约</a>
+					</div>
+				</div>
+			</div>
+			<div class="zero-follicular">
+				<img src="/upload/active/special/zero-follicular.jpg" alt="">
+				<div class="zero-block zero-block-5">
+					<div class="zero-block-title">
+						毛囊检测
+					</div>
+					<div class="zero-block-subtitle">
+						FOLLICULAR DETECTION
+					</div>
+					<div class="zero-block-price">
+						￥0
+					</div>
+					<div class="zero-block-link">
+						<a href="javascript:void(0)" title="">立即预约</a>
+					</div>
+				</div>
+			</div>
+			<div class="zero-qrcode">
+				<img src="/upload/active/special/zero-qrcode.jpg" alt="">
+			</div>
+		</div>
+	</section>
+
+	<!-- section activity description -->
+	<section class="desc">
+		<p class="desc-main">这一次，我们只玩心跳，无广告，无提成，无差价，超低折扣，等你揭盖</p>
+		<p class="desc-sub">美丽专享礼包，送给美丽的你。点击领取，想要的都给你</p>
+		<div class="desc-qrcode">
+			<p class="desc-qrcode-title">扫一扫  有惊喜哦</p>
+			<img src="/upload/active/special/desc-qrcode.jpg" alt="">
+		</div>
+	</section>
+
+	<!-- section discount -->
+	<section class="discount">
+		<div class="section-title">
+			<img src="/upload/active/special/discount-title.png" alt="">
+		</div>
+		<div class="discount-container">
+			<div class="discount-item">
+				<div class="discount-item-img">
+					<img src="/upload/active/special/discount-item-1.jpg" alt="">
+				</div>
+				<div class="discount-item-name">
+					胸部活性细胞填充
+				</div>
+				<div class="discount-item-num">
+					？折
+				</div>
+				<div class="discount-item-desc">
+					价格太低，不能公开
+				</div>
+				<div class="discount-item-link">
+					<a href="javascript:void(0)">点我偷偷告诉你</a>
+				</div>
+			</div>
+			<div class="discount-item">
+				<div class="discount-item-img">
+					<img src="/upload/active/special/discount-item-2.jpg" alt="">
+				</div>
+				<div class="discount-item-name">
+					4D逆龄抗衰（全面部）
+				</div>
+				<div class="discount-item-num">
+					？折
+				</div>
+				<div class="discount-item-desc">
+					嘘！价格低到不能说
+				</div>
+				<div class="discount-item-link">
+					<a href="javascript:void(0)">点我偷偷告诉你</a>
+				</div>
+			</div>
+			<div class="discount-item">
+				<div class="discount-item-img">
+					<img src="/upload/active/special/discount-item-3.jpg" alt="">
+				</div>
+				<div class="discount-item-name">
+					乔亚登（进口）
+				</div>
+				<div class="discount-item-num">
+					？折
+				</div>
+				<div class="discount-item-desc">
+					价格太低，老板快坐不住了
+				</div>
+				<div class="discount-item-link">
+					<a href="javascript:void(0)">点我偷偷告诉你</a>
+				</div>
+			</div>
+			<div class="discount-item">
+				<div class="discount-item-img">
+					<img src="/upload/active/special/discount-item-4.jpg" alt="">
+				</div>
+				<div class="discount-item-name">
+					VPI综合美胸
+				</div>
+				<div class="discount-item-num">
+					？折
+				</div>
+				<div class="discount-item-desc">
+					不怕比价，只是真的会被封杀
+				</div>
+				<div class="discount-item-link">
+					<a href="javascript:void(0)">点我偷偷告诉你</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- section activity description -->
+	<section class="desc">
+		<p class="desc-main">要玩就玩大的，要美就要好的，智慧医美，为你的美丽护航</p>
+		<p class="desc-sub">美丽专享礼包，送给美丽的你。点击领取，想要的都给你</p>
+		<div class="desc-qrcode">
+			<p class="desc-qrcode-title">扫一扫  有惊喜哦</p>
+			<img src="/upload/active/special/desc-qrcode.jpg" alt="">
+		</div>
+	</section>
+
+	<!-- section attain -->
+	<section class="attain">
+		<div class="section-title">
+			<img src="/upload/active/special/attain-title.png" alt="">
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				冰肌玉肤
+			</div>
+			<div class="attain-block-subtitle">
+				不是懒女人，只是素颜也好看
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-1.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						祛斑
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-2.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						祛痘
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-3.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						脱毛
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-4.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						纹眉
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-5.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						水光针
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-6.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						光子嫩肤
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				午休整形
+			</div>
+			<div class="attain-block-subtitle">
+				不是不想美，只是想马上变美
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-7.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						玻尿酸
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-8.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						瘦脸针
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-9.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						除皱针
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-10.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						除皱术
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				电眼玉鼻
+			</div>
+			<div class="attain-block-subtitle">
+				不是不好看，只是璞玉欠雕琢
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-11.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						双眼皮
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-12.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						开眼角
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-13.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						隆鼻
+					</div>
+					<div class="attain-item-price">
+						￥280
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				28元美益求美
+			</div>
+			<div class="attain-block-subtitle">
+				物超所值，做最好的自己
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-14.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						青春解码
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-15.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						唇毛/腋毛
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-16.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						进口小气泡嫩肤
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-17.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						GSD敏感肌修复
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-18.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						眉形设计
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/attain-19.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						头皮养护
+					</div>
+					<div class="attain-item-price">
+						￥28
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- section activity description -->
+	<section class="desc">
+		<p class="desc-main">沉鱼落雁，闭月羞花，智慧医美，四大美人不只是传说</p>
+		<p class="desc-sub">美丽专享礼包，送给美丽的你。点击领取，想要的都给你</p>
+		<div class="desc-qrcode">
+			<p class="desc-qrcode-title">扫一扫  有惊喜哦</p>
+			<img src="/upload/active/special/desc-qrcode.jpg" alt="">
+		</div>
+	</section>
+
+	<!-- section beauty -->
+	<section class="beauty">
+		<div class="section-title">
+			<img src="/upload/active/special/beauty-title.png" alt="">
+		</div>
+		<div class="attain-block beauty-block">
+			<div class="attain-block-title">
+				颜美人
+			</div>
+			<div class="attain-block-subtitle">
+				享多种美丽特质，专属一个人的优雅魅惑
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-1.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						眼部综合
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-2.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						进口硅胶隆鼻
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-3.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						自体脂肪填充/吸脂/溶脂
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-4.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						毛发
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				皙美人
+			</div>
+			<div class="attain-block-subtitle">
+				肌肤是会呼吸的疼？告别浓妆，素颜出街
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-5.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						超声刀
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-6.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						热玛吉
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-7.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						皮秒嫩肤
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-8.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						水光针
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-9.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						线雕
+					</div>
+					<div class="attain-item-price">
+						<!-- ￥28 -->
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				曲美人
+			</div>
+			<div class="attain-block-subtitle">
+				有一个好身材，穿什么都好看
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-10.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						丰胸
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-11.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						吸脂
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="attain-block">
+			<div class="attain-block-title">
+				笑美人
+			</div>
+			<div class="attain-block-subtitle">
+				你的嘴角带笑，美的无可救药
+			</div>
+			<div class="attain-item-container">
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-12.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						隐形矫正
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-13.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						进口种植牙
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+				<div class="attain-item">
+					<div class="attain-item-img">
+						<img src="/upload/active/special/beauty-14.jpg" alt="">
+					</div>
+					<div class="attain-item-name">
+						冷光美白
+					</div>
+					<div class="attain-item-price">
+						立减1万元
+					</div>
+					<div class="attain-item-link">
+						<a href="javascript:void(0)" title="">立即抢购</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- section activity description -->
+	<section class="desc">
+		<p class="desc-main">咦？专家都到哪里去了？智慧医美，认领你的国际一流专家</p>
+		<p class="desc-sub">美丽专享礼包，送给美丽的你。点击领取，想要的都给你</p>
+		<div class="desc-qrcode">
+			<p class="desc-qrcode-title">扫一扫  有惊喜哦</p>
+			<img src="/upload/active/special/desc-qrcode.jpg" alt="">
+		</div>
+	</section>
+
+	<!-- section expert -->
+	<section class="expert">
+		<div class="section-title">
+			<img src="/upload/active/special/expert-title.png" alt="">
+		</div>
+		<div class="expert-block">
+			<div class="expert-block-title">
+				上海
+			</div>
+			<div class="expert-item-container">
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-1.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						申涛
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-2.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						裘明华
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-3.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						吴莉平
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="expert-block">
+			<div class="expert-block-title">
+				北京
+			</div>
+			<div class="expert-item-container">
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-4.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						邱凌燕
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-5.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						马海欢
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-6.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						卢建建
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="expert-block">
+			<div class="expert-block-title">
+				广州
+			</div>
+			<div class="expert-item-container">
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-7.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						赵新央
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-8.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						刘晓军
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-item">
+					<div class="expert-item-img">
+						<img src="/upload/active/special/expert-9.jpg" alt="">
+					</div>
+					<div class="expert-name">
+						李闯
+					</div>
+					<div class="expert-item-link">
+						<a href="javascript:void(0)" title="">现在预约</a>
+					</div>
+				</div>
+				<div class="expert-link">
+					<a href="/index.php?a=doctor-list" title=""><img src="/upload/active/special/link-expert.png" alt=""></a>
+					<a href="/index.php?a=hospital-list" title=""><img src="/upload/active/special/link-hospital.png" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+<script>
+	$(function(){
+		$('.close-btn').click(function(){
+			$('.dialog').fadeOut(500);
+		})
+		$('.expert-item-link a').click(function(){
+			$('.dialog').fadeIn(500);
+		})
+		$('.attain-item-link a').click(function(){
+			$('.dialog').fadeIn(500);
+		})
+		$('.zero-block-link a').click(function(){
+			$('.dialog').fadeIn(500);
+		})
+		$('.discount-item-link a').click(function(){
+			$('.dialog').fadeIn(500);
+		})
+		$('.guide-zero').click(function(){
+			$("html,body").animate({scrollTop: $('.zero').position().top}, 1000);
+		})
+		$('.guide-discount').click(function(){
+			$("html,body").animate({scrollTop: $('.discount').position().top}, 1000);
+		})
+		$('.guide-attain').click(function(){
+			$("html,body").animate({scrollTop: $('.attain').position().top}, 1000);
+		})
+		$('.guide-beauty').click(function(){
+			$("html,body").animate({scrollTop: $('.beauty').position().top}, 1000);
+		})
+		$('.guide-expert').click(function(){
+			$("html,body").animate({scrollTop: $('.expert').position().top}, 1000);
+		})
+	})
+</script>

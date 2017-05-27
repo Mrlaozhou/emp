@@ -10,15 +10,30 @@ class Privative extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'test【e美评官网】';
-		$data['cssList'] = array('general.css');
+		$data['cssList'] = array('order.css');
 		$data['jsList'] = array();
 		$this->load->view('header.html',$data);
-		$this->load->view('privative/index');
+		$this->load->view('privative/order.html');
 		$this->load->view('footer.html');
 	}
 
-	public function fetch_userinfo_not_login()
+	public function lst()
 	{
-		/**///
+		$data['title'] = 'test【e美评官网】';
+		$data['cssList'] = array('order-list.css');
+		$data['jsList'] = array();
+		$this->load->view('header.html',$data);
+		$this->load->view('privative/order-list.html');
+		$this->load->view('footer.html');
+	}
+
+	public function detial()
+	{
+		$data['title'] = 'test【e美评官网】';
+		$data['cssList'] = array('order-detial.css');
+		$data['jsList'] = array();
+		$this->load->view('header.html',$data);
+		$this->load->view('privative/order-detial.html');
+		$this->load->view('footer.html');
 	}
 }

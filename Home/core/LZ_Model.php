@@ -39,24 +39,28 @@ class LZ_Model extends CI_Model
 		if( $isBatch )
 		{
 			//添加前置
-			$this->_before_insert( $data );
+			if( $this->_before_insert( $data ) === FALSE )
+				return FALSE;
 			//添加
 			$result = $this->db->insert_batch( $table, $data );
 			
 			//添加后置
 			$id = $this->db->insert_id();
-			$this->_after_insert($id);
+			if( $this->_after_insert($id) === FALSE )
+				return FASLE;
 
 			return $result;
 		}
 
 		//添加前置
-		$this->_before_add( $data );
+		if( $this->_before_add( $data ) === FALSE )
+			return FALSE;
 		//添加
 		$result = $this->db->insert( $table, $data );
 		//添加后置
 		$id = $this->db->insert_id();
-		$this->_after_add($id);
+		if( $this->_after_add($id) === FALSE )
+			return FALSE;
 
 		return $result;
 	}
@@ -92,22 +96,26 @@ class LZ_Model extends CI_Model
 		if( $isBatch )
 		{
 			//修改前置
-			$this->_before_save( $data );
+			if( $this->_before_save( $data  ) === FALSE )
+				return FALSE;
 			//执行
 			$this->db->where('id',$data['id']);
 			$result = $this->db->update_batch( $table, $data );
 			//修改后置
-			$this->_after_save($data['id']);
+			if( $this->_after_save($data['id']) === FALSE )
+				return FALSE;
 			return $result;
 		}	
 
 		//修改前置
-		$this->_before_save( $data );
+		if( $this->_before_save( $data ) === FALSE )
+			return FALSE;
 		//执行
 		$this->db->where('id',$data['id']);
 		$result = $this->db->update( $table, $data );
 		//修改后置
-		$this->_after_save($data['id']);
+		if( $this->_after_save($data['id']) === FALSE )
+			return FALSE;
 
 		return $result;
 	}
@@ -127,6 +135,27 @@ class LZ_Model extends CI_Model
 	protected function _after_save( $id ) {}
 
 
+	
+
+	public function del($table = '', $where = '', $limit = NULL, $reset_data = TRUE)
+	{
+		//删除前置
+		if ( $this->_before_del( $where ) === FALSE )
+			return FALSE;
+
+		$info = $this->db->delete($table, $where, $limit, $reset_data);
+
+		//删除后置
+		if ( $this->_after_del( $where ) === FALSE )
+			return FALSE;
+		
+		return TRUE;
+	}
+
+	protected function _before_del( $where ) {}
+
+
+	protected function _after_del( $where ) {}
 	/**
 	 * [_get_auto_value 自增减]
 	 * @param  [type]  $pk    [主键值]

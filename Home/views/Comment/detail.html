@@ -1,0 +1,262 @@
+
+	<div class="fluid">
+		<div class="crumbs">
+			<a href="javascript:void(0)">e美评时尚网</a> > <a href="javascript:void(0)">时尚潮流</a> > 正文
+		</div>
+		<div class="fluid-l">
+			<div class="article-title">千金难求入场券 去戛纳做慈善也要抢破头！</div>
+			<div class="article-tools">
+				<span class="avatar">
+					<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar.png" alt="">
+				</span>
+				<span class="author">
+					<span>编辑：</span>
+					<span class="author-name">Violet</span>
+				</span>
+				<span class="date">2017-05-15</span>
+				<span class="source">来源于：e美评</span>
+				<span class="share">
+					<span class="share-title">分享：</span>
+					<span class="share-icon">
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/share-wechat.png" alt="">
+					</span>
+					<span class="share-icon">
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/share-weibo.png" alt="">
+					</span>
+					<span class="share-icon">
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/share-qzone.png" alt="">
+					</span>
+				</span>
+			</div>
+			<div class="msg-section">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/quot-l.png" class="quot-l">
+				提到戛纳，其实除了各大电影首映与颁奖礼，还有各种吸睛指数百分百的沙滩派对与联欢晚会，而最著名的一个要数amfAR慈善晚宴。别看这个晚宴已经成为名人斗艳的另一战场，甚至让人觉得“烟火气”太冲，但是在脂粉的掩盖下，却促成庞大的慈善基金筹措工作。
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/quot-r.png" class="quot-r">
+			</div>
+
+<!-------------->
+			<div class="mix">
+				<div class="img-block">
+					<div>
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/mix-1.jpg" alt="">
+					</div>
+					<div class="block-text">
+						千金难求入场券 去戛纳做慈善也要抢破头！
+					</div>
+				</div>
+				<div class="word">
+					amfAR全名为American Foundation for AIDS Research，<br>由传奇影星伊丽莎白-泰勒与Mathilde Krim于1985年创建。<br>为了给艾滋病的研究筹措资金，<br>由amfAR组织的慈善晚宴每年都会在戛纳举办，<br>并选址昂蒂布角海角酒店(Hôtel du Cap-Eden-Roc)，<br>然后逐渐演变成一场汇聚近千人的盛会。
+				</div>
+				<div class="img-block" style="margin: 50px 0 60px">
+					<div>
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/mix-2.jpg" alt="">
+					</div>
+					<div class="block-text">
+						伊丽莎白-泰勒是amfAR创始人之一
+					</div>
+				</div>
+				<div class="img-block">
+					<div>
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/mix-3.jpg" alt="">
+					</div>
+					<div class="block-text">
+						amfAR慈善晚宴盛景
+					</div>
+				</div>
+				<div class="word">
+					别看嘉宾是去“做公益”的，但是想进去却难如登天，<br>堪称戛纳各大活动里最难搞到邀请函的活动。<br>就连网球冠军鲍里斯·贝克尔，<br>都要自掏腰包11,500欧元才能获得一个座位。
+				</div>
+			</div>
+<!-------------->
+
+
+			<div class="bottom-tools">
+				<span class="page-prev"><i class="arrow"></i>上一页</span>
+				<span class="page-index"><i>1</i>  <i class="active">2</i>  <i>3</i></span>
+				<span class="page-next">下一页<i class="arrow"></i></span>
+				<span class="read-more">全文阅读</span>
+			</div>
+			<div class="mark-tools">
+				<span class="mark-fav">
+					<span class="icon-fav"></span>
+					<span class="mark-text">喜欢</span>
+					<span class="mark-num">181</span>
+				</span>
+				<span class="mark-com">
+					<span class="icon-com"></span>
+					<!-- <img src="" alt=""> -->
+					<span class="mark-text">评论</span>
+					<span class="mark-num">72</span>
+				</span>
+			</div>
+			<div class="load-more">
+				加载较早的评论
+			</div>
+			<div class="comment-container">
+
+			<?php foreach( $CR as $k => $v ):?>
+				<div class="comment">
+					<div class="comment-avatar">
+						<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-1.png" alt="">
+					</div>
+					<div class="comment-info">
+						<div class="comment-user-date">
+							<span class="comment-user">fyKXlCZp</span>
+							<span class="comment-date">  -  1个月前说：</span>
+						</div>
+						<div class="comment-msg">
+							<?php echo $v['content'];?>
+						</div>
+					</div>
+				</div>
+			<?php endforeach;?>
+
+			</div>
+			<div class="submit" style="padding:20px 0;">
+				<div class="comment-avatar"><img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-5.png" alt=""></div>
+				<div class="comment-form">
+					<div class="comment-input">
+						<textarea id="value" name="" placeholder="增加评论或者@好友"></textarea>
+					</div>
+					<div class="comment-submit">
+						<a href="javascript:void(0)" onclick="do_comment();" title="">添加评论</a>
+						<input type="hidden" tid="<?= $tid ?>" id="tid">
+						<input type="hidden" uid="<?= $uid ?>" id="uid">
+					</div>
+				</div>
+			</div>
+			<div class="favorite-container">
+				<div class="favorite-count">181喜欢</div>
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-6.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-7.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-8.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-9.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-10.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-11.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-12.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-13.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-14.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-15.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-16.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-17.png" alt="">
+				<img src="<?= PUBLICS ?>Home/images/fashion-detail/avatar-18.png" alt="">
+			</div>
+
+			<div class="related-read">
+				<div class="relate-title">相关阅读</div>
+				<div class="relate-content">
+					<div class="sm-module">
+						<a href="javascript:void(0)" class="item-link">
+							<div class="img"><img src="<?= PUBLICS ?>Home/images/fashion-detail/relate-1.jpg" alt=""></div>
+							<div class="desc">如何打造70年代复古风？超模Lili Sumner ins中有答案</div>
+						</a>
+					</div>
+					<div class="sm-module">
+						<a href="javascript:void(0)" class="item-link">
+							<div class="img"><img src="<?= PUBLICS ?>Home/images/fashion-detail/relate-2.jpg" alt=""></div>
+							<div class="desc">Prada2018早春女装秀</div>
+						</a>
+					</div>
+					<div class="sm-module">
+						<a href="javascript:void(0)" class="item-link">
+							<div class="img"><img src="<?= PUBLICS ?>Home/images/fashion-detail/relate-3.jpg" alt=""></div>
+							<div class="desc">如何打造70年代复古风？超模Lili Sumner ins中有答案</div>
+						</a>
+					</div>
+					<div class="sm-module">
+						<a href="javascript:void(0)" class="item-link">
+							<div class="img"><img src="<?= PUBLICS ?>Home/images/fashion-detail/relate-4.jpg" alt=""></div>
+							<div class="desc">Prada2018早春女装秀</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="fluid-r">
+			<div class="fluid-r-img">
+				<img src="<?= PUBLICS ?>Home/images/discuss/hotspot-r-img.jpg" alt="">
+			</div>
+			<div class="fluid-r-title">
+				<div class="fluid-r-tag">今日热点</div>
+				<div class="fluid-r-tag-icon"></div>
+			</div>
+			<div class="fluid-r-desc">
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">时尚日记携刘诗诗跨界设计</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">迪士尼童星变超模?坐拥4千万粉丝超会穿!</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">裤管越大越时髦！2017年阔腿裤还要继续火...</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">无热血，不少年！</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">时尚日记携刘诗诗跨界设计</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">迪士尼童星变超模?坐拥4千万粉丝超会穿!</a>
+				</div>
+				<div class="fluid-r-desc-item has-bottom">
+					<a href="javascript:void(0)">裤管越大越时髦！2017年阔腿裤还要继续火...</a>
+				</div>
+				<div class="fluid-r-desc-item">
+					<a href="javascript:void(0)">无热血，不少年！</a>
+				</div>
+			</div>
+			<div class="change-group">
+				<div class="change-btn">
+					换一组看看
+				</div>
+				<div class="change-btn-line"></div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+function do_comment()
+{
+	var tid = $('#tid').attr('tid');
+	var uid = $('#uid').attr('uid');
+	var value = $('#value').val();
+
+	if( uid != '' )
+	{
+		if( value != '' )
+		{
+			$.ajax({
+				url:"<?php echo U('Comment/do_comment');?>",
+				dataType:"JSON",
+				type:"POST",
+				data:{'content':value,'topic_id':tid},
+				success:function(msg)
+				{
+					
+					if( msg.status )
+					{
+						var html = "<div class='comment'><div class='comment-avatar'><img src='<?= PUBLICS ?>Home/images/fashion-detail/avatar-1.png' alt=''></div><div class='comment-info'><div class='comment-user-date'><span class='comment-user'>fyKXlCZp</span><span class='comment-date'>  -  1个月前说：</span></div><div class='comment-msg'>"+value+"</div></div></div>";
+						$(".submit").before(html);
+					}
+					else
+					{
+						alert(msg.remark);
+					}
+				}
+			})
+		}
+		else
+		{
+			alert('请写入评论内容！');
+		}		
+	}
+	else
+	{
+		alert('请先登录！');
+	}
+}
+
+</script>

@@ -98,3 +98,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('PUBLICS')		   	   OR define('PUBLICS','/Public/');
 defined('UPLOAD')		   	   OR define('UPLOAD',PUBLICS.'Upload/');
 defined('PUBLIC_ADMIN')		   OR define('PUBLIC_ADMIN',PUBLICS.'Admin/');
+defined('TOPICS')			   OR define('TOPICS','./Public/Upload/Topic/');

@@ -9,14 +9,53 @@ class Comment extends LZ_Controller
 	}
 
 	/**
-	 * [index 主页显示话题列表]
+	 * [index 主页显示话题分离、话题 列表]
 	 * @return [type] [description]
 	 */
 	public function index()
 	{
-		echoJson($this->C->all()->result_array());
+		$data['title'] = 'e美评【e美评官网】';
+		$data['cssList'] = array('discuss.css');
+		$data['jsList'] = array('common.js');
+		$this->load->view('header.html',$data);
+		$this->load->view('Comment/discuss.html');
+		$this->load->view('footer.html');
+	}
+	
+	/**
+	 * [current 话题列表页]
+	 * @return [type] [description]
+	 */
+	public function lst()
+	{
+		$data['title'] = '时尚潮流_e美评【e美评官网】';
+		$data['cssList'] = array('current.css');
+		$data['jsList'] = array();
+		$this->load->view('header.html',$data);
+		$this->load->view('Comment/lst.html');
+		$this->load->view('footer.html');
 	}
 
+	/**
+	 * [current 话题详情页]
+	 * @return [type] [description]
+	 */
+	public function detial()
+	{
+		$return = $this->C->get_CR();
+
+		$data['CR']			= $return['result'];
+		$data['tid']		= $return['tid'];
+		$data['uid']		= $this->session->home_id;
+		$data['title'] 		= '详情_时尚潮流_e美评【e美评官网】';
+		$data['cssList'] 	= array('fashion-detail.css');
+		$data['jsList'] 	= array();
+
+		$this->load->view('header.html',$data);
+		$this->load->view('Comment/detail.html');
+		$this->load->view('footer.html');
+	}
+	
 	/**
 	 * [show_comment 显示话题专栏页面]
 	 */
@@ -30,14 +69,17 @@ class Comment extends LZ_Controller
 	 */
 	public function do_comment() 
 	{
+		if( ! $this->session->home_id )
+			echoJson(array('status'=>FALSE,'remark'=>'请先登录!'));
+		
 		$result = $this->C->add_comment();
 		if( $result )
 		{
-			echo 'Ok';
+			echoJson(array('status'=>TRUE,'info'=>$result));
 		}
 		else
 		{
-			echo 'Bad';
+			echoJson(array('status'=>FALSE,'remark'=>$this->C->error));
 		}
 	}
 
