@@ -35,4 +35,23 @@ class Topiccategray extends LZ_Controller
 			echoJSon( array('status'=>FALSE, 'info'=>'删除失败！') );
 		echoJson( array('status'=>TRUE, 'info'=>'删除成功!') );
 	}
+
+	public function save()
+	{
+		$data = $this->input->get();
+		$info = $this->TC->get_info( $data );
+		$data['title'] = '修改话题分类';
+		$data['info'] = $info;
+		
+		$this->load->view('Topiccategray/save.html', $data);
+	}
+
+	public function do_save()
+	{
+		$data = $this->input->post();
+
+		if( ! $this->TC->save_cate( $data ) )
+			jump( $this->TC->error, U('Topiccategray/save?id='.$data['id'],2), 2 );
+		jump( '修改成功！', U('Topiccategray/lst',2), 2 );
+	}
 }

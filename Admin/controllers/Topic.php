@@ -20,8 +20,8 @@ class Topic extends LZ_Controller
 	public function do_add() 
 	{
 		if ( ! $this->T->add_topic() )
-			jump( $this->T->error, U('Topic/add', 2), 2 );
-			//dump($this->T->error);
+			//jump( $this->T->error, U('Topic/add', 2), 2 );
+			dump($this->T->error);
 		jump( '添加成功！', U('Topic/lst', 2), 2 );
 	}
 
@@ -60,5 +60,4 @@ class Topic extends LZ_Controller
 			jump( $this->T->error, U('Topic/save?id='.$data['id'],2), 2 );
 		jump( '修改成功！', U('Topic/lst',2), 2 );
 	}
-
 }

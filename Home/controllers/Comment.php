@@ -43,14 +43,14 @@ class Comment extends LZ_Controller
 	public function detial()
 	{
 		$return = $this->C->get_CR();
-
 		$data['CR']			= $return['result'];
 		$data['tid']		= $return['tid'];
 		$data['uid']		= $this->session->home_id;
 		$data['title'] 		= '详情_时尚潮流_e美评【e美评官网】';
 		$data['cssList'] 	= array('fashion-detail.css');
 		$data['jsList'] 	= array();
-
+		
+		// dump($data);
 		$this->load->view('header.html',$data);
 		$this->load->view('Comment/detail.html');
 		$this->load->view('footer.html');

@@ -35,6 +35,11 @@ class Topiccategray_Model extends LZ_Model
 		return $this->get_all( self::$_table );
 	}
 
+	public function get_info( $where )
+	{
+		return $this->get_all( self::$_table, $where )->row_array();
+	}
+
 	public function add_cate()
 	{
 		//接受表单数据
@@ -75,5 +80,37 @@ class Topiccategray_Model extends LZ_Model
 
 		//删除
 		return $this->del( self::$_table, $data );
+	}
+
+	protected function _before_del( $where ) 
+	{
+		/**///删除话题分类的同时  删除该分类下的话题信息、
+
+		//查询此分类下的 topic_id
+		$this->db->select('id');
+		$topicIds = $this->get_all( 'topic', array( 'cate_id'=>$where['id'] ) )->result_array();
+		
+		//删除库中信息
+		$this->db->delete( 'topic', $where );
+
+		//删除磁盘信息
+		foreach( $topicIds as $k => $v )
+		{
+			if( is_dir( TOPICS.$v['id'] ) )
+				remove_dir( TOPICS.$v['id'].'/' );
+		}
+	}
+
+	public function save_cate( $data )
+	{
+		$this->form_validation->set_rules( self::$_rules );
+
+		if( $this->form_validation->run() === FALSE )
+		{
+			$this->error = validation_errors();
+			return FALSE;
+		}
+
+		return $this->save( self::$_table, $data );
 	}
 }

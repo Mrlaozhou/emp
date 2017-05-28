@@ -84,6 +84,19 @@ class Comment_model extends LZ_Model
 		return array('result'=>$result,'tid'=>$topic_id);
 	}
 
+	public function get_topic()
+	{
+		//接收参数
+		$data = $this->input->get();
+		if( ! $data )
+			return FALSE;
+
+		$this->db->select('id,author,title,content,mix');
+
+		return $this->get_all( 'topic', $data )->row_array();
+	}
+
+
 	/**
 	 * [add_comment 添加评论]
 	 * @param [type] $data [数据]

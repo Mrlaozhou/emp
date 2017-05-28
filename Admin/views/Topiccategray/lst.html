@@ -35,6 +35,8 @@
                   <th><?php echo $v['is_valid'];?></th>
                   <th>
                     <a href="javascript:void();" delId="<?php echo $v['id'];?>" type="button" class="btn btn-warning btn-sm"  onclick="delItem(this);">删除</a>
+
+                    <a href="<?php echo U('Topiccategray/save?id='.$v['id'],2);?>" type="button" class="btn btn-primary btn-sm">修改</a>
                   </th>
               </tr>
           </thead>

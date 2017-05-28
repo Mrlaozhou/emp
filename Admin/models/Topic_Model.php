@@ -8,7 +8,7 @@ class Topic_Model extends LZ_Model
 				array(
 						'field'		=>	'title',
 						'label'		=>	'title',
-						'rules'		=>	'required|max_length[10]',
+						'rules'		=>	'required|max_length[100]',
 						'errors'	=>	array(
 							'required'		=>	'标题不能为空',
 							'max_length'	=>	'标题少于30个汉字',
@@ -40,13 +40,15 @@ class Topic_Model extends LZ_Model
 							)
 					),
 				array(
-						'field'		=>	'mix',
-						'label'		=>	'mix',
-						'rules'		=>	'required',
+						'field'		=>	'intro',
+						'label'		=>	'intro',
+						'rules'		=>	'required|max_length[300]',
 						'errors'	=>	array(
-							'required'	=>	'混合代码不能为空！',
+							'required'	=>	'介绍不能为空',
+							'max_length'=>	'介绍不能多于300汉字',
 							)
 					),
+				
 		);
 	public function __construct()
 	{
@@ -88,7 +90,7 @@ class Topic_Model extends LZ_Model
 	public function add_topic() 
 	{
 		//接收数据
-		$data = $this->input->post( array('title', 'is_index', 'is_valid', 'remark', 'cate_id') );
+		$data = $this->input->post( array('title', 'is_index', 'is_valid', 'cate_id', 'author', 'intro' ) );
 
 		//设置验证规则
 		 $this->form_validation->set_rules( self::$_rules );
@@ -110,8 +112,8 @@ class Topic_Model extends LZ_Model
 	 */
 	protected function _before_add( &$data ) 
 	{
-		$data['mix'] = htmlspecialchars($data['mix']);
-		dump($data);
+		$data['time'] = time();
+		//dump($data);
 	}
 
 	/**
@@ -138,7 +140,7 @@ class Topic_Model extends LZ_Model
         $this->load->library( 'upload', $config );
 
         //上传html
-        /*
+        
         if ( isset( $_FILES['html'] ) && $_FILES['html']['error'] === 0 )
         {
         	if ( ! $this->upload->do_upload('html') )
@@ -152,7 +154,7 @@ class Topic_Model extends LZ_Model
         	$this->error = 'html文件出错！';
         	return FALSE;
         }
-		*/
+		
         //上传图片
         
         if ( isset( $_FILES['pic'] ) && $_FILES['pic']['error'] === 0 )
@@ -188,8 +190,6 @@ class Topic_Model extends LZ_Model
         	$this->error = 'rar文件出错！';
         	return FALSE;
         }
-
-        
 	}
 
 	public function del_topic()
@@ -257,6 +257,7 @@ class Topic_Model extends LZ_Model
         $this->load->library( 'upload', $config );
 
         //上传html
+        
         if ( isset( $_FILES['html'] ) && $_FILES['html']['error'] === 0 )
         {
         	if ( ! $this->upload->do_upload('html') )
@@ -266,7 +267,6 @@ class Topic_Model extends LZ_Model
         	}
         }
         
-
         //上传图片
         if ( isset( $_FILES['pic'] ) && $_FILES['pic']['error'] === 0 )
         {
@@ -295,9 +295,6 @@ class Topic_Model extends LZ_Model
 	        $filename = $path.$id.'.rar';
 	        UnRar( $filename, $path, TRUE );
         }
-        
-
-        
 	}
 
 	/**

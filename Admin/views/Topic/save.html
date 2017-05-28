@@ -46,6 +46,13 @@
                  <input class="form-control" id="ds_host" type="text" placeholder="" name="title"  value="<?php echo $info['title'];?>"/>
               </div>           
            </div>
+            
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">作者</label>
+              <div class="col-sm-3">
+                 <input class="form-control" id="ds_host" type="text" placeholder="" name="author" value="<?php echo $info['author'];?>"/>
+              </div>           
+           </div>
 
            <div class="form-group">
               <label class="col-sm-2 control-label" for="ds_host">显示到主页</label>
@@ -88,10 +95,10 @@
            </div>
 
            <div class="form-group">
-              <label class="col-sm-2 control-label" for="ds_host">备注</label>
+              <label class="col-sm-2 control-label" for="ds_host">介绍</label>
               <div class="col-sm-8">
-                 <textarea class="form-control" name="remark">
-                   <?php echo $info['remark'];?>
+                 <textarea class="form-control" name="intro">
+                   <?php echo $info['intro'];?>
                  </textarea>
               </div>
            </div>
