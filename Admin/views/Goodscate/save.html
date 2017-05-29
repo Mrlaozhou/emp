@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="<?= PUBLIC_ADMIN ?>css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <button type="button" class="btn btn-primary pull-right"><?= $title ?></button>
+
+    <form class="form-horizontal" role="form" action="<?php echo U('Topiccategray/do_save', 2);?>" method="post" enctype="multipart/form-data">
+
+   
+        <fieldset>
+           <legend>基本信息</legend>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">话题分类名称</label>
+              <div class="col-sm-4">
+                 <input class="form-control" id="ds_host" type="text" placeholder="" name="name" value="<?php echo $info['name'];?>"/>
+              </div>           
+           </div>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">是否有效</label>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio" name="is_valid" value="1" 
+                <?php if( $info['is_valid'] == '1' ):?>
+                  checked="checked"
+                <?php endif?>
+                  />
+                 是
+              </div>
+              <div class="col-sm-1">
+                 <input class=" "  type="radio" name="is_valid" value='0' 
+                <?php if( $info['is_valid'] == '0' ):?>
+                  checked="checked"
+                <?php endif?>
+                 />
+                 否
+              </div>
+           </div>
+
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">备注</label>
+              <div class="col-sm-8">
+                 <textarea class="form-control" name="remark"><?php echo $info['remark'];?></textarea>
+              </div>
+           </div>
+           
+        </fieldset>  
+
+        <fieldset>
+           <legend></legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host"></label>
+              <div class="col-sm-9">
+                 <button type="submit" class="btn btn-primary ">Submit</button>
+                 <button type="reset" class="btn btn-warning ">reset</button>
+                 <input type="hidden" name="id" value="<?php echo $info['id'];?>">
+              </div>  
+           </div>    
+        </fieldset>
+      
+
+        <fieldset>
+           <legend></legend>
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host"></label>
+              <div class="col-sm-9" style="color:red;">
+                 备注：此功能是添加 评论话题 的分类信息
+              </div>  
+           </div>    
+        </fieldset>
+    </form>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="<?= PUBLIC_ADMIN ?>js/custom.js"></script>
+
+
+</body>
+</html>
