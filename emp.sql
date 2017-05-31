@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-05-29 09:43:54
+Date: 2017-05-31 17:21:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,6 +57,19 @@ CREATE TABLE `emp_comment` (
   KEY `topic_id` (`topic_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for emp_goodscate
+-- ----------------------------
+DROP TABLE IF EXISTS `emp_goodscate`;
+CREATE TABLE `emp_goodscate` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `remark` varchar(300) NOT NULL DEFAULT '',
+  `is_valid` enum('0','1') NOT NULL DEFAULT '1',
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for emp_hot
@@ -119,7 +132,7 @@ CREATE TABLE `emp_topiccategray` (
   `remark` varchar(300) NOT NULL DEFAULT '',
   `is_valid` enum('0','1') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for emp_user
