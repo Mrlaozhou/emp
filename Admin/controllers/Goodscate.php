@@ -39,4 +39,24 @@ class Goodscate extends LZ_Controller
 			echoJson(array('status'=>TRUE,'info'=>$this->GC->error));
 		echoJson(array('status'=>TRUE));
 	}
+
+	public function save()
+	{
+		//接收 ID
+		$config = $this->input->get();
+
+		$data = $this->GC->get_info( (int)$config['id'] );
+
+		$data['title'] = '修改商品分类';
+		
+		$this->load->view( 'Goodscate/save.html', $data );
+	}
+
+	public function do_save()
+	{
+		$data = $this->input->post();
+		if ( ! $this->GC->save_cate( $data ) )
+			dump($this->GC->error);
+		jump( '修改成功！', U('Goodscate/lst',2), 2 );
+	}
 }
