@@ -6,6 +6,7 @@ class Goods extends LZ_Controller
 	{
 		parent::__construct();
 		$this->load->model('Goods_Model','G');
+		$this->load->model('partner_Model','P');
 	}
 
 	public function add()
@@ -13,6 +14,7 @@ class Goods extends LZ_Controller
 		$data['title']	= '添加商品';
 		$data['cates']	= $this->G->get_cate();
 		unset($data['cates']['ids']);
+		$data['partners']	= $this->P->get_partner();
 		// dump($data);
 		$this->load->view( 'Goods/add.html', $data );
 	}
@@ -21,7 +23,8 @@ class Goods extends LZ_Controller
 	{
 		// dump($_POST,2);
 		if( ! $this->G->add_goods() )
-			jump( $this->G->error, U('Goods/add',2), 2 );
+			// jump( $this->G->error, U('Goods/add',2), 2 );
+			dump($this->G->error);
 		jump( '添加成功！', U('Goods/lst',2), 2 );
 	}
 
@@ -48,6 +51,8 @@ class Goods extends LZ_Controller
 		$data['title']	= '添加商品';
 		$data['cates']	= $this->G->get_cate();
 		$data['info']	= $this->G->get_info( $data );
+		$data['partners']	= $this->P->get_partner();
+
 
 		// dump($data,2);
 		unset($data['cates']['ids']);

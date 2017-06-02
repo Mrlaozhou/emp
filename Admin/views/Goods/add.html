@@ -37,6 +37,21 @@
                  </select>
               </div>           
            </div>
+      
+           <div class="form-group">
+              <label class="col-sm-2 control-label" for="ds_host">所属合作商</label>
+              <div class="col-sm-6">
+                 <select name="s_id" >
+                    <option value="0">选择合作商</option>
+                <?php foreach( $partners as $k => $v ):?>
+                   <option value="<?php echo $v['id'];?>">
+                     <?php echo $v['name'];?>
+                   </option>
+                <?php endforeach;?>
+
+                 </select>
+              </div>           
+           </div>
 
            <div class="form-group">
               <label class="col-sm-2 control-label" for="ds_host">商品名称</label>

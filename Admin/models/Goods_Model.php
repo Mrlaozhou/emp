@@ -88,7 +88,13 @@ class Goods_Model extends LZ_Model
 			return FALSE;
 		}
 
-		$config['upload_path']		= $path;
+		if( (int)$data['s_id'] === 0 )
+		{
+			$this->error = "请选择合作商";
+			return FALSE;
+		}
+
+		$config['upload_path']		= GOODS;
         $config['allowed_types']    = '*';
         $config['max_size']     	= 0;
         $config['overwrite']     	= TRUE;
@@ -159,6 +165,12 @@ class Goods_Model extends LZ_Model
 		if( (int)$data['cate_id'] === 0 )
 		{
 			$this->error = "请选择分类";
+			return FALSE;
+		}
+
+		if( (int)$data['s_id'] === 0 )
+		{
+			$this->error = "请选择合作商";
 			return FALSE;
 		}
 
