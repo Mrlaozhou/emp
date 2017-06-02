@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/global.css">
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/register.css">
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<!-- 发送邮件弹框组件 -->
+	<div class="dialog-post">
+		<div class="post-well">
+			<span class="post-close"></span>
+			<div class="post-title">
+				注册成功
+			</div>
+			<div class="post-desc">
+				验证邮件已经发送到 <span class="jvc-mail"></span>，请点击查收邮件激活账号。没有收到激活邮件？请耐心等待，或者 <a href="javascript:void(0)" class="resend">重新发送 <span class="jvc-time"></span></a>
+			</div>
+			<div class="post-back">
+				<a href="<?php echo U('Index/index');?>" title=""> « 返回首页</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 注册面板 -->
+	<div class="well">
+		<div class="well-logo">
+			<img src="<?= PUBLICS ?>Home/images/register/well-logo.png" alt="">
+		</div>
+		<div class="logo-bottom">
+			<img src="<?= PUBLICS ?>Home/images/register/logo-bottom.png" alt="">
+		</div>
+		<div class="well-title">
+			<a style="color:#000;" href="<?php echo U('Register/mb_register');?>">使用手机号</a>
+			/
+			<a style="color:#000;" href="<?php echo U('Register/mb_register');?>">邮箱注册</a>
+		</div>
+		<div class="input-control">
+			<input type="text" name="" placeholder="输入手机号或者邮箱">
+		</div>
+		<div class="captcha">
+			<span class="drag-bg"></span>
+			<span class="handle" ondragstart="return false;"></span>
+			<span class="captcha-text">按住滑块，拖动到最右边</span>
+		</div>
+		<div class="register-btn">
+			<a href="javascript:void(0)">注册</a>
+		</div>
+		<div class="back-login"><a href="javascript:void(0)">« 返回登陆页面</a></div>
+	</div>
+	<form action="<?php echo U('RegisterMail/index');?>" method="post" id="tel">
+		<input type="hidden" name='tel' class="tel-value">
+	</form>
+</body>
+</html>
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+<!-- 拖拽验证组件 -->
+<script>
+	(function($){
+
+		$.fn.captcha=function(options)
+		{
+			var defaults={success:function(){}}
+	        var options=$.extend(defaults, options);
+
+			var x,isMove=false;
+			
+			// 需要滑动的最小距离
+			var minWidth=$('.captcha').width()-$('.handle').width();
+
+			// 获取鼠标按下时的x坐标
+			$('.handle').mousedown(function(event)
+			{
+				isMove=true;
+				x=event.pageX-parseInt($('.handle').css('left'));
+			})
+
+			// 鼠标移动的距离判断
+			$(document).mousemove(function(event)
+			{
+				var _x=event.pageX-x;
+				if(isMove)
+				{
+					if(_x>=0 && _x<minWidth)
+					{
+						$('.drag-bg').css({'width':_x});
+						$('.handle').css({'left':_x});
+					}
+					else if(_x>minWidth)
+					{
+						handleSuccess();
+					}
+				}
+			}).mouseup(function(event)
+			{
+				isMove=false;
+		        var _x=event.pageX-x;
+
+		        //鼠标松开时，如果没有达到最大距离位置，滑块就返回初始位置(即验证不成功)
+		        if(_x < minWidth)
+		        {
+		        	$('.handle').animate({'left':0},300)
+		      		$('.drag-bg').animate({'width':0},300)
+		        }
+			})
+
+			// 验证成功回调
+			function handleSuccess()
+			{
+		        $('.captcha-text').text('验证通过').css({'color':'#fff'});
+		        $('.handle').unbind('mousedown').addClass('handle-success').css({'left':'245px'});
+		        $('.drag-bg').css({'width':'245px'});
+		        $(document).unbind('mousemove');
+		        $(document).unbind('mouseup');
+		        options.success();
+			}
+		}
+	})(jQuery)
+</script>
+
+<script>
+	var captchaSuccess=false;
+	$(window).captcha({success:function(){captchaSuccess=true;}});
+	var s=60;
+	// 注册按钮点击事件
+	$('.register-btn a').click(function()
+	{
+		if(captchaSuccess)
+		{
+			// 过滤掉用户输入中的所有空格
+			var data=$('.input-control input').val().replace(/\s/g,"");
+
+			/*
+			* 1.匹配手机验证规则,如果合法则跳转到手机注册页面
+			* 2.匹配邮箱验证规则,如果合法则跳转到邮箱注册页面
+			* 3.如果都不匹配则throw error;
+			*/
+			/**
+			* @method:验证手机号是否合法
+			* @descrition:手机号码段规则
+			* 13段：130、131、132、133、134、135、136、137、138、139
+			* 14段：145、147
+			* 15段：150、151、152、153、155、156、157、158、159
+			* 17段：170、176、177、178
+			* 18段：180、181、182、183、184、185、186、187、188、189
+			* 国际码 如：中国(+86)
+			*/
+			var reg_tel=/^((\+?[0-9]{1,4})|(\(\+86\)))?(13[0-9]|14[57]|15[012356789]|17[03678]|18[0-9])\d{8}$/;
+
+			/**
+			* @method:验证邮箱是否合法
+			* @descrition:邮箱规则
+			* 1.邮箱以a-z、A-Z、0-9开头，最小长度为1.
+			* 2.如果左侧部分包含-、_、.则这些特殊符号的前面必须包一位数字或字母。
+			* 3.@符号是必填项
+			* 4.右则部分可分为两部分，第一部分为邮件提供商域名地址，第二部分为域名后缀，现已知的最短为2位。最长的为6为。
+			* 5.邮件提供商域可以包含特殊字符-、_、.
+			*/
+			var reg_mail=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+			if(reg_tel.test(data))
+			{
+				postTel(data)
+			}
+			else if(reg_mail.test(data))
+			{
+				postMail(data);
+			}
+			else
+			{
+				$('.dialog').dialog({'type':'notice','msg':'请输入有效的注册信息'});
+			}
+		}
+		else
+		{
+			$('.dialog').dialog({'type':'notice','msg':'请完成验证码'});
+		}
+	})
+
+	// 关闭邮箱验证弹框
+	$('.post-close').click(function(){
+		// $('.dialog-post').fadeOut(300);
+		location=location
+	})
+
+	// 发送手机验证
+	function postTel(tel){
+		// 验证手机号码
+		$.ajax({
+			url:'',
+			dataType:'json',
+			data:{'tel':tel},
+			type:'POST',
+			success:function(res){
+				if(res.status)
+				{
+					// 跳转到手机注册补全信息页面
+					$('.tel-value').val(tel);
+					$('#tel').submit();
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+				}
+			}
+		})
+	}
+
+
+	// 发送邮件验证
+	function postMail(mail){
+		/*
+		* 1.验证邮箱是否合法
+		* 2.验证邮箱是否已注册
+		* 3.并发送邮箱验证信息
+		*/
+		$.ajax({
+			url:'',
+			dataType:'json',
+			data:{'mail':mail},
+			type:'POST',
+			success:function(res){
+				if(res.status)
+				{
+					$('.jvc-mail').html(res.data.mail);
+					$('.dialog-post').fadeIn(300,function(){
+						var t=setInterval(function(){
+							if(s>0)
+							{
+								s--;
+								$('.jvc-time').html(s+'s');
+							}
+							else
+							{
+								$('.jvc-time').html('');
+								$('.resend').addClass('enable');
+								clearInterval(t);
+							}
+						},1000)
+					});
+				}
+			}
+		})
+	}
+
+
+	// 重新发送邮箱验证
+	$('.resend').click(function(){
+		if($(this).hasClass('enable')){
+			s=60;
+			var mail=$('.input-control').val();
+			postMail(mail);
+			$('.resend').removeClass('enable')
+		}
+		else
+		{
+			return false;
+		}
+	})
+</script>

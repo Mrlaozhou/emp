@@ -24,5 +24,18 @@ class Register extends LZ_Controller
 		jump('注册成功！','/');
 	}
 
-	
+	public function register()
+	{
+		$this->load->view( 'Register/register.html' );
+	}
+
+	public function mb_register()
+	{
+		$this->load->view( 'Register/register-tel.html' );
+	}
+
+	public function mail_register()
+	{
+		$this->load->view( 'Register/register-mail.html' );
+	}
 }

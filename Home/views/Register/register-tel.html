@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>手机注册</title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS?>Home/css/global.css">
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS?>Home/css/register-tel.css">
+	<script src="<?= PUBLICS?>Home/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<a href="javascript:void(0)" onclick="history.back()" class="back-btn">返回</a>
+	<!-- 注册面板 -->
+	<div class="well">
+		<div class="well-logo">
+			<img src="<?= PUBLICS ?>Home/images/register/well-logo.png" alt="">
+		</div>
+		<div class="logo-bottom">
+			<img src="<?= PUBLICS ?>Home/images/register/logo-bottom.png" alt="">
+		</div>
+		<div class="well-title">
+			欢迎来到e美评！请进一步完善你的信息
+		</div>
+		<div class="account well-item">
+			<span class="info-title">帐号</span>
+			<span class="account-value">11111</span>
+		</div>
+		<div class="tel well-item">
+			<span class="info-title">手机验证码</span>
+			<input type="text" name="" class="captcha">
+			<a href="javascript:void(0)" class="getcaptcha">重新发送<span></span></a>
+			<span class="tips"></span>
+		</div>
+		<div class="nick well-item">
+			<span class="info-title">昵称</span>
+			<input type="text" name="" class="nick-value">
+			<span class="tips">验证码不能为空</span>
+		</div>
+		<div class="password well-item">
+			<span class="info-title">密码</span>
+			<input type="password" name="" class="password-value">
+			<span class="tips">验证码不能为空</span>
+		</div>
+		<div class="confirm-password well-item">
+			<span class="info-title">确认密码</span>
+			<input type="password" name="" class="confirm-value">
+			<span class="tips">验证码不能为空</span>
+		</div>
+		<div class="agreement">
+			<input type="checkbox" checked>
+			我已认真阅读并接受<a href="javascript:void(0)">《e美评免责声明》</a>
+		</div>
+		<div class="submit-btn">
+			<a href="javascript:void(0)" title="">提交</a>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+
+<script>
+	var can_submit=false;
+	// 检查验证码是否为空
+	$('.captcha').blur(function(){
+		if($(this).val().replace(/\s/g,"")=='')
+		{
+			$(this).addClass('error').siblings('.tips').html('验证码不能为空').show();
+		}
+		else
+		{
+			$(this).removeClass('error').siblings('.tips').hide();
+		}
+	})
+
+	// 检查昵称是否为空
+	$('.nick-value').blur(function(){
+		if($(this).val().replace(/\s/g,"")=='')
+		{
+			$(this).addClass('error').siblings('.tips').html('昵称不能为空').show();
+		}
+		else
+		{
+			$(this).removeClass('error').siblings('.tips').hide();
+		}
+	})
+
+	// 检查一次密码是否为空,检查密码位数是否符合要求
+	$('.password-value').blur(function(){
+		if($(this).val().replace(/\s/g,"")=='')
+		{
+			$(this).addClass('error').siblings('.tips').html('密码不能为空').show();
+		}
+		else if($(this).val().replace(/\s/g,"").length<6)
+		{
+			$(this).addClass('error').siblings('.tips').html('密码位数不能小于6').show();
+		}
+		else
+		{
+			$(this).removeClass('error').siblings('.tips').hide();
+		}
+	})
+
+	// 检查两次密码是否一致
+	$('.confirm-value').blur(function(){
+		if($(this).val()!==$('.password-value').val())
+		{
+			$(this).addClass('error').siblings('.tips').html('两次输入密码不一致').show();
+		}
+		else
+		{
+			$(this).removeClass('error').siblings('.tips').hide();
+		}
+	})
+
+	//  是否同意注册协议
+	$('.agreement input').click(function(){
+		if(!$(this).prop('checked'))
+		{
+			$('.submit-btn a').addClass('disabled');
+		}
+		else
+		{
+			$('.submit-btn a').removeClass('disabled');
+		}
+	})
+
+	$('.submit-btn a').click(function(){
+		$('.captcha,.nick-value,.password-value,.confirm-value').trigger('blur');
+		$('.tips').each(function(i,o){
+			if(!$(o).is(':hidden'))
+			{
+				can_submit=false;
+				return false;
+			}
+			else
+			{
+				can_submit=true;
+			}
+		})
+
+		if($(this).hasClass('disabled') || !can_submit)
+		{
+			return false;
+		}
+		else
+		{
+			var captcha=$('.captcha').val();
+			var nick=$('.nick-value').val();
+			var password=$('.password-value').val();
+			var confirm=$('.confirm-value').val();
+			var data={'captcah':captcha,'nick':nick,'pwd1':password,'pwd2':confirm}
+			post_info(data);
+		}
+	})
+
+	function post_info(data)
+	{
+		$.ajax({
+			url:'../mock/dotelregister.php',
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res){
+				if(res.status)
+				{
+					// 跳转到用户中心
+					window.location.href="index.php";
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+				}
+			}
+		})
+	}
+
+
+	// 重新发送验证码
+	$('.getcaptcha').click(function(){
+		$.ajax({
+			url:'../mock/dotel.php',
+			type:'POST',
+			dataType:'json',
+			data:{'tel':'111'},
+			success:function(res){
+				if(!res.status)
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+				}
+			}
+		})
+	})
+</script>

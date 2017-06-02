@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>邮箱注册</title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/global.css">
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/register-mail.css">
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<a href="javascript:void(0)" onclick="history.back()" class="back-btn">返回</a>
+	<!-- 注册面板 -->
+	<div class="well">
+		<div class="well-logo">
+			<img src="<?= PUBLICS ?>Home/images/register/well-logo.png" alt="">
+		</div>
+		<div class="logo-bottom">
+			<img src="<?= PUBLICS ?>Home/images/register/logo-bottom.png" alt="">
+		</div>
+		<div class="well-title">
+			欢迎来到e美评！请进一步完善你的信息
+		</div>
+		<div class="account well-item">
+			<input type="text" disabled value="lilunze@hotmail.com">
+		</div>
+		<div class="nick well-item">
+			<p class="item-title">昵称</p>
+			<input type="text" placeholder="昵称" class="nick-value">
+			<div class="tips">
+				<span class="txt"></span>
+				<span class="arrow">◣</span>
+			</div>
+		</div>
+		<div class="password well-item">
+			<p class="item-title">密码</p>
+			<input type="password" placeholder="设置登陆密码" class="password-value">
+			<div class="tips">
+				<span class="txt"></span>
+				<span class="arrow">◣</span>
+			</div>
+		</div>
+		<div class="confirm-password well-item">
+			<p class="item-title">确认密码</p>
+			<input type="password" placeholder="重复登陆密码" class="confirm-value">
+			<div class="tips">
+				<span class="txt"></span>
+				<span class="arrow">◣</span>
+			</div>
+		</div>
+		<div class="well-item">
+			<p class="item-title">验证码</p>
+			<div class="captcha">
+				<span class="drag-bg"></span>
+				<span class="handle" ondragstart="return false;"></span>
+				<span class="captcha-text">按住滑块，拖动到最右边</span>
+			</div>
+		</div>
+		<div class="agreement">
+			<input type="checkbox" checked>
+			我已经认真阅读并接受<a href="javascript:void(0)">《e美评免责声明》</a>
+		</div>
+		<div class="submit-btn">
+			<a href="javascript:void(0)">提交</a>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+<!-- 拖拽验证组件 -->
+<script>
+	(function($){
+
+		$.fn.captcha=function(options)
+		{
+			var defaults={success:function(){}}
+	        var options=$.extend(defaults, options);
+
+			var x,isMove=false;
+			
+			// 需要滑动的最小距离
+			var minWidth=$('.captcha').width()-$('.handle').width();
+
+			// 获取鼠标按下时的x坐标
+			$('.handle').mousedown(function(event)
+			{
+				isMove=true;
+				x=event.pageX-parseInt($('.handle').css('left'));
+			})
+
+			// 鼠标移动的距离判断
+			$(document).mousemove(function(event)
+			{
+				var _x=event.pageX-x;
+				if(isMove)
+				{
+					if(_x>=0 && _x<minWidth)
+					{
+						$('.drag-bg').css({'width':_x});
+						$('.handle').css({'left':_x});
+					}
+					else if(_x>minWidth)
+					{
+						handleSuccess();
+					}
+				}
+			}).mouseup(function(event)
+			{
+				isMove=false;
+		        var _x=event.pageX-x;
+
+		        //鼠标松开时，如果没有达到最大距离位置，滑块就返回初始位置(即验证不成功)
+		        if(_x < minWidth)
+		        {
+		        	$('.handle').animate({'left':0},300)
+		      		$('.drag-bg').animate({'width':0},300)
+		        }
+			})
+
+			// 验证成功回调
+			function handleSuccess()
+			{
+		        $('.captcha-text').text('验证通过').css({'color':'#fff'});
+		        $('.handle').unbind('mousedown').addClass('handle-success').css({'left':'217px'});
+		        $('.drag-bg').css({'width':'217px'});
+		        $(document).unbind('mousemove');
+		        $(document).unbind('mouseup');
+		        options.success();
+			}
+		}
+	})(jQuery)
+</script>
+
+<script>
+	var can_submit=false;
+	$(window).captcha({success:function(){can_submit=true;}});
+
+	// 检查昵称是否为空
+	$('.nick-value').blur(function(){
+		if($(this).val().replace(/\s/g,"")=='')
+		{
+			$(this).siblings('.tips').show().children('.txt').html("昵称不能为空")
+		}
+		else
+		{
+			$(this).siblings('.tips').hide();
+		}
+	})
+
+	// 检查一次密码是否为空,检查密码位数是否小于6
+	$('.password-value').blur(function(){
+		if($(this).val().replace(/\s/g,"")=='')
+		{
+			$(this).siblings('.tips').show().children('.txt').html("密码不能为空")
+		}
+		else if($(this).val().replace(/\s/g,"").length<6)
+		{
+			$(this).siblings('.tips').show().children('.txt').html("密码位数不能小于6")
+		}
+		else
+		{
+			$(this).siblings('.tips').hide();
+		}
+	})
+
+	// 检查两次密码输入是否一致
+	$('.confirm-value').blur(function(){
+		if($(this).val()!==$('.password-value').val())
+		{
+			$(this).siblings('.tips').show().children('.txt').html("两次输入密码不一致")
+		}
+		else
+		{
+			$(this).siblings('.tips').hide();
+		}
+	})
+
+	// 是否同意协议
+	$('.agreement input').click(function(){
+		if($(this).prop('checked'))
+		{
+			$('.submit-btn a').removeClass('disabled')
+		}
+		else
+		{
+			$('.submit-btn a').addClass('disabled')
+		}
+	})
+
+	$('.submit-btn a').click(function(){
+		$('.nick-value,.password-value,.confirm-value').trigger('blur');
+		$('.tips').each(function(i,o){
+			if(!$(o).is(':hidden'))
+			{
+				can_submit=false;
+				return false;
+			}
+			else
+			{
+				can_submit=true;
+			}
+		})
+		if($(this).hasClass('disabled') || !can_submit)
+		{
+			return false;
+		}
+		else
+		{
+			var nick=$('.nick-value').val();
+			var password=$('.password-value').val();
+			var password_confirm=$('.confirm-value').val();
+			var data={'nick':nick,'pwd1':password,'pwd2':password_confirm};
+			post_mail(data);
+		}
+	})
+
+	// 提交表单验证
+	function post_mail(data){
+		$.ajax({
+			url:'../mock/domailregister.php',
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res){
+				if(res.status)
+				{
+					//跳转到用户中心
+					// window.location.href="";
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+				}
+			}
+		})
+	}
+</script>

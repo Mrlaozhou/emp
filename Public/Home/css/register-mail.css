@@ -1,0 +1,302 @@
+body
+{
+	background: #ecece9;
+}
+.back-btn
+{
+	display: inline-block;
+	position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 55px;
+    height: 37px;
+    background: url(../images/register/back-btn.png) left top no-repeat;
+    font-size: 16px;
+    line-height: 37px;
+    padding-left: 28px;
+    text-decoration: none;
+    color: #333;
+}
+.back-btn:hover
+{
+	background-position: left -38px;
+	color: #9a0000;
+}
+.well
+{
+	width: 560px;
+	margin: 72px auto 0;
+	font-size: 0;
+}
+.well-logo
+{
+	text-align: center;
+}
+.logo-bottom
+{
+	margin-top: 42px;
+	text-align: center;
+}
+.well-title
+{
+	text-align: center;
+	font-size: 21px;
+	line-height: 25px;
+	color: #666;
+	font-family: '宋体';
+	margin-top: 20px;
+}
+.well-item
+{
+	width: 260px;
+	margin: 0 auto;
+	margin-top: 20px;
+	position: relative;
+}
+.tips
+{
+	position: absolute;
+	left: 275px;
+	top: 25px;
+	background-color: #d5373a;
+	font-size: 16px;
+	color: #fff;
+	text-shadow: 0 -1px rgba(34,25,25,.5);
+	word-break: keep-all;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 10px;
+	width: 200px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: 0 1px 5px rgba(0,0,0,.7);
+	display: none;
+}
+.tips .arrow
+{
+	color: #d5373a;
+    position: absolute;
+	top: 2px;
+    left: -9px;
+    -webkit-transition: all .15s ease-in-out;
+    font-weight: 300;
+    font-size: 30px;
+    -webkit-transform: rotate(45deg);
+    text-shadow: 0 1px 5px rgba(0,0,0,.7);
+}
+.well-item input
+{
+	width: 100%;
+	height: 36px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	outline: none;
+	padding-left: 10px;
+	font-size: 16px;
+	color: #666;
+}
+.well-item .item-title
+{
+	font-size: 18px;
+	color: #38393d;
+	font-family: '宋体';
+}
+.agreement
+{
+	font-size: 14px;
+	margin-top: 20px;
+	padding-left: 150px;
+	box-sizing: border-box;
+}
+.agreement a
+{
+	color: #cd0f33;
+}
+.submit-btn a
+{
+	display: inline-block;
+	width: 70px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	box-sizing: border-box;
+	color: #fff;
+	/*background: #f15961;*/
+	background: linear-gradient( #E53E49, #D43636);
+	border: 1px solid #c90000;
+	border-radius: 2px;
+	font-size: 16px;
+	margin-bottom: 240px;
+	margin-top: 20px;
+	margin-left: 150px;
+}
+.submit-btn a:hover
+{
+	background: linear-gradient( #F45D68, #E54646);
+}
+.submit-btn a.disabled
+{
+	background: #F2F2F2;
+    border: 1px solid #D9D9D9;
+    box-shadow: none;
+    color: #BBB;
+    text-shadow: none;
+    cursor: default;
+}
+.captcha
+{
+	width: 100%;
+	height: 36px;
+	background: #e8e8e8;
+	margin: 12px auto;
+	box-sizing: border-box;
+	position: relative;
+}
+.captcha-text
+{
+	display: inline-block;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	line-height: 36px;
+	color: #4d4d4d;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+    z-index: 80;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.drag-bg
+{
+	background: #76c61d;
+	height: 100%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	z-index: 70;
+}
+.handle
+{
+	display: inline-block;
+	width: 44px;
+	height: 36px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	cursor: e-resize;
+	text-align: center;
+	z-index: 90;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+    background-image: url(../images/register/icon-drag.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 12px 9px;
+}
+.handle.handle-success
+{
+	background-image: url(../images/register/captcha-success.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 12px 9px;
+}
+
+
+
+
+/**** 可复用弹框组件 ****/
+.dialog
+{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	display: none;
+}
+.dialog-well
+{
+	width: 580px;
+	height: 200px;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	position: absolute;
+	top: 160px;
+	left: 50%;
+	margin-left: -290px;
+	box-sizing: border-box;
+}
+.dialog-title
+{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ededed;
+	padding-left: 30px;
+	font-size: 18px;
+}
+.dialog-text
+{
+	height: 80px;
+	font-size: 14px;
+	color: #444;
+	background: url(../images/register/icon-notice.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: 20px 29px;
+	line-height: 80px;
+	padding-left: 50px;
+	border-bottom: 1px solid #ededed;
+}
+.dialog-foot a
+{
+	display: inline-block;
+	width: 78px;
+	height: 38px;
+	background: linear-gradient( #E53E49, #D43636);
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	border-radius: 4px;
+	float: right;
+	margin: 15px 30px 0 0;
+}
+.dialog-close
+{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/register/dialog-close.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	float: right;
+	margin: 13px;
+	cursor: pointer;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+}
+.dialog-close:hover
+{
+	background: url(../images/register/dialog-close-a.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}
