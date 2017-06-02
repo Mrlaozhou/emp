@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-05-31 17:21:15
+Date: 2017-06-02 15:42:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -59,6 +59,28 @@ CREATE TABLE `emp_comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for emp_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `emp_goods`;
+CREATE TABLE `emp_goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL DEFAULT '',
+  `pic` varchar(50) NOT NULL DEFAULT '',
+  `price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00',
+  `cate_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分类ID',
+  `effect` varchar(100) NOT NULL DEFAULT '' COMMENT '产品功能效果',
+  `method` varchar(300) NOT NULL DEFAULT '' COMMENT '使用方法',
+  `intro` text NOT NULL COMMENT '产品介绍',
+  `is_valid` enum('0','1') NOT NULL DEFAULT '1' COMMENT '是否上架',
+  `is_promate` enum('0','1') NOT NULL DEFAULT '0' COMMENT '是否推荐',
+  `reason` varchar(1000) NOT NULL DEFAULT '' COMMENT '推荐原因',
+  `know` varchar(1000) NOT NULL DEFAULT '' COMMENT '须知',
+  `href` varchar(50) NOT NULL DEFAULT '' COMMENT '链接地址',
+  `s_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '合作商ID',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for emp_goodscate
 -- ----------------------------
 DROP TABLE IF EXISTS `emp_goodscate`;
@@ -69,7 +91,7 @@ CREATE TABLE `emp_goodscate` (
   `is_valid` enum('0','1') NOT NULL DEFAULT '1',
   `pid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for emp_hot
@@ -85,6 +107,20 @@ CREATE TABLE `emp_hot` (
   `is_index` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for emp_partner
+-- ----------------------------
+DROP TABLE IF EXISTS `emp_partner`;
+CREATE TABLE `emp_partner` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL DEFAULT '',
+  `person` varchar(30) NOT NULL DEFAULT '',
+  `tel` varchar(20) NOT NULL DEFAULT '',
+  `is_valid` enum('1','0') NOT NULL DEFAULT '1',
+  `remark` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for emp_replay
