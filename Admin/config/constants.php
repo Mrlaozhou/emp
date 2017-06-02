@@ -99,3 +99,4 @@ defined('PUBLICS')		   	   OR define('PUBLICS','/Public/');
 defined('UPLOAD')		   	   OR define('UPLOAD',PUBLICS.'Upload/');
 defined('PUBLIC_ADMIN')		   OR define('PUBLIC_ADMIN',PUBLICS.'Admin/');
 defined('TOPICS')			   OR define('TOPICS','./Public/Upload/Topic/');
+defined('GOODS')			   OR define('GOODS','./Public/Upload/Goods/');
