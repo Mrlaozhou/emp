@@ -1,0 +1,195 @@
+/*
+* 登陆页面css
+*/
+
+.well
+{
+	width: 560px;
+	margin: 72px auto 0;
+	font-size: 0;
+}
+.well-logo
+{
+	text-align: center;
+}
+.logo-bottom
+{
+	margin-top: 42px;
+	text-align: center;
+}
+.well-title
+{
+	width: 288px;
+	margin: 42px auto 0;
+	font-size: 16px;
+	color: #999;
+	font-family: '宋体';
+	text-align: center;
+	line-height: 20px;
+	position: relative;
+	margin-bottom: 18px;
+}
+.well-title:before
+{
+	display: block;
+	content: '';
+	width: 50px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	left: 0;
+	top: 9px;
+}
+.well-title:after
+{
+	display: block;
+	content: '';
+	width: 50px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	top: 9px;
+	right: 0;
+}
+.input-control
+{
+	width: 288px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.input-control input
+{
+	width: 100%;
+	height: 36px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	outline: none;
+	font-size: 16px;
+	color: #a9a9a9;
+	padding-left: 10px;
+}
+.login-btn
+{
+	text-align: center;
+}
+.login-btn a
+{
+	display: inline-block;
+	width: 288px;
+	height: 36px;
+	box-sizing: border-box;
+	line-height: 36px;
+	color: #fff;
+	background: #d8383a;
+	border: 1px solid #c90000;
+	border-radius: 4px;
+	font-size: 16px;
+	margin-top: 10px;
+}
+.option-link
+{
+	font-size: 14px;
+	width: 288px;
+	margin: 10px auto;
+	font-family: '宋体';
+}
+.forget-password
+{
+	color: #cd0f33;
+}
+.register-link
+{
+	float: right;
+	color: #444;
+}
+.register-link a
+{
+	color: #cd0f33;
+}
+
+
+
+
+
+/**** 可复用弹框组件 ****/
+.dialog
+{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	display: none;
+}
+.dialog-well
+{
+	width: 580px;
+	height: 200px;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	position: absolute;
+	top: 160px;
+	left: 50%;
+	margin-left: -290px;
+	box-sizing: border-box;
+}
+.dialog-title
+{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ededed;
+	padding-left: 30px;
+	font-size: 18px;
+}
+.dialog-text
+{
+	height: 80px;
+	font-size: 14px;
+	color: #444;
+	background: url(../images/register/icon-notice.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: 20px 29px;
+	line-height: 80px;
+	padding-left: 50px;
+	border-bottom: 1px solid #ededed;
+}
+.dialog-foot a
+{
+	display: inline-block;
+	width: 78px;
+	height: 38px;
+	background: linear-gradient( #E53E49, #D43636);
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	border-radius: 4px;
+	float: right;
+	margin: 15px 30px 0 0;
+}
+.dialog-close
+{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/register/dialog-close.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	float: right;
+	margin: 13px;
+	cursor: pointer;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+}
+.dialog-close:hover
+{
+	background: url(../images/register/dialog-close-a.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}

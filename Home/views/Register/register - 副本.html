@@ -55,7 +55,7 @@
 		</div>
 		<div class="back-login"><a href="<?php echo U();?>">« 返回登陆页面</a></div>
 	</div>
-	<form action="<?php echo U('Register/mb_register');?>" method="post" id="tel">
+	<form action="<?php echo U('RegisterMail/index');?>" method="post" id="tel">
 		<input type="hidden" name='tel' class="tel-value">
 	</form>
 </body>
@@ -226,21 +226,20 @@
 	function postTel(tel){
 		// 验证手机号码
 		$.ajax({
-			url:"<?php echo U('Register/check_user');?>",
+			url:'',
 			dataType:'json',
 			data:{'tel':tel},
 			type:'POST',
 			success:function(res){
 				if(res.status)
 				{
-					$('.dialog').dialog({'type':'notice','msg':'验证码发送成功！'});
 					// 跳转到手机注册补全信息页面
 					$('.tel-value').val(tel);
 					$('#tel').submit();
 				}
 				else
 				{
-					$('.dialog').dialog({'type':'notice','msg':res.error});
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
 				}
 			}
 		})

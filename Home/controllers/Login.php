@@ -11,7 +11,7 @@ class Login extends LZ_Controller
 	public function show_login()
 	{
 		$data['title'] = '登录【e美评官网】';
-		$data['cssList'] = array('general.css');
+		$data['cssList'] = array('login.css');
 		$data['jsList'] = array();
 
 		$this->load->view('Login/login.html',$data);
@@ -20,14 +20,15 @@ class Login extends LZ_Controller
 	public function do_login()
 	{
 		if ( ! $this->U->login() )
-			jump($this->U->error,U('Login/show_login'),2);
-		jump('登录成功！',U(),2);
+			echoJson( array('status'=>FALSE,'error'=>$this->U->error) );
+		echoJson( array('status'=>TRUE) );
 	}
 
 	public function out_login()
 	{
 		//摧毁
 		$this->session->unset_userdata('home_id');
+		$this->session->unset_userdata('home_username');
 		jump('退出成功！',U(),2);
 	}
 }

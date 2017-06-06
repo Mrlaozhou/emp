@@ -5,7 +5,7 @@
 	<title>手机注册</title>
 	<link rel="stylesheet" type="text/css" href="<?= PUBLICS?>Home/css/global.css">
 	<link rel="stylesheet" type="text/css" href="<?= PUBLICS?>Home/css/register-tel.css">
-	<script src="<?= PUBLICS?>Home/js/jquery-1.11.3.min.js"></script>
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<!-- 可复用弹框组件 -->
@@ -25,7 +25,7 @@
 		</div>
 		<div class="account well-item">
 			<span class="info-title">帐号</span>
-			<span class="account-value">11111</span>
+			<span class="account-value"><?= $tel ?></span>
 		</div>
 		<div class="tel well-item">
 			<span class="info-title">手机验证码</span>
@@ -180,11 +180,13 @@
 		}
 		else
 		{
+			var username=$('.account-value').html();
 			var captcha=$('.captcha').val();
 			var nick=$('.nick-value').val();
 			var password=$('.password-value').val();
 			var confirm=$('.confirm-value').val();
-			var data={'captcah':captcha,'nick':nick,'pwd1':password,'pwd2':confirm}
+			var data={'captcha':captcha,'alias':nick,'pwd1':password,'pwd2':confirm,'username':username};
+
 			post_info(data);
 		}
 	})
@@ -192,7 +194,7 @@
 	function post_info(data)
 	{
 		$.ajax({
-			url:'../mock/dotelregister.php',
+			url:"<?php echo U('Register/do_register');?>",
 			type:'POST',
 			dataType:'json',
 			data:data,
@@ -200,11 +202,11 @@
 				if(res.status)
 				{
 					// 跳转到用户中心
-					window.location.href="index.php";
+					window.location.href="<?php echo U('Login/show_login');?>";
 				}
 				else
 				{
-					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+					$('.dialog').dialog({'type':'notice','msg':res.error});
 				}
 			}
 		})
@@ -213,15 +215,20 @@
 
 	// 重新发送验证码
 	$('.getcaptcha').click(function(){
+		var tel = $('.account-value').html();
 		$.ajax({
-			url:'../mock/dotel.php',
+			url:"<?php echo U('Register/send_nsg_again');?>",
 			type:'POST',
 			dataType:'json',
-			data:{'tel':'111'},
+			data:{'tel':tel},
 			success:function(res){
-				if(!res.status)
+				if(res.status)
 				{
-					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+					$('.dialog').dialog({'type':'notice','msg':'验证码再次发送成功！'});
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error});
 				}
 			}
 		})

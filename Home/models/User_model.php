@@ -7,21 +7,28 @@ class User_model extends LZ_Model
 								array(
 										'field'		=>	'username',
 										'label'		=>	'username',
-										'rules'		=>	'required|min_length[6]|max_length[18]',
+										'rules'		=>	'required',
 										'errors'	=>	array(
-												'required'			=>	'nothing',	
-												'min_length'		=>	'too short',
-												'max_length'		=>	'too long',
+												'required'			=>	'手机号不能为空',	
 											),
 									),
 								array(
-										'field'		=>	'password',
-										'label'		=>	'password',
-										'rules'		=>	'required|min_length[8]|max_length[30]',
+										'field'		=>	'pwd1',
+										'label'		=>	'pwd1',
+										'rules'		=>	'required|min_length[6]|max_length[15]',
 										'errors'	=>	array(
-												'required'			=>	'nothing',	
-												'min_length'		=>	'too short',
-												'max_length'		=>	'too long',
+												'required'			=>	'请输入密码',	
+												'min_length'		=>	'密码介于6-15个字符之间',
+												'max_length'		=>	'密码介于6-15个字符之间',
+											),
+										),
+								array(
+										'field'		=>	'alias',
+										'label'		=>	'alias',
+										'rules'		=>	'required|max_length[24]',
+										'errors'	=>	array(
+												'required'			=>	'昵称不能为空',	
+												'max_length'		=>	'昵称不能超过8个汉字',
 											),
 									),								
 							);
@@ -34,7 +41,21 @@ class User_model extends LZ_Model
 	public function register()
 	{
 		/**///接收数据
-		$data = $this->input->post(array('username','password'));
+		$data = $this->input->post(array('username','pwd1','pwd2','alias','captcha'));
+
+		/**///检验是否存在
+		if( $this->_check_user_exists( $data['username'] ) != FALSE )
+		{
+			$this->error = '用户已存在！';
+			return FALSE;
+		}
+		
+		//验证码验证
+		if( $this->session->code != $data['captcha'] )
+		{
+			$this->error = '验证码错误，请重新输入';
+			return FALSE;
+		}
 
 		/**///设置验证规则
 		$this->form_validation->set_rules( self::$_rules );
@@ -46,15 +67,15 @@ class User_model extends LZ_Model
 			return FALSE;
 		}
 
-		/**///检验是否存在
-		if( $this->_check_user_exists( $data['username'] ) !== FALSE )
-		{
-			$this->error = '用户已存在！';
-			return FALSE;
-		}
-
 		//注册
 		return $this->add( self::$_table, $data );
+	}
+
+	public function check_user( $data )
+	{
+		$info =  $this->_check_user_exists( $data['tel'] );
+		
+		return (! $info);
 	}
 
 	/**
@@ -65,7 +86,10 @@ class User_model extends LZ_Model
 	protected function _before_add( &$data ) 
 	{
 		$data['create_time'] = time();
-		$data['password']	 = md5(addslashes($data['password']));
+		$data['password']	 = md5(addslashes($data['pwd1']));
+		unset($data['pwd1']);
+		unset($data['pwd2']);
+		unset($data['captcha']);
 	}
 
 	public function login()
@@ -73,20 +97,12 @@ class User_model extends LZ_Model
 		//接收数据
 		$data = $this->input->post(array('username','password'));
 
-		//验证数据
-		// $this->form_validation->set_rules( self::$_rules );
-		// if ( $this->form_validation->run() == FALSE )
-		// {
-		// 	$this->error = validation_errors();
-		// 	return FALSE;
-		// }
-
 		//验证是否存在
 		$info = $this->_check_user_exists( $data['username'] );
 		
 		if( ! $info )
 		{
-			$this->error = '用户名不存在！';
+			$this->error = '用户名未注册！';
 			return FALSE;
 		}
 
@@ -98,6 +114,7 @@ class User_model extends LZ_Model
 		}
 
 		$this->session->set_userdata('home_id',$info['id']);
+		$this->session->set_userdata('home_username',$info['username']);
 		return TRUE;
 	}
 
