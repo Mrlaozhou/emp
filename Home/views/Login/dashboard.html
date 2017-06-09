@@ -109,7 +109,7 @@
 							绑定手机
 						</span>
 						<span class="item-desc jvc-bind-val">
-							已未绑定
+							已绑定
 						</span>
 						<span class="item-option">
 							编辑
@@ -408,8 +408,8 @@
 			success:function(res){
 				if(res.status)
 				{
-					$.tips();
 					$('.jvc-avatar').attr('src',res.data.path);
+					$.tips();
 				}
 				else
 				{

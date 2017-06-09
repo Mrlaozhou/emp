@@ -86,4 +86,26 @@ class Login extends LZ_Controller
 			echoJson( array('status'=>TRUE) );
 		}
 	}
+
+	public function reset()
+	{
+		$data['title'] = '重置密码【e美评官网】';
+		$data['cssList'] = array('reset.css');
+		$data['jsList'] = array('');
+
+		$this->load->view( 'header.html', $data );
+		$this->load->view( 'Login/reset.html' );
+		$this->load->view( 'footer.html' );
+	}
+
+	public function back()
+	{
+		$data['title'] = '找回密码【e美评官网】';
+		$data['cssList'] = array('retrieve.css');
+		$data['jsList'] = array('');
+
+		$this->load->view( 'header.html', $data );
+		$this->load->view( 'Login/retrieve.html' );
+		$this->load->view( 'footer.html' );
+	}
 }   

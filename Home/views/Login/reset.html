@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>重置密码</title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/global.css">
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/reset.css">
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<!-- 找回密码面板 -->
+	<div class="well">
+		<div class="well-logo">
+			<img src="<?= PUBLICS ?>Home/images/register/well-logo.png" alt="">
+		</div>
+		<div class="logo-bottom">
+			<img src="<?= PUBLICS ?>Home/images/register/logo-bottom.png" alt="">
+		</div>
+		<div class="well-title">
+			<!-- 重置密码 -->
+		</div>
+		<div class="input-control">
+			<input type="text" placeholder="验证码" class="jvc-captcha">
+		</div>
+		<div class="input-control">
+			<input type="password" placeholder="新密码" class="jvc-new">
+		</div>
+		<div class="input-control">
+			<input type="password" placeholder="确认密码" class="jvc-confirm">
+		</div>
+		<div class="reset-btn">
+			<a href="javascript:void(0)">重置</a>
+		</div>
+	</div>
+	<form action="register-tel.php" method="post" id="tel">
+		<input type="hidden" name='tel' class="tel-value">
+	</form>
+</body>
+</html>
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+<script>
+	$('.reset-btn a').click(function(){
+		var new_password=$('.jvc-new').val(),confirm_password=$('.jvc-confirm').val(),captcha=$('.jvc-captcha').val();
+		if(captcha.replace(/\s/g,'')=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'验证码不能为空'});
+		}
+		else if(new_password.replace(/\s/g,'')=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'新密码不能为空'});
+		}
+		else if(new_password.length<6)
+		{
+			$('.dialog').dialog({'type':'notice','msg':'密码位数不能小于6'});
+		}
+		else if(new_password!==confirm_password)
+		{
+			$('.dialog').dialog({'type':'notice','msg':'两次密码输入不一致'});
+		}
+		else
+		{
+			reset_password({'pwd_1':new_password,'pwd_2':confirm_password,'captcha':captcha});
+		}
+	})
+
+	// 重置密码
+	function reset_password(data)
+	{
+		$.ajax({
+			url:'../mock/doreset.php',
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res)
+			{
+				if(res.status)
+				{
+                    window.location.href="login.php";
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+
+</script>

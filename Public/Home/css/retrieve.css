@@ -1,0 +1,377 @@
+/*
+* 注册页面css
+*/
+
+.well
+{
+	width: 560px;
+	margin: 72px auto 0;
+	font-size: 0;
+}
+.well-logo
+{
+	text-align: center;
+}
+.logo-bottom
+{
+	margin-top: 42px;
+	text-align: center;
+}
+.well-title
+{
+	width: 288px;
+	margin: 42px auto 0;
+	font-size: 16px;
+	color: #999;
+	font-family: '宋体';
+	text-align: center;
+	line-height: 20px;
+	position: relative;
+}
+.well-title:before
+{
+	display: block;
+	content: '';
+	width: 50px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	left: 0;
+	top: 9px;
+}
+.well-title:after
+{
+	display: block;
+	content: '';
+	width: 50px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	top: 9px;
+	right: 0;
+}
+.input-control
+{
+	width: 288px;
+	margin: 18px auto 0;
+}
+.input-control input
+{
+	width: 100%;
+	height: 38px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	outline: none;
+	padding-left: 10px;
+	font-size: 16px;
+	color: #a9a9a9;
+	font-family: '宋体';
+}
+.captcha
+{
+	width: 288px;
+	height: 36px;
+	background: #e8e8e8;
+	margin: 12px auto;
+	box-sizing: border-box;
+	position: relative;
+}
+.captcha-text
+{
+	display: inline-block;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	line-height: 36px;
+	color: #4d4d4d;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+    z-index: 80;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.drag-bg
+{
+	background: #76c61d;
+	height: 100%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	z-index: 70;
+}
+.handle
+{
+	display: inline-block;
+	width: 44px;
+	height: 36px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	cursor: e-resize;
+	text-align: center;
+	z-index: 90;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+    background-image: url(../images/register/icon-drag.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 12px 9px;
+}
+.handle.handle-success
+{
+	background-image: url(../images/register/captcha-success.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 12px 9px;
+}
+.retireve-btn
+{
+	width: 288px;
+	margin: 0 auto;
+}
+.retireve-btn a
+{
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	background: #e23c45;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #c90000;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 16px;
+}
+.back-login
+{
+	width: 288px;
+	margin: 12px auto 0;
+}
+.back-login a
+{
+	font-size: 14px;
+	color: #cd0f33;
+}
+.back-login span
+{
+	display: inline-block;
+	font-size: 12px;
+	-webkit-transform: scale(0.9);  
+}
+
+
+/**** 可复用弹框组件 ****/
+.dialog
+{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	display: none;
+}
+.dialog-well
+{
+	width: 580px;
+	height: 200px;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	position: absolute;
+	top: 160px;
+	left: 50%;
+	margin-left: -290px;
+	box-sizing: border-box;
+}
+.dialog-title
+{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ededed;
+	padding-left: 30px;
+	font-size: 18px;
+}
+.dialog-text
+{
+	height: 80px;
+	font-size: 14px;
+	color: #444;
+	background: url(../images/register/icon-notice.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: 20px 29px;
+	line-height: 80px;
+	padding-left: 50px;
+	border-bottom: 1px solid #ededed;
+}
+.dialog-foot a
+{
+	display: inline-block;
+	width: 78px;
+	height: 38px;
+	background: linear-gradient( #E53E49, #D43636);
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	border-radius: 4px;
+	float: right;
+	margin: 15px 30px 0 0;
+}
+.dialog-close
+{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/register/dialog-close.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	float: right;
+	margin: 13px;
+	cursor: pointer;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+}
+.dialog-close:hover
+{
+	background: url(../images/register/dialog-close-a.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}
+
+/*** 发送成功弹框 ****/
+.dialog-post
+{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	display: none;
+}
+.post-well
+{
+	width: 520px;
+	height: 200px;
+	background: #fff;
+	position: absolute;
+	top: 180px;
+	left: 50%;
+	margin-left: -260px;
+	box-sizing: border-box;
+	padding: 45px 25px 0;
+}
+.post-title
+{
+	text-align: center;
+	font-size: 18px;
+	color: #444;
+	position: relative;
+	line-height: 20px;
+}
+.post-title:before
+{
+	display: block;
+	content: '';
+	width: 160px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+.post-title:after
+{
+	display: block;
+	content: '';
+	width: 160px;
+	height: 1px;
+	background: #ededed;
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+.post-desc
+{
+	text-align: center;
+	font-size: 14px;
+	line-height: 20px;
+	margin-top: 20px;
+}
+.post-desc span
+{
+	color: #2FC2EF;
+}
+.post-desc a
+{
+	color: #cd0f33;
+}
+.post-desc .resend,.post-desc .resend span
+{
+	color: #999;
+}
+.post-desc .resend.enable,.post-desc .resend.enable span
+{
+	color: #cd0f33;
+}
+.post-back
+{
+	text-align: center;
+	margin-top: 30px;
+	font-size: 14px;
+}
+.post-back a
+{
+	color: #cd0f33;
+}
+.post-back a span
+{
+	font-size: 12px;
+	transform: scale(0.9);
+}
+.post-close
+{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/register/dialog-close.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none; 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.post-close:hover
+{
+	background: url(../images/register/dialog-close-a.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}

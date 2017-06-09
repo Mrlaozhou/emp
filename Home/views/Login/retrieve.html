@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>找回密码</title>
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/global.css">
+	<link rel="stylesheet" type="text/css" href="<?= PUBLICS ?>Home/css/retrieve.css">
+	<script src="<?= PUBLICS ?>Home/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<!-- 找回密码面板 -->
+	<div class="well">
+		<div class="well-logo">
+			<img src="<?= PUBLICS ?>Home/images/register/well-logo.png" alt="">
+		</div>
+		<div class="logo-bottom">
+			<img src="<?= PUBLICS ?>Home/images/register/logo-bottom.png" alt="">
+		</div>
+		<div class="well-title">
+			找回密码
+		</div>
+		<div class="input-control">
+			<input type="text" name="" placeholder="输入手机号">
+		</div>
+		<div class="captcha">
+			<span class="drag-bg"></span>
+			<span class="handle" ondragstart="return false;"></span>
+			<span class="captcha-text">按住滑块，拖动到最右边</span>
+		</div>
+		<div class="retireve-btn">
+			<a href="javascript:void(0)">重置</a>
+		</div>
+		<div class="back-login"><a href="javascript:void(0)">« 返回登陆页面</a></div>
+	</div>
+	<form action="register-tel.php" method="post" id="tel">
+		<input type="hidden" name='tel' class="tel-value">
+	</form>
+</body>
+</html>
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+<!-- 拖拽验证组件 -->
+<script>
+	(function($){
+
+		$.fn.captcha=function(options)
+		{
+			var defaults={success:function(){}}
+	        var options=$.extend(defaults, options);
+
+			var x,isMove=false;
+			
+			// 需要滑动的最小距离
+			var minWidth=$('.captcha').width()-$('.handle').width();
+
+			// 获取鼠标按下时的x坐标
+			$('.handle').mousedown(function(event)
+			{
+				isMove=true;
+				x=event.pageX-parseInt($('.handle').css('left'));
+			})
+
+			// 鼠标移动的距离判断
+			$(document).mousemove(function(event)
+			{
+				var _x=event.pageX-x;
+				if(isMove)
+				{
+					if(_x>=0 && _x<minWidth)
+					{
+						$('.drag-bg').css({'width':_x});
+						$('.handle').css({'left':_x});
+					}
+					else if(_x>minWidth)
+					{
+						handleSuccess();
+					}
+				}
+			}).mouseup(function(event)
+			{
+				isMove=false;
+		        var _x=event.pageX-x;
+
+		        //鼠标松开时，如果没有达到最大距离位置，滑块就返回初始位置(即验证不成功)
+		        if(_x < minWidth)
+		        {
+		        	$('.handle').animate({'left':0},300)
+		      		$('.drag-bg').animate({'width':0},300)
+		        }
+			})
+
+			// 验证成功回调
+			function handleSuccess()
+			{
+		        $('.captcha-text').text('验证通过').css({'color':'#fff'});
+		        $('.handle').unbind('mousedown').addClass('handle-success').css({'left':'245px'});
+		        $('.drag-bg').css({'width':'245px'});
+		        $(document).unbind('mousemove');
+		        $(document).unbind('mouseup');
+		        options.success();
+			}
+		}
+	})(jQuery)
+</script>
+
+<script>
+	var captchaSuccess=false;
+	$(window).captcha({success:function(){captchaSuccess=true;}});
+
+	// 重置密码
+	$('.retireve-btn a').click(function(){
+		var tel=$('.input-control input').val().replace(/\s/g,'');
+		// 验证手机号码
+		var reg_tel=/^((\+?[0-9]{1,4})|(\(\+86\)))?(13[0-9]|14[57]|15[012356789]|17[03678]|18[0-9])\d{8}$/;
+		if(!captchaSuccess)
+		{
+			$('.dialog').dialog({'type':'notice','msg':'请完成验证码'});
+		}
+		else if(reg_tel.test(tel))
+		{
+			post_tel({'tel':tel});
+		}
+		else
+		{
+			$('.dialog').dialog({'type':'notice','msg':'请填写正确的手机号码'});
+		}
+	})
+
+	// 发送验证码
+	function post_tel(data){
+		$.ajax({
+			url:'../mock/dotel.php',
+			type:'POST',
+			data:data,
+			dataType:'json',
+			success:function(res){
+				if(res.status)
+				{
+					window.location.href='reset.php';
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+</script>
