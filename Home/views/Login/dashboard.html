@@ -1,0 +1,502 @@
+
+	<!-- 可复用弹框组件 -->
+	<div class="dialog"></div>
+
+	<!-- 上传头像弹框 -->
+	<div class="upload-avatar">
+		<div class="upload-content">
+			<div class="title">上传头像 <span class="close-upload"></span></div>
+			<div class="imageBox">
+				<div class="thumbBox"></div>
+			</div>
+			<div class="operate-btn">
+				<a href="javascript:void(0)" class="jvc-select-img">选择图片</a>
+				<a href="javascript:void(0)" class="jvc-confirm-upload">确认上传</a>
+			</div>
+			<form action="" method="post" id="form_img">
+				<input type="file" style="visibility:hidden" id="file_content" name="file_content" accept="image/jpg,image/jpeg,image/png">
+			</form>
+		</div>
+	</div>
+
+	<!-- 页面主体内容 -->
+	<div class="main">
+		<div class="main-content">
+			<div class="dashboard-title">用户中心</div>
+			<div class="dashboard-content">
+				<div class="info-item">
+					<div class="info-title">
+						<span class="item-title">
+							个人资料
+						</span>
+						<span class="item-desc jvc-nick">
+							<?php echo $userinfo['alias'];?>
+						</span>
+						<span class="item-option">
+							编辑
+						</span>
+					</div>
+					<div class="drop-content">
+						<div class="nick">
+							<span class="drop-title">昵称：</span>
+							<span><input type="text" value="<?php echo $userinfo['alias'];?>"></span>
+						</div>
+						<div class="city">
+							<span class="drop-title">所在城市：</span>
+							<span><input type="text" value="<?php echo $userinfo['city'];?>"></span>
+						</div>
+						<div class="sex">
+							<span class="drop-title">性别：</span>
+							<span>
+							    <span class="radio-m">
+							    	<input type="radio" name="sex" value="0"
+								<?php if( $userinfo['sex'] == '0' ):?>
+									 checked='checked'
+								<?php endif;?>
+							    	>男
+							    </span>
+							    <span class="radio-f">
+							    	<input type="radio" name="sex" value="1"
+								<?php if( $userinfo['sex'] == '1' ):?>
+									 checked='checked'
+								<?php endif;?>
+							    	>女
+							    </span>
+							    <span class="radio-n">
+							    	<input type="radio" name="sex" value="7" 
+								<?php if( $userinfo['sex'] == '7' ):?>
+									 checked='checked'
+								<?php endif;?>
+							    	>保密
+							    </span>
+							</span>
+						</div>
+						<div class="birthday">
+							<span class="drop-title">生日：</span>
+							<span>
+								<input type="text" class="year" placeholder="<?php echo $userinfo['birthday'][0];?>">
+								<input type="text" class="month" placeholder="<?php echo $userinfo['birthday'][1];?>">
+								<input type="text" class="day" placeholder="<?php echo $userinfo['birthday'][2];?>">
+							</span>
+						</div>
+						<div class="save-profile"><a href="JavaScript:void(0)" title="">保存</a></div>
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-title">
+						<span class="item-title">
+							头像
+						</span>
+						<span class="item-desc">
+							<img src="/Public/Upload/User/<?php echo $userinfo['pic'];?>" alt="" class="jvc-avatar">
+						</span>
+						<span class="item-option">
+							编辑
+						</span>
+					</div>
+					<div class="drop-content">
+						<div class="avatar">
+							<img src="/Public/Upload/User/<?php echo $userinfo['pic'];?>" alt="" class="jvc-avatar">
+						</div>
+						<div class="upload-option">
+							<a href="javascript:void(0)" class="upload-btn">上传头像</a>
+						</div>	
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-title">
+						<span class="item-title">
+							绑定手机
+						</span>
+						<span class="item-desc jvc-bind-val">
+							已未绑定
+						</span>
+						<span class="item-option">
+							编辑
+						</span>
+					</div>
+					<div class="drop-content">
+						<div class="tel">
+							<span class="drop-title">手机号：</span>
+							<span><input type="text" class="jvc-tel" readonly="redonly"></span>
+						</div>
+						<div class="captcha">
+							<span class="drop-title">验证码：</span>
+							<span><input type="text" class="jvc-captcha"></span>
+						</div>
+						<div class="bind-tel">
+							<a href="javascript:void(0)" class="bind">绑定手机</a>
+							<a href="javascript:void(0)" class="next">下一步</a>
+						</div>
+					</div>
+				</div>
+				<div class="info-item">
+					<div class="info-title">
+						<span class="item-title">
+							密码
+						</span>
+						<span class="item-desc">
+							**********
+						</span>
+						<span class="item-option">
+							编辑
+						</span>
+					</div>
+					<div class="drop-content">
+						<div class="old-password">
+							<span class="drop-title">当前密码：</span>
+							<span><input type="password"></span>
+						</div>
+						<div class="new-password">
+							<span class="drop-title">新密码：</span>
+							<span><input type="password"></span>
+						</div>
+						<div class="confirm-password">
+							<span class="drop-title">确认新密码：</span>
+							<span><input type="password"></span>
+						</div>
+						<div class="save-password">
+							<a href="javascript:void(0)">保存</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 可复用弹框组件 -->
+<script>
+	(function($){
+	    $.fn.dialog=function(options){
+	        var defaults={'type':'notice','msg':'请输入正确的信息'}
+	        var options=$.extend(defaults, options);
+	        var me=$(this);
+	        var obj='<div class="dialog-well">'+
+						'<div class="dialog-title">'+
+							'<span>提示</span>'+
+							'<span class="dialog-close"></span>'+
+						'</div>'+
+						'<div class="dialog-text">'+options.msg+'</div>'+
+							'<div class="dialog-foot">'+
+								'<a href="javascript:void(0)">确定</a>'+
+						'</div>'+
+					'</div>'
+			me.empty();
+			
+			me.append(obj);
+
+	        me.find('.dialog-close').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.find('.dialog-foot a').bind('click',function(){
+	         	me.fadeOut(300);
+	        })
+
+	        me.fadeIn(300);
+	    }
+	})(jQuery)
+</script>
+
+
+<!-- 可复用tips组件 -->
+<script>
+	(function($){
+		$.tips=function(options){
+			var defaults={'type':'success','msg':'信息修改成功'}
+			var options=$.extend(defaults,options);
+			var obj='<div class="tips">'+options.msg+'</div>'
+			var o=$(obj).appendTo('body').fadeIn(1000,function(){
+				setTimeout(function(){
+					$(o).fadeOut(1000,function(){
+						$(this).remove();
+					});
+				},3000)
+			});
+		}
+	})(jQuery)
+</script>
+
+<script>
+
+	// 展开折叠
+	$('.item-option').click(function(){
+		var i=$('.item-option').index($(this));
+		$(this).toggleClass('save');
+		if($(this).hasClass('save'))
+		{
+			$(this).html('收起');
+		}else
+		{
+			$(this).html('编辑');
+		}
+		$('.info-title').eq(i).addClass('active');
+		$('.item-desc').eq(i).fadeToggle();
+		$('.drop-content').eq(i).slideToggle(function(){
+			if($('.drop-content').eq(i).is(':hidden'))
+			{
+				$('.info-title').eq(i).removeClass('active');
+			}
+		})
+	})
+
+
+	//保存信息事件
+	$('.save-profile a').click(function(){
+		var nick=$('.nick input').val();
+		var city=$('.city input').val();
+		var sex=$('input:radio[name="sex"]:checked').val();
+		var year=$('.year').val();
+		var month=$('.month').val();
+		var day=$('.day').val();
+		var birthday=year+'-'+month+'-'+day;
+		birthday=birthday=='--'?'':birthday;
+		var data={'alias':nick,'city':city,'sex':sex,'birthday':birthday}
+		if(nick.replace(/\s/g,'')=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'昵称不能为空'});
+		}
+		else if(!check_birthday(birthday) && birthday!=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'请输入正确的生日日期'});
+		}
+		else
+		{
+			save_profile(data);
+		}	
+	})
+
+	// 全局变量
+	var g_options=
+	{
+		imgSrc:''
+	}
+
+	// 初始化裁剪
+	var cropper = $('.imageBox').cropbox(g_options);
+
+	// 打开上传头像弹窗
+	$('.close-upload').click(function(){
+		$('.upload-avatar').fadeOut(300);
+	})
+
+	// 选择图片
+	$('.jvc-select-img').bind('click',function(){
+		$('#file_content').trigger('click');
+	});
+
+	// input file状态改变
+	$('#file_content').bind('change',function(){
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			g_options.imgSrc=e.target.result;
+			cropper = $('.imageBox').cropbox(g_options);
+		}
+		reader.readAsDataURL(this.files[0]);
+	})
+
+	// 确认上传
+	$('.jvc-confirm-upload').click(function(){
+		var image=cropper.getDataURL();
+		upload_avatar({'image':image});
+		$('.upload-avatar').fadeOut(300);
+	})
+
+	// 上传图片
+	$(".upload-btn").click(function()
+	{	
+		$('.upload-avatar').fadeIn(300);
+	})
+
+	
+
+
+	// 绑定手机事件
+	$('.bind-tel .bind').click(function(){
+		var tel=$('.jvc-tel').val();
+		if(!check_tel(tel))
+		{
+			$('.dialog').dialog({'type':'notice','msg':'请填写正确的手机号'})
+		}
+		else
+		{
+			post_tel(tel);
+		}
+	})
+
+	// 确认验证码事件
+	$('.bind-tel .next').click(function(){
+		var captcha=$('.captcha input').val();
+		var tel=$('.tel input').val();
+		if(captcha.replace(/\s/g,'')=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'验证码不能为空'})
+		}
+		else
+		{
+			check_captcha({'captcha':captcha,'tel':tel});
+		}
+	})
+
+	// 修改密码事件
+	$('.save-password a').click(function(){
+		var old=$('.old-password input').val();
+		var new_password=$('.new-password input').val();
+		var confirm=$('.confirm-password input').val();
+		var data={'old':old,'pwd1':new_password,'confirm':confirm};
+		if(old.replace(/\s/g,'')=='')
+		{
+			$('.dialog').dialog({'type':'notice','msg':'原密码不能为空'})
+		}
+		else if(new_password.length<6)
+		{
+			$('.dialog').dialog({'type':'notice','msg':'密码位数不能小于6'})
+		}
+		else if(new_password!==confirm)
+		{
+			$('.dialog').dialog({'type':'notice','msg':'两次输入密码不一致'})
+		}
+		else
+		{
+			modify_password(data);
+		}
+	}) 
+
+	// 检查生日格式
+	function check_birthday(birthday){
+		var result=birthday.match(/((^((1[8-9]\d{2})|([2-9]\d{3}))(-)(10|12|0?[13578])(-)(3[01]|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))(-)(11|0?[469])(-)(30|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))(-)(0?2)(-)(2[0-8]|1[0-9]|0?[1-9])$)|(^([2468][048]00)(-)(0?2)(-)(29)$)|(^([3579][26]00)(-)(0?2)(-)(29)$)|(^([1][89][0][48])(-)(0?2)(-)(29)$)|(^([2-9][0-9][0][48])(-)(0?2)(-)(29)$)|(^([1][89][2468][048])(-)(0?2)(-)(29)$)|(^([2-9][0-9][2468][048])(-)(0?2)(-)(29)$)|(^([1][89][13579][26])(-)(0?2)(-)(29)$)|(^([2-9][0-9][13579][26])(-)(0?2)(-)(29)$))/);
+		if(result==null)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+
+	// 保存信息函数
+	function save_profile(data){
+		$.ajax({
+			url:"<?php echo U('Login/save_msg');?>",
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res){
+				if(res.status)
+				{
+					$.tips();
+					$('.jvc-nick').html(res.data.nick);
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg});
+				}
+			}
+		})
+	}
+
+	// 上传头像
+	function upload_avatar(data)
+	{
+		$.ajax({
+			url:"<?php echo U('Login/upload_avatar');?>",
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res){
+				if(res.status)
+				{
+					$.tips();
+					$('.jvc-avatar').attr('src',res.data.path);
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+
+	// 检查手机格式
+	function check_tel(tel)
+	{
+		var reg_tel=/^((\+?[0-9]{1,4})|(\(\+86\)))?(13[0-9]|14[57]|15[012356789]|17[03678]|18[0-9])\d{8}$/;
+		if(reg_tel.test(tel))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	// 发送手机验证码
+	function post_tel(tel){
+		$.ajax({
+			url:'../mock/dobindtel.php',
+			type:'POST',
+			dataType:'json',
+			data:{'tel':tel},
+			success:function(res)
+			{
+				if(res.status)
+				{
+					$('.captcha').show();
+					$('.bind-tel .bind').hide();
+					$('.bind-tel .next').css({'display':'inline-block'});
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+
+	// 验证验证码
+	function check_captcha(data)
+	{
+		$.ajax({
+			url:'../mock/docheckcaptcha.php',
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res){
+				if(res.status)
+				{
+					$.tips();
+					$('.jvc-bind-val').html(res.data.tel);
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+
+	// 修改密码
+	function modify_password(data)
+	{
+		$.ajax({
+			url:"<?php echo U('Login/reset_pass');?>",
+			type:'POST',
+			dataType:'json',
+			data:data,
+			success:function(res)
+			{
+				if(res.status)
+				{
+					$.tips();
+				}
+				else
+				{
+					$('.dialog').dialog({'type':'notice','msg':res.error.msg})
+				}
+			}
+		})
+	}
+</script>

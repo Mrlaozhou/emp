@@ -7,11 +7,19 @@ class Beauty extends LZ_Controller
 		parent::__construct();
 	}
 
-	public function lst() {}
+	public function lst() 
+	{
+		$data['title'] = '美妆列表';
+		$this->load->view('Beauty/lst.html',$data);
+	}
 
 
 
-	public function add() {}
+	public function add() 
+	{
+		$data['title'] = '添加美妆';
+		$this->load->view('Beauty/add.html',$data);
+	}
 
 	public function do_add() {}
 

@@ -38,6 +38,7 @@ class Register extends LZ_Controller
 
 		//注销session
 		$this->session->unset_userdata('code');
+		$this->session->unset_userdata('again');
 
 		echoJson( array('status'=>TRUE) );
 	}
@@ -67,6 +68,9 @@ class Register extends LZ_Controller
 
 	public function send_msg_again()
 	{
+		if( ! $this->session->again )
+			echoJson(array('status',FALSE,'error'=>'频繁操作'));
+
 		$data = $this->input->post( array('tel') );
 
 		if( ! $data['tel'] )
@@ -79,6 +83,8 @@ class Register extends LZ_Controller
 
 		if( ! $result['status'] )
 			echoJson( array('status'=>FALSE,'error'=>$result['error']) );
+
+		$this->session->set_userdata('again',TRUE);
 
 		echoJson( array('status'=>TRUE) );
 	}

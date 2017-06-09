@@ -47,7 +47,7 @@
 				<a href="<?php echo U('Login/show_login');?>">登陆</a>
 				<a href="<?php echo U('Register/show_register');?>">注册</a>
 			<?php else:?>
-				<a href="javascript:void(0);">个人信息</a>
+				<a href="<?php echo U('Login/userinfo');?>">个人信息</a>
 				<a href="<?php echo U('Login/out_login');?>">退出</a>
 			<?php endif;?>
 			</div>

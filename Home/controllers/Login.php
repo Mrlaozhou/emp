@@ -31,4 +31,59 @@ class Login extends LZ_Controller
 		$this->session->unset_userdata('home_username');
 		jump('退出成功！',U(),2);
 	}
-}
+
+
+	public function userinfo()
+	{
+		if( ! ($id = $this->session->home_id) )
+		{
+			jump( '请先登录！', U('Login/show_login'), 2 );
+		}
+
+		$data['title'] = '用户中心【e美评官网】';
+		$data['cssList'] = array('dashboard.css');
+		$data['jsList'] = array('cropbox.js');
+
+		$data['userinfo'] = $this->U->get_info_by_id( $id );
+		$data['userinfo']['birthday'] = explode('-',$data['userinfo']['birthday']);
+		// dump($data,2);
+
+
+		$this->load->view( 'header.html', $data );
+		$this->load->view( 'Login/dashboard.html' );
+		$this->load->view( 'footer.html' );
+	}
+
+	public function save_msg()
+	{
+		if( $id = $this->session->home_id )
+		{
+			$data = $this->input->post();
+			$data['id'] = $id;
+			// dump($data);
+			if( ! $this->U->save_msg( $data ) )
+				echoJson( array('status'=>FALSE,'error'=>array('msg'=>$this->U->error) ));
+			echoJson( array('status'=>TRUE,'data'=>array('nick'=>$data['alias'])) );
+		}
+	}
+
+	public function upload_avatar()
+	{
+		if( ! ($path = $this->U->upload_avatar()) )
+			echoJson( array( 'status'=>FALSE, 'error'=>array('msg'=>$this->U->error) ) );
+		echoJson( array( 'status'=>TRUE, 'data'=>array( 'path'=>substr($path) ) ) );
+	}
+
+	public function reset_pass()
+	{
+		if( $id = $this->session->home_id )
+		{
+			$data = $this->input->post();
+			$data['id'] = $id;
+			// dump($data);
+			if( ! $this->U->reset( $data ) )
+				echoJson( array('status'=>FALSE,'error'=>array('msg'=>$this->U->error) ));
+			echoJson( array('status'=>TRUE) );
+		}
+	}
+}   

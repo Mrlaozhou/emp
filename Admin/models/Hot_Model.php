@@ -174,9 +174,13 @@ class Hot_Model extends LZ_Model
 				return FALSE;
 			}	
 		}
-		
 	}
 
-
 	protected function _after_del( $where ) {}
+
+	public function unset_index()
+	{
+		$this->db->where( 'is_index', '1' );
+		$this->save( self::$_table, array( 'is_index', '0' ) );
+	}
 }

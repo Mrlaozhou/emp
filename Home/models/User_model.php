@@ -30,7 +30,15 @@ class User_model extends LZ_Model
 												'required'			=>	'昵称不能为空',	
 												'max_length'		=>	'昵称不能超过8个汉字',
 											),
-									),								
+									),	
+								array(
+										'field'		=>	'sex',
+										'label'		=>	'sex',
+										'rules'		=>	'max_length[1]',
+										'errors'	=>	array(
+												'max_length'		=>	'性别传参出错',
+											),
+									),							
 							);
 	public function __construct()
 	{
@@ -126,5 +134,105 @@ class User_model extends LZ_Model
 	private function _check_user_exists( $user )
 	{
 		return $this->get_all( self::$_table, array('username'=>$user) )->row_array();
+	}
+
+	public function get_info_by_id( $id )
+	{
+		$this->db->where( 'id', (int)$id );
+		return $this->get_all( self::$_table )->row_array();
+	}
+
+	public function save_msg( $data )
+	{
+		if( (count($data) > 1) )
+		{
+			//去除空项
+			foreach( $data as $k => $v )
+			{
+				if( $v === '' )
+					unset($data[$k]);
+			}
+			return $this->save( self::$_table, $data );
+		}
+		
+	}
+
+	public function upload_avatar()
+	{
+		$base64_img = trim($_POST['image']);
+
+		if( ! $base64_img )
+		{
+			$this->error = '请选择上传文件';
+			return FALSE;
+		}
+
+		if( !($id = $this->session->home_id) )
+		{
+			$this->error = '非法操作';
+			return FALSE;
+		}
+
+	    $up_dir = './Public/Upload/User/';
+	 
+	    if(preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_img, $result))
+	    {
+	        $type = $result[2];
+	        if(in_array($type,array('pjpeg','jpeg','jpg','gif','bmp','png')))
+	        {
+	        	$filename = $id.'.'.$type;
+	            $new_file = $up_dir.$filename;
+	            if(file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64_img))))
+	            {
+	            	//储存信息到数据库
+	            	$data = array('id'=>$id,'pic'=>$filename);
+	                if( $this->save_msg($data) )
+	                {
+	                	return $new_file;
+	                }
+	                $this->error = '操作有误，请联系管理员';
+	                return FALSE;
+	            }
+	            $this->error = '上传出错';
+	            return FALSE;
+	        }
+	        //文件类型错误
+	        $this->error = '文件类型到了';
+	        return FALSE;
+	    }
+	    //文件错误
+	    $this->error = '文件出错';
+	    return FALSE;
+	}
+
+	protected function _before_save( &$data ) {}
+
+
+	protected function _after_save( $id ) {}
+
+	public function reset( $data )
+	{
+		$info = $this->get_info_by_id( (int)$data['id'] );
+
+		if( $info['password'] != md5($data['old']) )
+		{
+			$this->error = '原密码输入有误！';
+			return FALSE;
+		}
+
+		if( $data['pwd1'] != $data['confirm'] )
+		{
+			$this->error = '两次新密码不一致';
+		}
+
+		$len = strlen($data['pwd1']);
+
+		if( ($len < 6) || ( $len > 15 ) )
+		{
+			$this->error = '密码介于6-15个字符之间';
+			return FALSE;
+		}
+
+		return $this->save( self::$_table, array('id'=>$data['id'], 'password'=>md5($data['pwd1'])) );
 	}
 }
