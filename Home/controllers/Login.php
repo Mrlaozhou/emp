@@ -87,25 +87,54 @@ class Login extends LZ_Controller
 		}
 	}
 
+	/*
 	public function reset()
 	{
 		$data['title'] = '重置密码【e美评官网】';
-		$data['cssList'] = array('reset.css');
-		$data['jsList'] = array('');
 
-		$this->load->view( 'header.html', $data );
 		$this->load->view( 'Login/reset.html' );
-		$this->load->view( 'footer.html' );
 	}
+	*/
 
 	public function back()
 	{
 		$data['title'] = '找回密码【e美评官网】';
-		$data['cssList'] = array('retrieve.css');
-		$data['jsList'] = array('');
 
-		$this->load->view( 'header.html', $data );
 		$this->load->view( 'Login/retrieve.html' );
-		$this->load->view( 'footer.html' );
+	}
+
+	public function do_back()
+	{
+		
+	}
+
+	public function back_send_msg()
+	{
+		$data = $this->input->post();
+	}
+
+	private function send_msg( $mobile, $key )
+	{
+		$url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit';
+        //账户、密码
+        $account = 'C22986809';
+        $password = '37454a5b2e36e986562439659c74c928';
+
+        //生成随机验证码
+        $rand = getRandStr(4,2);
+        
+        //拼接信息
+        $post_data = "account={$account}&password={$password}&mobile={$mobile}&content=".rawurlencode("您的验证码是：{$rand}。请不要把验证码泄露给其他人。");
+        $result = POST($post_data,$url);
+
+        //处理xml字符串
+        $result = simplexml_load_string($result);
+
+        if( $result->code != 2 )
+        	return array('status'=>FALSE,'error'=>'验证码发送失败!') ;
+
+		//验证码存于session
+    	$this->session->set_userdata($key,$rand);
+    	return array('status'=>TRUE);
 	}
 }   

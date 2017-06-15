@@ -153,8 +153,7 @@ class User_model extends LZ_Model
 					unset($data[$k]);
 			}
 			return $this->save( self::$_table, $data );
-		}
-		
+		}	
 	}
 
 	public function upload_avatar()

@@ -17,4 +17,10 @@ class Index extends CI_Controller
 		$this->load->view('Index/index.html');
 		$this->load->view('footer.html');
 	}
+
+	public function get_data()
+	{
+		//获取Hot数据
+		
+	}
 }

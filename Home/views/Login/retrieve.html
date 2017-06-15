@@ -34,7 +34,7 @@
 		<div class="retireve-btn">
 			<a href="javascript:void(0)">重置</a>
 		</div>
-		<div class="back-login"><a href="javascript:void(0)">« 返回登陆页面</a></div>
+		<div class="back-login"><a href="<?php echo U();?>">« 返回登陆页面</a></div>
 	</div>
 	<form action="register-tel.php" method="post" id="tel">
 		<input type="hidden" name='tel' class="tel-value">
@@ -162,10 +162,12 @@
 		}
 	})
 
+
+
 	// 发送验证码
 	function post_tel(data){
 		$.ajax({
-			url:'../mock/dotel.php',
+			url:"<?php echo U('Login/back_back_send_msg');?>",
 			type:'POST',
 			data:data,
 			dataType:'json',
