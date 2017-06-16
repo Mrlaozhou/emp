@@ -18,7 +18,7 @@ class Hosanddoc extends LZ_Controller
 		//接收分页参数
 		$config = $this->input->get(array('p'));
 
-		//
+		//页数
 		$p = $config ? (int)$config['p'] : 1;
 
 		//获取医院信息
@@ -44,5 +44,10 @@ class Hosanddoc extends LZ_Controller
 		$info = $this->hd->doc_info( $config );
 
 		dump($info);
+	}
+
+	public function get_province()
+	{
+		
 	}
 }

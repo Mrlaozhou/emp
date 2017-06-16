@@ -1,0 +1,508 @@
+@font-face{
+	font-family: 'FZLTHJW';
+	src: url('../images/fonts/FZLTHJW.TTF') format('truetype');
+}
+@font-face{
+	font-family: 'FZLTCHJW';
+	src: url('../images/fonts/FZLTCHJW.TTF') format('truetype');
+}
+body
+{
+	font-size: 0;
+}
+.banner img
+{
+	width: 100%;
+}
+.mc
+{
+	width: 1200px;
+	margin: 0 auto;
+}
+.anchor
+{
+	text-align: center;
+	padding-bottom: 78px;
+	box-sizing: border-box;
+	border-bottom: 2px solid #d6d6d6;
+}
+.anchor .mc
+{
+	position: relative;
+}
+.anchor .mc:before
+{
+	display: block;
+	content: '';
+	width: 200px;
+	height: 0;
+	border-top: 2px solid #000;
+	position: absolute;
+	left: 0;
+	top: 125px;
+}
+.anchor .mc:after
+{
+	display: block;
+	content: '';
+	width: 200px;
+	height: 0;
+	border-top: 2px solid #000;
+	position: absolute;
+	right: 0;
+	top: 125px;
+}
+.anchor-item
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 81px;
+	margin: 80px 74px 0; 
+}
+.anchor-item:hover .icon-security
+{
+	background: url(../images/butler/icon-security-a.png);
+	background-size: 100% 100%;
+}
+.anchor-item:hover .icon-nanny
+{
+	background: url(../images/butler/icon-nanny-a.png);
+	background-size: 100% 100%;
+}
+.anchor-item:hover .icon-hospital
+{
+	background: url(../images/butler/icon-hospital-a.png);
+	background-size: 100% 100%;
+}
+.icon-security
+{
+	display: inline-block;
+	width: 81px;
+	height: 94px;
+	background: url(../images/butler/icon-security.png);
+	background-size: 100% 100%;
+	transition: background 0.3s linear;
+}
+.icon-nanny
+{
+	display: inline-block;
+	width: 81px;
+	height: 92px;
+	background: url(../images/butler/icon-nanny.png);
+	background-size: 100% 100%;
+	transition: background 0.3s linear;
+}
+.icon-hospital
+{
+	display: inline-block;
+	width: 81px;
+	height: 92px;
+	background: url(../images/butler/icon-hospital.png);
+	background-size: 100% 100%;
+	transition: background 0.3s linear;
+}
+.anchor-text i
+{
+	 font-style: normal;
+	 font-family: 'FZLTHJW';
+	 display: inline-block;
+}
+.anchor-text .ch
+{
+	font-size: 20px;
+	color: #000;
+	line-height: 30px;
+	margin-top: 10px;
+	transition: color 0.3s linear;
+}
+.anchor-text .en
+{
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+	transition: color 0.3s linear;
+}
+.anchor-item:hover .ch
+{
+	color: #d20e32;
+}
+.anchor-item:hover .en
+{
+	color: #d20e32;
+}
+.guarantee
+{
+	padding: 80px 0;
+}
+.guarantee-l
+{
+	display: inline-block;
+	width: 410px;
+	height: 600px;
+	vertical-align: top;
+	position: relative;
+}
+.block-sm
+{
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background: #222;
+	position: absolute;
+	top: 68px;
+	right: 110px;
+}
+.block-md
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #d20e32;
+	position: absolute;
+	top: 58px;
+	right: 100px;
+}
+.block-lg
+{
+	display: inline-block;
+	width: 100px;
+	height: 32px;
+	background: #222;
+	position: absolute;
+	top: 68px;
+	right: 0;
+}
+.guarantee-title
+{
+	width: 100%;
+	height: 242px;
+	background: #d20e32;
+	position: absolute;
+	left: 0;
+	top: 100px;
+	box-sizing: border-box;
+	color: #fff;
+	text-align: right;
+	padding: 60px 30px 0 0;
+}
+.guarantee-title .ch
+{
+	font-size: 80px;
+	font-family: 'FZLTCHJW';
+}
+.guarantee-title .en
+{
+	font-size: 40px;
+	font-family: 'FZLTHJW';
+}
+.icon-protect
+{
+	width: 180px;
+	height: 60px;
+	background-color: #2e292d;
+	background-image: url(../images/butler/icon-protect.png);
+	background-repeat: no-repeat;
+	background-size: 31px 37px;
+	background-position: 72px 12px;
+	position: absolute;
+	bottom: 70px;
+	right: 0;
+}
+.guarantee-c,.guarantee-c img
+{
+	display: inline-block;
+	width: 380px;
+}
+.guarantee-r
+{
+	display: inline-block;
+	width: 410px;
+	vertical-align: top;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: #333;
+	padding-left: 30px;
+	padding-top: 108px;
+	line-height: 32px;
+}
+.guarantee-r b
+{
+	display: block;
+	width: 100%;
+	height: 20px;
+	background: url(../images/butler/icon-x.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: 180px 0;
+	position: relative;
+	margin: 24px 0;
+}
+.guarantee-r b:before
+{
+	display: block;
+	content: '';
+	width: 176px;
+	height: 0;
+	border-top: 1px solid #999;
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+.guarantee-r b:after
+{
+	display: block;
+	content: '';
+	width: 176px;
+	height: 0;
+	border-top: 1px solid #999;
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+.nanny
+{
+	background: #f5f5f5;
+	height: 692px;
+	overflow: hidden;
+}
+.nanny-title,.hospital-title
+{
+	text-align: center;
+	margin: 70px 0 58px;
+}
+.nanny-title .ch,.hospital-title .ch
+{
+	font-size: 80px;
+	color: #d20e32;
+	font-family: 'FZLTCHJW';
+}
+.nanny-title b,.hospital-title b
+{
+	display: block;
+	width: 236px;
+	height: 30px;
+	background: url(../images/butler/icon-x-d.png);
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	background-position: 104px 0;
+	position: relative;
+	margin: 0 auto;
+	color: #ddd;
+}
+.nanny-title b:before,.hospital-title b:before
+{
+	display: block;
+	content: '';
+	width: 85px;
+	height: 0;
+	border-top: 1px solid #ddd;
+	position: absolute;
+	top: 15px;
+	left: 0;
+}
+.nanny-title b:after,.hospital-title b:after
+{
+	display: block;
+	content: '';
+	width: 85px;
+	height: 0;
+	border-top: 1px solid #ddd;
+	position: absolute;
+	top: 15px;
+	right: 0;
+}
+.nanny-title .en,.hospital-title .en
+{
+	font-size: 40px;
+	color: #ddd;
+	font-family: 'FZLTHJW';
+}
+.nanny-content
+{
+	width: 1226px;
+}
+.nanny-item
+{
+	display: inline-block;
+	width: 280px;
+	vertical-align: top;
+	margin-right: 26px;
+	position: relative;
+}
+.nanny-item:hover .nanny-tag
+{
+	border: 3px solid #d20e32;
+	color: #d20e32;
+	padding-top: 88px;
+}
+.nanny-item .nanny-tag
+{
+	width: 280px;
+	height: 280px;
+	border-radius: 140px;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	box-sizing: border-box;
+	padding-top: 90px;
+	transition: color 0.6s linear,border-color 0.6s linear;
+	background: #f5f5f5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 50;
+}
+.nanny-tag .ch
+{
+	font-size: 30px;	
+}
+.nanny-tag .en
+{
+	font-size: 20px;
+}
+.nanny-item:hover .nanny-tag .icon-more
+{
+	background: url(../images/butler/icon-more-a.png);
+	background-size: 100% 100%;
+}	
+.nanny-tag .icon-more
+{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../images/butler/icon-more.png);
+	background-size: 100% 100%;
+	margin-top: 14px;
+	transition: all 0.4s linear;
+}
+.nanny-item:hover .nanny-hidden
+{
+	top: 38px;
+	opacity: 1;
+}
+.nanny-hidden
+{
+	width: 280px;
+	height: 280px;
+	box-sizing: border-box;
+	border-radius: 140px;
+	border: 1px solid #ddd;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align:center;
+	z-index: 40;
+	opacity: 0;
+	transition: top 0.6s ease-in-out;
+}
+.nanny-hidden span
+{
+	display: inline-block;
+	width: 60px;
+	height: 24px;
+	line-height: 24px;
+	background: #f5f5f5;
+	font-size: 14px;
+	color: #999;
+	font-family: 'Arial';
+	position: absolute;
+	left: 50%;
+	bottom: -12px;
+	margin-left: -30px;
+}
+.hospital
+{
+	padding-bottom: 190px;
+	position: relative;
+}
+.hospital-content
+{
+	width: 100%;
+	overflow: hidden;
+}
+.hospital-show
+{
+	width: 2452px;
+}
+.a-screen
+{
+	display: inline-block;
+}
+.hospital-item
+{
+	display: inline-block;
+	width: 280px;
+	margin-right: 26px;
+}
+.hospital-img,.hospital-img img
+{
+	width: 100%;
+	height: 362px;
+	border-radius: 6px;
+}
+.hospital-name
+{
+	font-size: 18px;
+	color: #333;
+	height: 36px;
+	line-height: 36px;
+	margin-top: 12px;
+	width: 100%;
+	box-sizing: border-box;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	padding: 0 10px;
+}
+.hospital-desc
+{
+	font-size: 16px;
+	color: #999;
+	width: 100%;
+	padding: 0 8px;
+	line-height: 24px;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.prev,.next
+{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 50px;
+	height: 180px;
+	background: #eee;
+	position: absolute;
+	cursor: pointer;
+	top: 320px;
+}
+.prev:hover
+{
+	background-image: url(../images/butler/icon-prev-a.png);
+}
+.prev
+{
+	border-radius: 0 6px 6px 0;
+	left: 0;
+	background-image: url(../images/butler/icon-prev.png);
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-position: 10px 75px;
+}
+.next:hover
+{
+	background-image: url(../images/butler/icon-next-a.png);
+}
+.next
+{
+	border-radius: 6px 0 0 6px;
+	right: 0;
+	background-image: url(../images/butler/icon-next.png);
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-position: 10px 75px;
+}
