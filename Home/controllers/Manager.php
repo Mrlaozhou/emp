@@ -38,10 +38,10 @@ class Manager extends LZ_Controller
 	public function ehelper() 
 	{
 		$data['title'] = 'e助手_e美评【官网】';
-		$data['cssList'] = array('index.css');
+		$data['cssList'] = array('assistant.css');
 		$data['jsList'] = array();
 		$this->load->view('header.html',$data);
-		$this->load->view('Index/index.html');
+		$this->load->view('Manager/ehelper.html');
 		$this->load->view('footer.html');
 	}
 }

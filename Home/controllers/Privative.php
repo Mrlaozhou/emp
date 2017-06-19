@@ -13,7 +13,7 @@ class Privative extends CI_Controller
 		$data['cssList'] = array('order.css');
 		$data['jsList'] = array();
 		$this->load->view('header.html',$data);
-		$this->load->view('privative/order.html');
+		$this->load->view('privative/privative.php');
 		$this->load->view('footer.html');
 	}
 

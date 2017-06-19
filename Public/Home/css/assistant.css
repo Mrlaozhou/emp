@@ -1,0 +1,82 @@
+@font-face{
+	font-family: 'FZSSJW';
+	src: url('../images/fonts/FZSSJW.TTF') format('truetype');
+}
+.logo
+{
+	border-bottom: 1px solid #ddd;
+}
+.main
+{
+	width: 1200px;
+	margin: 0 auto;
+}
+.crumbs,.crumbs a
+{
+	font-size: 14px;
+	color: #333;
+	line-height: 96px;
+}
+.main-content
+{
+	background: #f5f5f5;
+	width: 100%;
+	margin-bottom: 125px;
+	padding-bottom: 140px;
+}
+.banner
+{
+	text-align: center;
+	padding-top: 100px;
+}
+.icon-x
+{
+	text-align: center;
+	margin: 42px 0 32px;
+}
+.icon-x span
+{
+	display: inline-block;
+	width: 15px;
+	height: 19px;
+	background: url(../images/assistant/icon-x.png);
+	vertical-align: top;
+}
+.assistant-item
+{
+	font-family: 'FZSSJW';
+	text-align: center;
+}
+.title .ch
+{
+	font-size: 40px;
+	color: #000;
+	margin: 0;
+	font-weight: normal;
+}
+.title .en
+{
+	font-size: 24px;
+	color: #999;
+	margin: 0;
+	font-weight: normal;
+}
+.desc .ch
+{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+	margin-top: 20px;
+}
+.desc .en
+{
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+	margin-top: 20px;
+}
+.desc-img img
+{
+	width: 100%;
+	margin-top: 45px;
+}

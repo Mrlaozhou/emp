@@ -35,7 +35,7 @@ class Hosanddoc_Model extends CI_Model
 	public function hos_list( $p )
 	{
 		$pagesize = 8;
-		$start = ($p-1)*$p;
+		$start = ($p-1)*$pagesize;
 		$this->zxznz->select('id,name,logo');
 		$where = array('is_show'=>'1');
 		// return $this->get_all( 'hospital', $where )->result_array();

@@ -42,7 +42,9 @@ class Comment extends LZ_Controller
 	 */
 	public function detial()
 	{
-		$return = $this->C->get_CR();
+		//接受ID
+		$config = $this->input->get(array('id'));
+		$return = $this->C->get_CR( $config );
 		$data['CR']			= $return['result'];
 		$data['tid']		= $return['tid'];
 		$data['uid']		= $this->session->home_id;

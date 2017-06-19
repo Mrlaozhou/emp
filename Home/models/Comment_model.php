@@ -51,10 +51,9 @@ class Comment_model extends LZ_Model
 		return $this->get_all( 'emp_replay' );
 	}
 
-	public function get_CR()
+	public function get_CR( $data )
 	{
 		//接收数据
-		$data = $this->input->get( array('id') );
 		$topic_id = $data['id'];
 
 		//判断参数合法性

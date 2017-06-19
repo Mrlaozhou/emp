@@ -164,6 +164,7 @@ class Topic_Model extends LZ_Model
         		$this->error = $this->upload->display_errors();
         		return FALSE;
         	}
+        	dump($this->upload->data());
         }
         else
         {
